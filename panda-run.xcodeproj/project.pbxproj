@@ -172,6 +172,9 @@
 		775075B91599DDCF00E628B1 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 775075B81599DDCF00E628B1 /* OpenAL.framework */; };
 		775075BB1599DDD200E628B1 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 775075BA1599DDD200E628B1 /* OpenGLES.framework */; };
 		775075BD1599DDD600E628B1 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 775075BC1599DDD600E628B1 /* QuartzCore.framework */; };
+		775075C61599EAAC00E628B1 /* Game.mm in Sources */ = {isa = PBXBuildFile; fileRef = 775075C51599EAAC00E628B1 /* Game.mm */; };
+		775075C91599F0DF00E628B1 /* Sky.m in Sources */ = {isa = PBXBuildFile; fileRef = 775075C81599F0DF00E628B1 /* Sky.m */; };
+		775075CC1599F3BD00E628B1 /* sky.png in Resources */ = {isa = PBXBuildFile; fileRef = 775075CB1599F3BD00E628B1 /* sky.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -513,6 +516,11 @@
 		775075B81599DDCF00E628B1 /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
 		775075BA1599DDD200E628B1 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		775075BC1599DDD600E628B1 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		775075C41599EAAC00E628B1 /* Game.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Game.h; path = Scenes/Game.h; sourceTree = "<group>"; };
+		775075C51599EAAC00E628B1 /* Game.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = Game.mm; path = Scenes/Game.mm; sourceTree = "<group>"; };
+		775075C71599F0DF00E628B1 /* Sky.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Sky.h; path = Objects/Sky.h; sourceTree = "<group>"; };
+		775075C81599F0DF00E628B1 /* Sky.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Sky.m; path = Objects/Sky.m; sourceTree = "<group>"; };
+		775075CB1599F3BD00E628B1 /* sky.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = sky.png; path = "panda-run/Images/sky.png"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1097,11 +1105,40 @@
 		775075AF1599DD9300E628B1 /* Game */ = {
 			isa = PBXGroup;
 			children = (
+				775075CA1599F31A00E628B1 /* Images */,
+				775075C31599E9CA00E628B1 /* Objects */,
+				775075C21599E9A000E628B1 /* Scenes */,
 				775075B01599DD9300E628B1 /* Box2DHelper.h */,
 				775075B11599DD9300E628B1 /* Box2DHelper.m */,
 				775075B21599DD9300E628B1 /* Constants.h */,
 			);
 			path = Game;
+			sourceTree = "<group>";
+		};
+		775075C21599E9A000E628B1 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				775075C41599EAAC00E628B1 /* Game.h */,
+				775075C51599EAAC00E628B1 /* Game.mm */,
+			);
+			name = Scenes;
+			sourceTree = "<group>";
+		};
+		775075C31599E9CA00E628B1 /* Objects */ = {
+			isa = PBXGroup;
+			children = (
+				775075C71599F0DF00E628B1 /* Sky.h */,
+				775075C81599F0DF00E628B1 /* Sky.m */,
+			);
+			name = Objects;
+			sourceTree = "<group>";
+		};
+		775075CA1599F31A00E628B1 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				775075CB1599F3BD00E628B1 /* sky.png */,
+			);
+			name = Images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1180,6 +1217,7 @@
 				7750759B1599DD7700E628B1 /* LICENSE_CocosDenshion.txt in Resources */,
 				7750759C1599DD7700E628B1 /* LICENSE_FontLabel.txt in Resources */,
 				7750759D1599DD7700E628B1 /* LICENSE_TouchJSON.txt in Resources */,
+				775075CC1599F3BD00E628B1 /* sky.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1358,6 +1396,8 @@
 				775075AD1599DD8400E628B1 /* GLES-Render.mm in Sources */,
 				775075AE1599DD8400E628B1 /* ViewController.m in Sources */,
 				775075B31599DD9300E628B1 /* Box2DHelper.m in Sources */,
+				775075C61599EAAC00E628B1 /* Game.mm in Sources */,
+				775075C91599F0DF00E628B1 /* Sky.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

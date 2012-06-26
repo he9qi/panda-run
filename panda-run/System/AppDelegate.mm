@@ -3,13 +3,13 @@
 //  htest1
 //
 //  Created by Qi He on 12-6-21.
-//  Copyright (c) 2012年 __MyCompanyName__. All rights reserved.
+//  Copyright (c) 2012年 Heyook. All rights reserved.
 //
 
 #import "cocos2d.h"
 #import "AppDelegate.h"
 #import "GameConfig.h"
-//#import "Game.h"
+#import "Game.h"
 #import "ViewController.h"
 
 @implementation AppDelegate
@@ -44,6 +44,9 @@
 	
 	// Init the window
 	window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+  
+  // Remove status bar
+  [application setStatusBarHidden:YES withAnimation:UIStatusBarAnimationNone];
 	
 	// Try to use CADisplayLink director
 	// if it fails (SDK < 3.1) use the default director
@@ -114,7 +117,7 @@
 	[self removeStartupFlicker];
 	
 	// Run the intro Scene
-//	[[CCDirector sharedDirector] runWithScene: [Game scene]];
+	[[CCDirector sharedDirector] runWithScene: [Game scene]];
 }
 
 
