@@ -549,11 +549,6 @@
 		775073941599DD1300E628B1 = {
 			isa = PBXGroup;
 			children = (
-				775075BC1599DDD600E628B1 /* QuartzCore.framework */,
-				775075BA1599DDD200E628B1 /* OpenGLES.framework */,
-				775075B81599DDCF00E628B1 /* OpenAL.framework */,
-				775075B61599DDBE00E628B1 /* AudioToolbox.framework */,
-				775075B41599DDB800E628B1 /* AVFoundation.framework */,
 				775073AB1599DD1300E628B1 /* panda-run */,
 				775073C71599DD1400E628B1 /* panda-runTests */,
 				775073A21599DD1300E628B1 /* Frameworks */,
@@ -573,6 +568,11 @@
 		775073A21599DD1300E628B1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				775075BC1599DDD600E628B1 /* QuartzCore.framework */,
+				775075BA1599DDD200E628B1 /* OpenGLES.framework */,
+				775075B81599DDCF00E628B1 /* OpenAL.framework */,
+				775075B61599DDBE00E628B1 /* AudioToolbox.framework */,
+				775075B41599DDB800E628B1 /* AVFoundation.framework */,
 				775073A31599DD1300E628B1 /* UIKit.framework */,
 				775073A51599DD1300E628B1 /* Foundation.framework */,
 				775073A71599DD1300E628B1 /* CoreGraphics.framework */,
