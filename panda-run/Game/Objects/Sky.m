@@ -7,6 +7,7 @@
 //
 
 #import "Sky.h"
+#import "Constants.h"
 
 @interface Sky()
 - (CCSprite*) generateSprite;
@@ -15,9 +16,9 @@
 
 @implementation Sky
 
-@synthesize sprite = _sprite;
+@synthesize sprite  = _sprite;
 @synthesize offsetX = _offsetX;
-@synthesize scale = _scale;
+@synthesize scale   = _scale;
 
 + (id) skyWithTextureSize:(int)ts {
 	return [[[self alloc] initWithTextureSize:ts] autorelease];
@@ -108,7 +109,7 @@
 	
 	// layer 2: noise
 	
-	CCSprite *s = [CCSprite spriteWithFile:@"sky.png"];
+	CCSprite *s = [CCSprite spriteWithFile:IMAGE_BG_SKY];
 	[s setBlendFunc:(ccBlendFunc){GL_DST_COLOR, GL_ZERO}];
 	s.position = ccp(textureSize/2, textureSize/2);
 	s.scale = (float)textureSize/512.0f*CC_CONTENT_SCALE_FACTOR();

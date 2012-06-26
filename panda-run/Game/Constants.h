@@ -7,3 +7,5 @@
 //
 
 //#define DRAW_BOX2D_WORLD
+
+#define IMAGE_BG_SKY @"sky.png"
