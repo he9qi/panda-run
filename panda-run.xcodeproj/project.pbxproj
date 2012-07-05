@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		77466A39159C53E30063AF97 /* Panda.mm in Sources */ = {isa = PBXBuildFile; fileRef = 77466A38159C53E30063AF97 /* Panda.mm */; };
+		77466A3C159C58660063AF97 /* PandaContactListener.mm in Sources */ = {isa = PBXBuildFile; fileRef = 77466A3B159C58660063AF97 /* PandaContactListener.mm */; };
+		77466A3E159C5DE30063AF97 /* hero.png in Resources */ = {isa = PBXBuildFile; fileRef = 77466A3D159C5DE30063AF97 /* hero.png */; };
+		77466A45159D5F500063AF97 /* Coin.mm in Sources */ = {isa = PBXBuildFile; fileRef = 77466A44159D5F500063AF97 /* Coin.mm */; };
 		775073A41599DD1300E628B1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 775073A31599DD1300E628B1 /* UIKit.framework */; };
 		775073A61599DD1300E628B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 775073A51599DD1300E628B1 /* Foundation.framework */; };
 		775073A81599DD1300E628B1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 775073A71599DD1300E628B1 /* CoreGraphics.framework */; };
@@ -175,6 +179,12 @@
 		775075C61599EAAC00E628B1 /* Game.mm in Sources */ = {isa = PBXBuildFile; fileRef = 775075C51599EAAC00E628B1 /* Game.mm */; };
 		775075C91599F0DF00E628B1 /* Sky.m in Sources */ = {isa = PBXBuildFile; fileRef = 775075C81599F0DF00E628B1 /* Sky.m */; };
 		775075CC1599F3BD00E628B1 /* sky.png in Resources */ = {isa = PBXBuildFile; fileRef = 775075CB1599F3BD00E628B1 /* sky.png */; };
+		77818DE2159B0BF0001F3516 /* Terrain.mm in Sources */ = {isa = PBXBuildFile; fileRef = 77818DE1159B0BF0001F3516 /* Terrain.mm */; };
+		779A2F23159ED14D00BE1F75 /* UserData.mm in Sources */ = {isa = PBXBuildFile; fileRef = 779A2F22159ED14D00BE1F75 /* UserData.mm */; };
+		77B092B015A3F8C6003BAE33 /* TriangleMesh.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 77B092AE15A3F8C6003BAE33 /* TriangleMesh.cpp */; };
+		77B092B315A48009003BAE33 /* BreakableWood.mm in Sources */ = {isa = PBXBuildFile; fileRef = 77B092B215A48009003BAE33 /* BreakableWood.mm */; };
+		77E9520915A1C6A000238A89 /* Bamboo.mm in Sources */ = {isa = PBXBuildFile; fileRef = 77E9520815A1C6A000238A89 /* Bamboo.mm */; };
+		77F4003915A59CF0003E3232 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 77F4003815A59CF0003E3232 /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -188,6 +198,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		77466A37159C53E30063AF97 /* Panda.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Panda.h; path = Objects/Panda.h; sourceTree = "<group>"; };
+		77466A38159C53E30063AF97 /* Panda.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = Panda.mm; path = Objects/Panda.mm; sourceTree = "<group>"; };
+		77466A3A159C58660063AF97 /* PandaContactListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PandaContactListener.h; path = Objects/PandaContactListener.h; sourceTree = "<group>"; };
+		77466A3B159C58660063AF97 /* PandaContactListener.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = PandaContactListener.mm; path = Objects/PandaContactListener.mm; sourceTree = "<group>"; };
+		77466A3D159C5DE30063AF97 /* hero.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = hero.png; path = "panda-run/Images/hero.png"; sourceTree = SOURCE_ROOT; };
+		77466A43159D5F500063AF97 /* Coin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Coin.h; path = Objects/Coin.h; sourceTree = "<group>"; };
+		77466A44159D5F500063AF97 /* Coin.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = Coin.mm; path = Objects/Coin.mm; sourceTree = "<group>"; };
 		7750739F1599DD1300E628B1 /* panda-run.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "panda-run.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		775073A31599DD1300E628B1 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		775073A51599DD1300E628B1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -521,6 +538,19 @@
 		775075C71599F0DF00E628B1 /* Sky.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Sky.h; path = Objects/Sky.h; sourceTree = "<group>"; };
 		775075C81599F0DF00E628B1 /* Sky.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Sky.m; path = Objects/Sky.m; sourceTree = "<group>"; };
 		775075CB1599F3BD00E628B1 /* sky.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = sky.png; path = "panda-run/Images/sky.png"; sourceTree = SOURCE_ROOT; };
+		77818DE0159B0BF0001F3516 /* Terrain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Terrain.h; path = Objects/Terrain.h; sourceTree = "<group>"; };
+		77818DE1159B0BF0001F3516 /* Terrain.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = Terrain.mm; path = Objects/Terrain.mm; sourceTree = "<group>"; };
+		779A2F21159ED14C00BE1F75 /* UserData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserData.h; path = Objects/UserData.h; sourceTree = "<group>"; };
+		779A2F22159ED14D00BE1F75 /* UserData.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = UserData.mm; path = Objects/UserData.mm; sourceTree = "<group>"; };
+		77B092AD15A3F8C6003BAE33 /* TriangleMesh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TriangleMesh.h; path = Box2D/Breakable/TriangleMesh.h; sourceTree = "<group>"; };
+		77B092AE15A3F8C6003BAE33 /* TriangleMesh.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TriangleMesh.cpp; path = Box2D/Breakable/TriangleMesh.cpp; sourceTree = "<group>"; };
+		77B092AF15A3F8C6003BAE33 /* BreakableBody.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BreakableBody.h; path = Box2D/Breakable/BreakableBody.h; sourceTree = "<group>"; };
+		77B092B115A48009003BAE33 /* BreakableWood.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BreakableWood.h; path = Objects/BreakableWood.h; sourceTree = "<group>"; };
+		77B092B215A48009003BAE33 /* BreakableWood.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = BreakableWood.mm; path = Objects/BreakableWood.mm; sourceTree = "<group>"; };
+		77E9520715A1C6A000238A89 /* Bamboo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Bamboo.h; path = Objects/Bamboo.h; sourceTree = "<group>"; };
+		77E9520815A1C6A000238A89 /* Bamboo.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = Bamboo.mm; path = Objects/Bamboo.mm; sourceTree = "<group>"; };
+		77F4003815A59CF0003E3232 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
+		77FC33DA15A57BCF00F0DF2E /* ContactDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ContactDelegate.h; path = Helpers/ContactDelegate.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -557,6 +587,7 @@
 		775073941599DD1300E628B1 = {
 			isa = PBXGroup;
 			children = (
+				77F4003815A59CF0003E3232 /* README.md */,
 				775073AB1599DD1300E628B1 /* panda-run */,
 				775073C71599DD1400E628B1 /* panda-runTests */,
 				775073A21599DD1300E628B1 /* Frameworks */,
@@ -635,6 +666,7 @@
 		775073D81599DD7700E628B1 /* libs */ = {
 			isa = PBXGroup;
 			children = (
+				77B092AB15A3F8B1003BAE33 /* Breakable */,
 				775073D91599DD7700E628B1 /* Box2D */,
 				7750743C1599DD7700E628B1 /* cocos2d */,
 				775074E51599DD7700E628B1 /* CocosDenshion */,
@@ -1105,6 +1137,7 @@
 		775075AF1599DD9300E628B1 /* Game */ = {
 			isa = PBXGroup;
 			children = (
+				77FC33D915A57BB000F0DF2E /* Helpers */,
 				775075CA1599F31A00E628B1 /* Images */,
 				775075C31599E9CA00E628B1 /* Objects */,
 				775075C21599E9A000E628B1 /* Scenes */,
@@ -1129,6 +1162,20 @@
 			children = (
 				775075C71599F0DF00E628B1 /* Sky.h */,
 				775075C81599F0DF00E628B1 /* Sky.m */,
+				77818DE0159B0BF0001F3516 /* Terrain.h */,
+				77818DE1159B0BF0001F3516 /* Terrain.mm */,
+				77466A37159C53E30063AF97 /* Panda.h */,
+				77466A38159C53E30063AF97 /* Panda.mm */,
+				77466A3A159C58660063AF97 /* PandaContactListener.h */,
+				77466A3B159C58660063AF97 /* PandaContactListener.mm */,
+				77466A43159D5F500063AF97 /* Coin.h */,
+				77466A44159D5F500063AF97 /* Coin.mm */,
+				779A2F21159ED14C00BE1F75 /* UserData.h */,
+				779A2F22159ED14D00BE1F75 /* UserData.mm */,
+				77E9520715A1C6A000238A89 /* Bamboo.h */,
+				77E9520815A1C6A000238A89 /* Bamboo.mm */,
+				77B092B115A48009003BAE33 /* BreakableWood.h */,
+				77B092B215A48009003BAE33 /* BreakableWood.mm */,
 			);
 			name = Objects;
 			sourceTree = "<group>";
@@ -1136,9 +1183,28 @@
 		775075CA1599F31A00E628B1 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				77466A3D159C5DE30063AF97 /* hero.png */,
 				775075CB1599F3BD00E628B1 /* sky.png */,
 			);
 			name = Images;
+			sourceTree = "<group>";
+		};
+		77B092AB15A3F8B1003BAE33 /* Breakable */ = {
+			isa = PBXGroup;
+			children = (
+				77B092AD15A3F8C6003BAE33 /* TriangleMesh.h */,
+				77B092AE15A3F8C6003BAE33 /* TriangleMesh.cpp */,
+				77B092AF15A3F8C6003BAE33 /* BreakableBody.h */,
+			);
+			name = Breakable;
+			sourceTree = "<group>";
+		};
+		77FC33D915A57BB000F0DF2E /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				77FC33DA15A57BCF00F0DF2E /* ContactDelegate.h */,
+			);
+			name = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1218,6 +1284,8 @@
 				7750759C1599DD7700E628B1 /* LICENSE_FontLabel.txt in Resources */,
 				7750759D1599DD7700E628B1 /* LICENSE_TouchJSON.txt in Resources */,
 				775075CC1599F3BD00E628B1 /* sky.png in Resources */,
+				77466A3E159C5DE30063AF97 /* hero.png in Resources */,
+				77F4003915A59CF0003E3232 /* README.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1398,6 +1466,14 @@
 				775075B31599DD9300E628B1 /* Box2DHelper.m in Sources */,
 				775075C61599EAAC00E628B1 /* Game.mm in Sources */,
 				775075C91599F0DF00E628B1 /* Sky.m in Sources */,
+				77818DE2159B0BF0001F3516 /* Terrain.mm in Sources */,
+				77466A39159C53E30063AF97 /* Panda.mm in Sources */,
+				77466A3C159C58660063AF97 /* PandaContactListener.mm in Sources */,
+				77466A45159D5F500063AF97 /* Coin.mm in Sources */,
+				779A2F23159ED14D00BE1F75 /* UserData.mm in Sources */,
+				77E9520915A1C6A000238A89 /* Bamboo.mm in Sources */,
+				77B092B015A3F8C6003BAE33 /* TriangleMesh.cpp in Sources */,
+				77B092B315A48009003BAE33 /* BreakableWood.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1490,6 +1566,10 @@
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "panda-run/panda-run-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					DEBUG,
+					"COCOS2D_DEBUG=1",
+				);
 				INFOPLIST_FILE = "panda-run/panda-run-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
 				OTHER_LDFLAGS = "-lz";
@@ -1505,6 +1585,7 @@
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "panda-run/panda-run-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = NDEBUG;
 				INFOPLIST_FILE = "panda-run/panda-run-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
 				OTHER_LDFLAGS = "-lz";
@@ -1567,6 +1648,7 @@
 				775073D41599DD1400E628B1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		775073D51599DD1400E628B1 /* Build configuration list for PBXNativeTarget "panda-runTests" */ = {
 			isa = XCConfigurationList;
@@ -1575,6 +1657,7 @@
 				775073D71599DD1400E628B1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

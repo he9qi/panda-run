@@ -6,6 +6,8 @@
 //  Released under the MIT License
 //
 
+#import "cocos2d.h"
+
 @interface Box2DHelper : NSObject
 
 // ignore CC_CONTENT_SCALE_FACTOR
@@ -15,5 +17,7 @@
 // consider CC_CONTENT_SCALE_FACTOR
 + (float) pixelsPerMeter;
 + (float) metersPerPixel;
+
++ (ccColor4F) randomColor;
 
 @end

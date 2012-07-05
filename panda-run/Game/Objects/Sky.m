@@ -67,6 +67,7 @@
   
 	CCRenderTexture *rt = [CCRenderTexture renderTextureWithWidth:textureSize height:textureSize];
 	
+  //sky color
 	ccColor3B c = (ccColor3B){140, 205, 221};
 	ccColor4F cf = ccc4FFromccc3B(c);
 	
@@ -108,7 +109,7 @@
 	glEnable(GL_TEXTURE_2D);	
 	
 	// layer 2: noise
-	
+
 	CCSprite *s = [CCSprite spriteWithFile:IMAGE_BG_SKY];
 	[s setBlendFunc:(ccBlendFunc){GL_DST_COLOR, GL_ZERO}];
 	s.position = ccp(textureSize/2, textureSize/2);

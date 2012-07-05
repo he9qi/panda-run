@@ -1,0 +1,52 @@
+//
+//  Panda.h
+//  panda-run
+//
+//  Created by Qi He on 12-6-28.
+//  Copyright (c) 2012年 Heyook. All rights reserved.
+//
+
+#import <Foundation/Foundation.h>
+#import "cocos2d.h"
+#import "Box2D.h"
+
+#define kPerfectTakeOffVelocityY 2.0f
+#define kMaxEnergy 100
+
+@class Game;
+class PandaContactListener;
+
+@interface Panda : CCNode{
+	Game *_game;
+	CCSprite *_sprite;
+	b2Body *_body;
+	float _radius;
+	BOOL _awake;
+	BOOL _flying;
+	BOOL _diving;
+	PandaContactListener *_contactListener;
+	int _nPerfectSlides;
+  int _energy;
+  
+}
+@property (nonatomic, retain) Game *game;
+@property (nonatomic, retain) CCSprite *sprite;
+@property (readonly) BOOL awake;
+@property (nonatomic) BOOL diving;
+@property (nonatomic) int energy;
+
++ (id) heroWithGame:(Game*)game;
+- (id) initWithGame:(Game*)game;
+
+- (void) reset;
+- (void) sleep;
+- (void) wake;
+- (void) updatePhysics;
+- (void) updateNode;
+
+- (void) landed;
+- (void) tookOff;
+- (void) hit;
+
+
+@end
