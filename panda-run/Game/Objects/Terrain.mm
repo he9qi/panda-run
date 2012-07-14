@@ -79,7 +79,7 @@
 	CCRenderTexture *rt = [CCRenderTexture renderTextureWithWidth:textureSize height:textureSize];
 	[rt begin];
 	[self renderhill];
-//	[self renderGradient];
+	[self renderGradient];
 //	[self renderHighlight];
 //	[self renderTopBorder];
 //	[self renderNoise];
@@ -134,6 +134,43 @@
 	
 	free(vertices);
 	free(colors);
+}
+
+- (void) renderGradient {
+	
+	float gradientAlpha = 0.5f;
+	float gradientWidth = textureSize;
+	
+	ccVertex2F vertices[6];
+	ccColor4F colors[6];
+	int nVertices = 0;
+	
+	vertices[nVertices] = (ccVertex2F){0, 0};
+	colors[nVertices++] = (ccColor4F){0, 0, 0, 0};
+	vertices[nVertices] = (ccVertex2F){textureSize, 0};
+	colors[nVertices++] = (ccColor4F){0, 0, 0, 0};
+	
+	vertices[nVertices] = (ccVertex2F){0, gradientWidth};
+	colors[nVertices++] = (ccColor4F){0, 0, 0, gradientAlpha};
+	vertices[nVertices] = (ccVertex2F){textureSize, gradientWidth};
+	colors[nVertices++] = (ccColor4F){0, 0, 0, gradientAlpha};
+	
+	if (gradientWidth < textureSize) {
+		vertices[nVertices] = (ccVertex2F){0, textureSize};
+		colors[nVertices++] = (ccColor4F){0, 0, 0, gradientAlpha};
+		vertices[nVertices] = (ccVertex2F){textureSize, textureSize};
+		colors[nVertices++] = (ccColor4F){0, 0, 0, gradientAlpha};
+	}
+	
+	// adjust vertices for retina
+	for (int i=0; i<nVertices; i++) {
+		vertices[i].x *= CC_CONTENT_SCALE_FACTOR();
+		vertices[i].y *= CC_CONTENT_SCALE_FACTOR();
+	}
+	
+	glVertexPointer(2, GL_FLOAT, 0, vertices);
+	glColorPointer(4, GL_FLOAT, 0, colors);
+	glDrawArrays(GL_TRIANGLE_STRIP, 0, (GLsizei)nVertices);
 }
 
 

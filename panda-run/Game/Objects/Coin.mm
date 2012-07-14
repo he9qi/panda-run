@@ -33,10 +33,11 @@
 		self.game = game;
     self.position = p;
 		
-#ifndef DRAW_BOX2D_WORLD
+//#ifndef DRAW_BOX2D_WORLD
 		self.sprite = [CCSprite spriteWithFile:IMAGE_COIN];
+    self.sprite.scale = 0.8f;
 		[self addChild:_sprite];
-#endif
+//#endif
 		_radius = RADIUS_COIN;
 		_body = NULL;
     
@@ -49,11 +50,27 @@
   
 	self.game = nil;
 	
-#ifndef DRAW_BOX2D_WORLD
+//#ifndef DRAW_BOX2D_WORLD
 	self.sprite = nil;
-#endif
+//#endif
   
 	[super dealloc];
+}
+
+- (void) hideSprite {
+#ifndef DRAW_BOX2D_WORLD
+  [self.sprite removeFromParentAndCleanup: YES];
+#endif
+}
+
+- (void) showSprite {
+#ifndef DRAW_BOX2D_WORLD
+  [self addChild:_sprite];
+#endif
+}
+
+- (void) postSolve:(b2Contact*)contact:(const b2ContactImpulse*)impulse
+{
 }
 
 - (void) reset {
@@ -80,7 +97,7 @@
 	fd.shape = &shape;
   fd.isSensor = true;
   
-  UserData *data = [[UserData alloc]initWithName:@"Coin"];
+  UserData *data = [[UserData alloc]initWithName:@"Coin" Delegate:self];
   _body->SetUserData(data);
 	_body->CreateFixture(&fd);
 }

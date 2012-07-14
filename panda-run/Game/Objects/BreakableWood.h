@@ -34,6 +34,9 @@
   
 	bool _broke;
 	bool _break;
+  
+  CCSprite *_sprite1;      //texture image for broken wood
+  CCSprite *_sprite2;      //texture image for broken wood
 }
 
 @property (nonatomic, retain) Game *game;

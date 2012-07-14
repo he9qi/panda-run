@@ -13,6 +13,10 @@
 @protocol ContactDelegate <NSObject>
 
 // post solve to check break condition
-- (void)postSolve:(b2Contact *)contact:(const b2ContactImpulse*)impulse;
+- (void) postSolve:(b2Contact *)contact:(const b2ContactImpulse*)impulse;
+
+@optional
+- (void) hideSprite;
+- (void) showSprite;
 
 @end

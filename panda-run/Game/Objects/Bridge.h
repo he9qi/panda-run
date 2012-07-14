@@ -1,30 +1,34 @@
 //
-//  Coin.h
+//  Bridge.h
 //  panda-run
 //
-//  Created by Qi He on 12-6-29.
+//  Created by Qi He on 12-7-5.
 //  Copyright (c) 2012年 Heyook. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 #import "Box2D.h"
-#import "ContactDelegate.h"
+
+#define kMaxBridgeStep 10
 
 @class Game;
 
-@interface Coin : CCNode <ContactDelegate>{
-	CCSprite *_sprite;      //texture image for coin
+@interface Bridge : CCNode{
+	CCSprite *_sprite;      //texture image for bamboo
 	Game *_game;
-	b2Body *_body;
-	float _radius;
+  
+  b2Body *_middle;
+  b2Body *_bodies[kMaxBridgeStep];
+  b2Joint *_joints[kMaxBridgeStep+1];
 }
 
 @property (nonatomic, retain) Game *game;
 @property (nonatomic, retain) CCSprite *sprite;
 
-+ (id) coinWithGame:(Game*)game Position:(CGPoint)p;
++ (id) bridgeWithGame:(Game*)game Position:(CGPoint)p;
 - (id) initWithGame:(Game*)game Position:(CGPoint)p;
 - (void) reset;
+
 
 @end

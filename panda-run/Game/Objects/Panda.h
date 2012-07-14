@@ -28,6 +28,7 @@ class PandaContactListener;
 	int _nPerfectSlides;
   int _energy;
   
+  CCAnimate *_walkAction;
 }
 @property (nonatomic, retain) Game *game;
 @property (nonatomic, retain) CCSprite *sprite;

@@ -67,13 +67,18 @@ static int coinIndices [kMaxCoins] = { 30, 32, 34, 36, 39 };
     _coins = [[NSMutableArray alloc] init];
     [self addCoins:coinIndices];
     
-    _woods = [[NSMutableArray alloc] init];
-    ccVertex2F bp = [_terrain getBorderVerticeAt:20];
-    CGPoint p = ccp(bp.x, bp.y + RADIUS_COIN + 30.0f);
-
-    BreakableWood *bw = [BreakableWood breakableWoodWithGame:self Position:p];
-    [_woods addObject:bw];
-    [_terrain addChild:bw];
+//    _woods = [[NSMutableArray alloc] init];
+//    ccVertex2F bp = [_terrain getBorderVerticeAt:20];
+//    CGPoint p = ccp(bp.x, bp.y + RADIUS_COIN + 30.0f);
+//
+//    BreakableWood *bw = [BreakableWood breakableWoodWithGame:self Position:p];
+//    [_woods addObject:bw];
+//    [_terrain addChild:bw];
+    
+//    bp = [_terrain getBorderVerticeAt:43];
+//    p = ccp(bp.x, bp.y + 15.0f);
+//    Bridge *bridge = [Bridge bridgeWithGame:self Position:p];
+//    [_terrain addChild:bridge];
     
 #ifdef __IPHONE_OS_VERSION_MAX_ALLOWED
 		self.isTouchEnabled = YES;
@@ -98,7 +103,7 @@ static int coinIndices [kMaxCoins] = { 30, 32, 34, 36, 39 };
 
 - (void) addCoin:(int)index{
   ccVertex2F bp = [_terrain getBorderVerticeAt:index];
-  CGPoint p = ccp(bp.x, bp.y + RADIUS_COIN + 1.0f);
+  CGPoint p = ccp(bp.x, bp.y + RADIUS_COIN + 5.0f);
   Coin *coin = [Coin coinWithGame:self Position:p];
   [_coins addObject:coin];
   [_terrain addChild:coin];
@@ -144,9 +149,9 @@ static int coinIndices [kMaxCoins] = { 30, 32, 34, 36, 39 };
 	
 	[_panda updateNode];
   
-  for (BreakableWood *bw in _woods) {
-    [bw step];
-  }
+//  for (BreakableWood *bw in _woods) {
+//    [bw step];
+//  }
   
 	// terrain scale and offset
 	float height = _panda.position.y;
@@ -261,8 +266,8 @@ static int coinIndices [kMaxCoins] = { 30, 32, 34, 36, 39 };
 	
 	uint32 flags = 0;
 	flags += b2Draw::e_shapeBit;
-  //	flags += b2Draw::e_jointBit;
-  //	flags += b2Draw::e_aabbBit;
+  flags += b2Draw::e_jointBit;
+  flags += b2Draw::e_aabbBit;
   //	flags += b2Draw::e_pairBit;
   //	flags += b2Draw::e_centerOfMassBit;
 	_render->SetFlags(flags);

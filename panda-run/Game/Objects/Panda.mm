@@ -37,8 +37,20 @@
 		self.game = game;
 		
 #ifndef DRAW_BOX2D_WORLD
-		self.sprite = [CCSprite spriteWithFile:IMAGE_PANDA];
+    
+    // create sprite sheet
+		[[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"sprites.plist"];
+		CCSpriteBatchNode *batch = [[CCSpriteBatchNode alloc] initWithFile:@"sprites.png" capacity:50];
+		[self addChild:batch];
+    
+    // create the sprite
+		_sprite = [CCSprite spriteWithSpriteFrameName:@"panda_walk_1.png"];
 		[self addChild:_sprite];
+  
+    // make it walk
+    _walkAction = [self initWalkAction];
+		[_sprite runAction: [CCRepeatForever actionWithAction:_walkAction] ];
+    
 #endif
 		_body = NULL;
 		_radius = RADIUS_PANDA;
@@ -112,6 +124,24 @@
 	_awake = YES;
 	_body->SetActive(true);
 	_body->ApplyLinearImpulse(b2Vec2(1,2), _body->GetPosition());
+}
+
+// build walk action
+- (CCAnimate *) initWalkAction {
+  // create the animation
+  NSMutableArray *animFrames = [NSMutableArray array];
+  CCSpriteFrame *frame1 = [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"panda_walk_1.png"];
+  CCSpriteFrame *frame2 = [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"panda_walk_2.png"];
+  CCSpriteFrame *frame3 = [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"panda_walk_3.png"];
+  [animFrames addObject:frame1];
+  [animFrames addObject:frame2];
+  [animFrames addObject:frame3];
+  [animFrames addObject:frame2];
+  
+  CCAnimation *animation = [CCAnimation animationWithFrames:animFrames delay:0.2f];
+  
+  // create the action
+  return [CCAnimate actionWithAnimation:animation];
 }
 
 // check the state and apply force accordingly. This is called
@@ -193,8 +223,11 @@
     UserData *sb = (UserData*) bodyB->GetUserData();    
     
     if (sa != nil && sb != nil) {
-      if([sa.name isEqualToString:@"Coin"] && [sb.name isEqualToString:@"Panda"]) _game.world->DestroyBody(bodyA);
-      else if([sb.name isEqualToString:@"Coin"] && [sa.name isEqualToString:@"Panda"]) _game.world->DestroyBody(bodyB);
+      if([sa.name isEqualToString:@"Coin"] && [sb.name isEqualToString:@"Panda"]) {
+        _game.world->DestroyBody(bodyA);
+        id<ContactDelegate> cd = (id<ContactDelegate>)sa.ccObj;
+        [cd hideSprite];
+      }
       else{
         if (![sa.name isEqualToString:@"Terrain"]) {
 //          CCLOG(@"sa => %@ | sb => %@", sa.name, sb.name);
@@ -228,6 +261,9 @@
 - (void) tookOff {
   //	CCLOG(@"tookOff");
 	_flying = YES;
+  
+  // TODO: change sprite image
+  
 	b2Vec2 vel = _body->GetLinearVelocity();
   //	CCLOG(@"vel.y = %f",vel.y);
 	if (vel.y > kPerfectTakeOffVelocityY) {

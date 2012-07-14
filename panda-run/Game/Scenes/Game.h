@@ -14,6 +14,7 @@
 #import "Panda.h"
 #import "Coin.h"
 #import "BreakableWood.h"
+#import "Bridge.h"
 
 #define kVelocityIterations 8
 #define kPositionIterations 3

@@ -15,6 +15,7 @@
 
 @interface BreakableWood()
 - (void)createBox2DBody;
+- (void)updateSprite:(CCSprite *)sprite ByBody:(b2Body *)body;
 @end
 
 @implementation BreakableWood
@@ -36,10 +37,10 @@
     _height = 0.15f;
     _density = 1.0f;
 		
-#ifndef DRAW_BOX2D_WORLD
-		self.sprite = [CCSprite spriteWithFile:IMAGE_COIN];
+//#ifndef DRAW_BOX2D_WORLD
+		self.sprite = [CCSprite spriteWithFile:IMAGE_WOOD];
 		[self addChild:_sprite];
-#endif
+//#endif
 		_body1 = NULL;
     
 		[self reset];
@@ -51,9 +52,11 @@
   
 	self.game = nil;
 	
-#ifndef DRAW_BOX2D_WORLD
+//#ifndef DRAW_BOX2D_WORLD
 	self.sprite = nil;
-#endif
+  _sprite1 = nil;
+  _sprite2 = nil;
+//#endif
   
 	[super dealloc];
 }
@@ -92,6 +95,9 @@
   
   UserData *data = [[UserData alloc]initWithName:@"BreakableWood" Delegate:self];
   _body1->SetUserData(data);
+  
+  [self updateSprite:_sprite ByBody:_body1];
+
 }
 
 - (void)breakMe{
@@ -125,6 +131,17 @@
   
   body2->SetAngularVelocity(_angularVelocity);
   body2->SetLinearVelocity(velocity2);
+  
+  [_sprite removeFromParentAndCleanup:YES];
+  
+  _sprite1 = [CCSprite spriteWithFile:IMAGE_BROKEN_WOOD];
+  [self addChild:_sprite1];
+  [self updateSprite:_sprite1 ByBody:_body1];
+  
+  _sprite2 = [CCSprite spriteWithFile:IMAGE_BROKEN_WOOD];
+  [self addChild:_sprite2];
+  [self updateSprite:_sprite2 ByBody:_body2];
+
 }
 
 - (void) postSolve:(b2Contact*)contact:(const b2ContactImpulse*)impulse
@@ -151,6 +168,16 @@
   }
 }
 
+- (void)updateSprite:(CCSprite *)sprite ByBody:(b2Body *)body{
+  CGPoint p;
+  p.x = body->GetPosition().x - 5;
+  p.y = body->GetPosition().y - 3.5;
+  [sprite setPosition:p];
+  
+  float degree = -1 * CC_RADIANS_TO_DEGREES(body->GetAngle());
+  [sprite setRotation:degree];
+}
+
 - (void)step
 {
   if (_break)
@@ -165,7 +192,19 @@
   {
     _velocity = _body1->GetLinearVelocity();
     _angularVelocity = _body1->GetAngularVelocity();
+    
+    CGPoint p;
+    p.x = _body1->GetPosition().x * [Box2DHelper pointsPerMeter];
+    p.y = _body1->GetPosition().y * [Box2DHelper pointsPerMeter];
+
+    [self updateSprite:_sprite ByBody:_body1];
+    
+    // update the position
+    self.position = p;
+    
   }
+  
+
 }
 
 @end

@@ -9,7 +9,7 @@
 #import "cocos2d.h"
 #import "AppDelegate.h"
 #import "GameConfig.h"
-#import "Game.h"
+#import "Menu.h"
 #import "ViewController.h"
 
 @implementation AppDelegate
@@ -117,7 +117,7 @@
 	[self removeStartupFlicker];
 	
 	// Run the intro Scene
-	[[CCDirector sharedDirector] runWithScene: [Game scene]];
+	[[CCDirector sharedDirector] runWithScene: [Menu scene]];
 }
 
 
