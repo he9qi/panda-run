@@ -82,7 +82,7 @@
 	[self renderGradient];
 //	[self renderHighlight];
 //	[self renderTopBorder];
-//	[self renderNoise];
+	[self renderNoise];
 	[rt end];
 	
 	return rt.sprite.texture;
@@ -103,7 +103,10 @@
   x2 = (float)textureSize;
   y2 = 0;
 	
-  c = [Box2DHelper randomColor];
+  //sky color
+	ccColor3B cb = (ccColor3B){255,255,255};
+	c = ccc4FFromccc3B(cb);
+  
   for (int k=0; k<6; k++) {
     colors[nVertices+k] = c;
   }
@@ -219,6 +222,20 @@
 	
 	fromKeyPointI = 0;
 	toKeyPointI = 0;
+}
+
+- (void) renderNoise {
+	
+	glEnableClientState(GL_TEXTURE_COORD_ARRAY);
+	glEnable(GL_TEXTURE_2D);
+	
+	CCSprite *s = [CCSprite spriteWithFile:@"mountain_bg.jpg"];
+	[s setBlendFunc:(ccBlendFunc){GL_DST_COLOR, GL_ZERO}];
+	s.position = ccp(textureSize/2, textureSize/2);
+	float imageSize = s.textureRect.size.width;
+	s.scale = (float)textureSize/imageSize*CC_CONTENT_SCALE_FACTOR();
+	glColor4f(1, 1, 1, 1);
+	[s visit];
 }
 
 - (ccVertex2F)getBorderVerticeAt:(int)p{

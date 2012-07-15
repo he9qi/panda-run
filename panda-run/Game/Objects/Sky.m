@@ -68,7 +68,7 @@
 	CCRenderTexture *rt = [CCRenderTexture renderTextureWithWidth:textureSize height:textureSize];
 	
   //sky color
-	ccColor3B c = (ccColor3B){140, 205, 221};
+	ccColor3B c = (ccColor3B){255,255,255};
 	ccColor4F cf = ccc4FFromccc3B(c);
 	
 	[rt beginWithClear:cf.r g:cf.g b:cf.b a:cf.a];

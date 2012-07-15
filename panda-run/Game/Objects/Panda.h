@@ -16,6 +16,13 @@
 @class Game;
 class PandaContactListener;
 
+typedef enum {
+	kPandaStateIdle,
+	kPandaStateWalk,
+	kPandaStateSlide,
+	kPandaStateFly,
+} PandaState;
+
 @interface Panda : CCNode{
 	Game *_game;
 	CCSprite *_sprite;
@@ -27,14 +34,18 @@ class PandaContactListener;
 	PandaContactListener *_contactListener;
 	int _nPerfectSlides;
   int _energy;
+  PandaState _state;
   
-  CCAnimate *_walkAction;
+  CCRepeatForever *_walkForeverAction;
+  CCRepeatForever *_rotateForeverAction;
 }
+
 @property (nonatomic, retain) Game *game;
 @property (nonatomic, retain) CCSprite *sprite;
 @property (readonly) BOOL awake;
 @property (nonatomic) BOOL diving;
 @property (nonatomic) int energy;
+@property (nonatomic,assign) PandaState state;
 
 + (id) heroWithGame:(Game*)game;
 - (id) initWithGame:(Game*)game;

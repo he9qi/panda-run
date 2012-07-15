@@ -49,7 +49,6 @@
     
     sprite = [CCSprite spriteWithSpriteFrameName:@"play_button.png"];
 		sprite.position = ccp(sw/2+150, sh/2+10);
-    sprite.scale = 0.5f;
 		sprite.opacity = 0;
 		[sprite runAction:[CCFadeIn actionWithDuration:0.1f]];
 		[batch addChild:sprite];
@@ -88,7 +87,7 @@
 	CGSize screenSize = [[CCDirector sharedDirector] winSize];
 
 	if( [self tapAtPlayButton:screenSize:location] ) {
-		playButton.scale = 0.45f;
+		playButton.scale = 0.95f;
 		[[SimpleAudioEngine sharedEngine] playEffect:@"click.caf"];
 	}
   

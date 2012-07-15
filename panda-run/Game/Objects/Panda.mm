@@ -20,11 +20,12 @@
 
 @implementation Panda
 
-@synthesize game = _game;
+@synthesize game   = _game;
 @synthesize sprite = _sprite;
-@synthesize awake = _awake;
+@synthesize awake  = _awake;
 @synthesize diving = _diving;
 @synthesize energy = _energy;
+@synthesize state  = _state;
 
 + (id) heroWithGame:(Game*)game {
 	return [[[self alloc] initWithGame:game] autorelease];
@@ -44,12 +45,12 @@
 		[self addChild:batch];
     
     // create the sprite
-		_sprite = [CCSprite spriteWithSpriteFrameName:@"panda_walk_1.png"];
+		_sprite = [CCSprite spriteWithSpriteFrameName:@"panda_walk_2.png"];
 		[self addChild:_sprite];
   
     // make it walk
-    _walkAction = [self initWalkAction];
-		[_sprite runAction: [CCRepeatForever actionWithAction:_walkAction] ];
+    _walkForeverAction   = [[CCRepeatForever actionWithAction:[self initWalkAction]] retain];
+    _rotateForeverAction = [[CCRepeatForever actionWithAction:[CCRotateBy actionWithDuration:0.01 angle:20]] retain];
     
 #endif
 		_body = NULL;
@@ -63,9 +64,48 @@
 	return self;
 }
 
+- (void)setState:(PandaState)s {
+	if(_state == s) return;
+#ifndef DRAW_BOX2D_WORLD
+  if(_state == kPandaStateWalk)  { [_sprite stopAction:_walkForeverAction]; }
+  if(_state == kPandaStateSlide) { 
+    [_sprite stopAction:_rotateForeverAction];
+    [_sprite setRotation:0];
+  }
+  
+	_state = s;
+
+	switch(_state) {
+		case kPandaStateIdle:
+      [_sprite setDisplayFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"panda_walk_2.png"]];
+      break;
+		case kPandaStateWalk:
+      [_sprite setDisplayFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"panda_walk_1.png"]];
+      [_sprite runAction:_walkForeverAction];
+			break;
+		case kPandaStateFly:
+      [_sprite setDisplayFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"panda_fly_1.png"]];
+			break;
+		case kPandaStateSlide:
+      [_sprite setDisplayFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"panda_slide_1.png"]];
+      [_sprite runAction:_rotateForeverAction];
+			break;
+		default:
+      [_sprite setDisplayFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"panda_walk_2.png"]];
+			break;
+	}
+#endif
+}
+
 - (void) dealloc {
   
 	self.game = nil;
+  
+  [_walkForeverAction release];
+  [_rotateForeverAction release];
+  
+  _rotateForeverAction = nil;
+  _walkForeverAction = nil;
 	
 #ifndef DRAW_BOX2D_WORLD
 	self.sprite = nil;
@@ -118,6 +158,7 @@
 - (void) sleep {
 	_awake = NO;
 	_body->SetActive(false);
+  self.state = kPandaStateIdle;
 }
 
 - (void) wake {
@@ -256,13 +297,13 @@
 - (void) landed {
   //	CCLOG(@"landed");
 	_flying = NO;
+  self.state = _diving ? kPandaStateSlide : kPandaStateWalk;
 }
 
 - (void) tookOff {
   //	CCLOG(@"tookOff");
 	_flying = YES;
-  
-  // TODO: change sprite image
+  self.state = kPandaStateFly;
   
 	b2Vec2 vel = _body->GetLinearVelocity();
   //	CCLOG(@"vel.y = %f",vel.y);
@@ -288,7 +329,7 @@
 - (void) setDiving:(BOOL)diving {
 	if (_diving != diving) {
 		_diving = diving;
-		// TODO: change sprite image here
+    self.state = _diving ? kPandaStateSlide : kPandaStateWalk;
 	}
 }
 
