@@ -15,11 +15,18 @@
 #import "Coin.h"
 #import "BreakableWood.h"
 #import "Bridge.h"
+#import "Water.h"
+#import "Mud.h"
+#import "Hill.h"
+#import "Temple.h"
+#import "Energy.h"
 
 #define kVelocityIterations 8
 #define kPositionIterations 3
 #define kMaxCoins 101
 #define kMaxWoods 101
+#define kMaxEnergies 101
+#define kTemplePositionYOffset 50.0f
 
 @interface Game : CCLayer{
   int _screenW;             //screen width
@@ -32,6 +39,12 @@
   Panda *_panda;
 	NSMutableArray *_coins;
 	NSMutableArray *_woods;
+	NSMutableArray *_energies;
+  
+  Water *_water;
+  Mud *_mud;
+  Hill *_hill;
+  Temple *_temple;
 }
 
 @property (readonly) int screenW;
@@ -40,10 +53,18 @@
 @property (nonatomic, retain) Sky *sky;
 @property (nonatomic, retain) Terrain *terrain;
 @property (nonatomic, retain) Panda *panda;
+@property (nonatomic, retain) Mud *mud;
+@property (nonatomic, retain) Hill *hill;
 @property (nonatomic, copy  ) NSMutableArray  *coins;
 @property (nonatomic, copy  ) NSMutableArray  *woods;
+@property (nonatomic, copy  ) NSMutableArray  *energies;
 
 
 + (CCScene*) scene;
+- (void)pause;
+- (void)resume;
+- (void)over;
+
+- (void) onAlertButtonOK:(id) alertView;
 
 @end

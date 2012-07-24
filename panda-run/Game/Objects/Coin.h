@@ -6,25 +6,12 @@
 //  Copyright (c) 2012年 Heyook. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-#import "cocos2d.h"
-#import "Box2D.h"
-#import "ContactDelegate.h"
+#import "TTConsumableItem.h"
 
-@class Game;
+#define kCoinsPositionYOffset 15.0f
 
-@interface Coin : CCNode <ContactDelegate>{
-	CCSprite *_sprite;      //texture image for coin
-	Game *_game;
-	b2Body *_body;
-	float _radius;
-}
-
-@property (nonatomic, retain) Game *game;
-@property (nonatomic, retain) CCSprite *sprite;
+@interface Coin : TTConsumableItem
 
 + (id) coinWithGame:(Game*)game Position:(CGPoint)p;
-- (id) initWithGame:(Game*)game Position:(CGPoint)p;
-- (void) reset;
 
 @end

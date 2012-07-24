@@ -61,7 +61,7 @@
 			<key>textureRotated</key>
 			<false/>
 		</dict>
-    <key>panda_slide_1.png</key>
+		<key>panda_slide_1.png</key>
 		<dict>
 			<key>aliases</key>
 			<array/>
@@ -80,7 +80,7 @@
 			<key>textureRotated</key>
 			<false/>
 		</dict>
-    <key>panda_fly_1.png</key>
+		<key>panda_fly_1.png</key>
 		<dict>
 			<key>aliases</key>
 			<array/>
@@ -134,6 +134,63 @@
 			<true/>
 			<key>textureRect</key>
 			<string>{{0, 40}, {120, 38}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		<key>temple.png</key>
+		<dict>
+			<key>aliases</key>
+			<array/>
+			<key>spriteColorRect</key>
+			<string>{{0, 1024}, {145, 104}}</string>
+			<key>spriteOffset</key>
+			<string>{0, 0}</string>
+			<key>spriteSize</key>
+			<string>{145, 104}</string>
+			<key>spriteSourceSize</key>
+			<string>{145, 104}</string>
+			<key>spriteTrimmed</key>
+			<true/>
+			<key>textureRect</key>
+			<string>{{356, 0}, {145, 104}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		<key>energy.png</key>
+		<dict>
+			<key>aliases</key>
+			<array/>
+			<key>spriteColorRect</key>
+			<string>{{0, 1024}, {24, 24}}</string>
+			<key>spriteOffset</key>
+			<string>{0, 0}</string>
+			<key>spriteSize</key>
+			<string>{24, 24}</string>
+			<key>spriteSourceSize</key>
+			<string>{24, 24}</string>
+			<key>spriteTrimmed</key>
+			<true/>
+			<key>textureRect</key>
+			<string>{{332, 223}, {24, 24}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		<key>coin.png</key>
+		<dict>
+			<key>aliases</key>
+			<array/>
+			<key>spriteColorRect</key>
+			<string>{{0, 1024}, {24, 24}}</string>
+			<key>spriteOffset</key>
+			<string>{0, 0}</string>
+			<key>spriteSize</key>
+			<string>{24, 24}</string>
+			<key>spriteSourceSize</key>
+			<string>{24, 24}</string>
+			<key>spriteTrimmed</key>
+			<true/>
+			<key>textureRect</key>
+			<string>{{334, 199}, {24, 24}}</string>
 			<key>textureRotated</key>
 			<false/>
 		</dict>

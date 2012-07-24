@@ -168,6 +168,61 @@ void ccDrawPoly( const CGPoint *poli, NSUInteger numberOfPoints, BOOL closePolyg
 	glEnable(GL_TEXTURE_2D);	
 }
 
+void ccDrawFilledCircle( CGPoint center, float r, float a, float d, NSUInteger totalSegs)
+{
+  int additionalSegment = 2;
+  
+  const float coef = 2.0f * (float)M_PI/totalSegs;
+  
+  NSUInteger segs = d / coef;
+  segs++; //Rather draw over than not draw enough
+  
+  if (d == 0) return;
+  
+  GLfloat *vertices = calloc( sizeof(GLfloat)*2*(segs+2), 1);
+  if( ! vertices )
+    return;
+  
+  for(NSUInteger i=0;i<=segs;i++)
+  {
+    float rads = i*coef;
+    GLfloat j = r * cosf(rads + a) + center.x;
+    GLfloat k = r * sinf(rads + a) + center.y;
+    
+    //Leave first 2 spots for origin
+    vertices[2+ i*2] = j * CC_CONTENT_SCALE_FACTOR();
+    vertices[2+ i*2+1] =k * CC_CONTENT_SCALE_FACTOR();
+  }
+  //Put origin vertices into first 2 spots
+  vertices[0] = center.x * CC_CONTENT_SCALE_FACTOR();
+  vertices[1] = center.y * CC_CONTENT_SCALE_FACTOR();
+  
+  // Default GL states: GL_TEXTURE_2D, GL_VERTEX_ARRAY, GL_COLOR_ARRAY, GL_TEXTURE_COORD_ARRAY
+  // Needed states: GL_VERTEX_ARRAY, 
+  // Unneeded states: GL_TEXTURE_2D, GL_TEXTURE_COORD_ARRAY, GL_COLOR_ARRAY   
+  glDisable(GL_TEXTURE_2D);
+  glDisableClientState(GL_TEXTURE_COORD_ARRAY);
+  glDisableClientState(GL_COLOR_ARRAY);
+  
+  glVertexPointer(2, GL_FLOAT, 0, vertices);
+  
+  //blending
+//  glBlendFunc(GL_ZERO, GL_SRC_COLOR);
+//  glBlendFunc(GL_DST_COLOR, GL_ONE_MINUS_SRC_ALPHA);
+//  glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+//  glBlendFunc(GL_ONE, GL_ONE_MINUS_SRC_COLOR);
+  
+  //Change to fan
+  glDrawArrays(GL_TRIANGLE_FAN, 0, segs+additionalSegment);
+  
+  // restore default state
+  glEnableClientState(GL_COLOR_ARRAY);
+  glEnableClientState(GL_TEXTURE_COORD_ARRAY);
+  glEnable(GL_TEXTURE_2D);    
+  
+  free( vertices );
+}
+
 void ccDrawCircle( CGPoint center, float r, float a, NSUInteger segs, BOOL drawLineToCenter)
 {
 	int additionalSegment = 1;

@@ -18,6 +18,10 @@
 + (float) pixelsPerMeter;
 + (float) metersPerPixel;
 
++ (float) pointsPerPixel;
+
 + (ccColor4F) randomColor;
+
++ (CCSpriteBatchNode *)getSpriteBatch;
 
 @end

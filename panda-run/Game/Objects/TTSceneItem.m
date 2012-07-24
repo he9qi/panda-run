@@ -1,30 +1,29 @@
 //
-//  Sky.m
+//  TTSceneItem.m
 //  panda-run
 //
-//  Created by Qi He on 12-6-26.
-//  Copyright (c) 2012年 heyook. All rights reserved.
+//  Created by Qi He on 12-7-22.
+//  Copyright (c) 2012年 __MyCompanyName__. All rights reserved.
 //
 
-#import "Sky.h"
-#import "Constants.h"
+#import "TTSceneItem.h"
 
-@interface Sky()
+@interface TTSceneItem()
 - (CCSprite*) generateSprite;
 - (CCTexture2D*) generateTexture;
 @end
 
-@implementation Sky
+@implementation TTSceneItem
 
+@synthesize scale   = _scale;
 @synthesize sprite  = _sprite;
 @synthesize offsetX = _offsetX;
-@synthesize scale   = _scale;
 
-+ (id) skyWithTextureSize:(int)ts {
-	return [[[self alloc] initWithTextureSize:ts] autorelease];
++ (id) itemWithTexture:(CCSprite *)sprite Size:(int)ts Color:(ccColor3B)color{
+	return [[[self alloc] initWithTexture:sprite Size:ts Color:color] autorelease];
 }
 
-- (id) initWithTextureSize:(int)ts {
+- (id) initWithTexture:(CCSprite *)sprite Size:(int)ts Color:(ccColor3B)color{
 	
 	if ((self = [super init])) {
 		
@@ -34,7 +33,11 @@
 		screenW = screenSize.width;
 		screenH = screenSize.height;
 		
-		self.sprite = [self generateSprite];
+    _innerSprite = sprite;
+    _color       = color;
+    
+    self.sprite  = [self generateSprite];
+    
 		[self addChild:_sprite];
 		
 	}
@@ -43,6 +46,7 @@
 
 - (void) dealloc {
 	self.sprite = nil;
+  _innerSprite = nil;
 	[super dealloc];
 }
 
@@ -67,12 +71,13 @@
   glEnableClientState(GL_TEXTURE_COORD_ARRAY);
 	glEnable(GL_TEXTURE_2D);	
 	
-	CCSprite *s = [CCSprite spriteWithFile:IMAGE_BG_SKY];
-	[s setBlendFunc:(ccBlendFunc){GL_DST_COLOR, GL_ZERO}];
-	s.position = ccp(textureSize/2, textureSize/2);
-	s.scale = (float)textureSize/512.0f*CC_CONTENT_SCALE_FACTOR();
+	[_innerSprite setBlendFunc:(ccBlendFunc){GL_DST_COLOR, GL_ZERO}];
+	_innerSprite.position = ccp(textureSize/2, textureSize/2);
+	_innerSprite.scale = (float)textureSize/512.0f*CC_CONTENT_SCALE_FACTOR();
+  
 	glColor4f(1,1,1,1);
-	[s visit];
+  
+	[_innerSprite visit];
 }
 
 - (CCTexture2D*) generateTexture {
@@ -80,43 +85,10 @@
 	CCRenderTexture *rt = [CCRenderTexture renderTextureWithWidth:textureSize height:textureSize];
 	
   //sky color
-	ccColor3B c = (ccColor3B){202,234,246};
-	ccColor4F cf = ccc4FFromccc3B(c);
+	ccColor4F cf = ccc4FFromccc3B(_color);
 	
 	[rt beginWithClear:cf.r g:cf.g b:cf.b a:cf.a];
-	
-//	// layer 1: gradient
-//	
-//	float gradientAlpha = 0.3f;
-//	
-//	glDisable(GL_TEXTURE_2D);
-//	glDisableClientState(GL_TEXTURE_COORD_ARRAY);
-//	
-//	ccVertex2F vertices[4];
-//	ccColor4F colors[4];
-//	int nVertices = 0;
-//	
-//	vertices[nVertices] = (ccVertex2F){0, 0};
-//	colors[nVertices++] = (ccColor4F){1, 1, 1, 0};
-//	vertices[nVertices] = (ccVertex2F){textureSize, 0};
-//	colors[nVertices++] = (ccColor4F){1, 1, 1, 0};
-//	
-//	vertices[nVertices] = (ccVertex2F){0, textureSize};
-//	colors[nVertices++] = (ccColor4F){1, 1, 1, gradientAlpha};
-//	vertices[nVertices] = (ccVertex2F){textureSize, textureSize};
-//	colors[nVertices++] = (ccColor4F){1, 1, 1, gradientAlpha};
-//  
-//	// adjust vertices for retina
-//	for (int i=0; i<nVertices; i++) {
-//		vertices[i].x *= CC_CONTENT_SCALE_FACTOR();
-//		vertices[i].y *= CC_CONTENT_SCALE_FACTOR();
-//	}
-//	
-//	glVertexPointer(2, GL_FLOAT, 0, vertices);
-//	glColorPointer(4, GL_FLOAT, 0, colors);
-//	glBlendFunc(GL_SRC_ALPHA, GL_ONE);
-//	glDrawArrays(GL_TRIANGLE_STRIP, 0, (GLsizei)nVertices);
-	
+  
   [self renderNoise];
 	
 	[rt end];
@@ -143,6 +115,5 @@
 		_sprite.scale = _scale;
 	}
 }
-
 
 @end

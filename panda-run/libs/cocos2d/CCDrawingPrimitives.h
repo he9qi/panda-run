@@ -71,6 +71,11 @@ void ccDrawLine( CGPoint origin, CGPoint destination );
  */
 void ccDrawPoly( const CGPoint *vertices, NSUInteger numOfVertices, BOOL closePolygon );
 
+/**
+ ** draws a filled circle http://stackoverflow.com/questions/1081832/how-to-draw-a-solid-circle-with-cocos2d-for-iphone
+ */
+void ccDrawFilledCircle( CGPoint center, float r, float a, float d, NSUInteger totalSegs);
+  
 /** draws a circle given the center, radius and number of segments measured in points */
 void ccDrawCircle( CGPoint center, float radius, float angle, NSUInteger segments, BOOL drawLineToCenter);
 

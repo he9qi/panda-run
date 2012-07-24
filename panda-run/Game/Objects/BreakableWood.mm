@@ -144,6 +144,11 @@
 
 }
 
+/** Contact Delegate Methods **/
+- (void) preSolve:(b2Contact *)contact :(const b2Manifold *)manifold{}
+- (void) beginContact:(b2Contact *)contact{}
+- (void) endContact:(b2Contact *)contact{}
+
 - (void) postSolve:(b2Contact*)contact:(const b2ContactImpulse*)impulse
 {
   if (_broke)

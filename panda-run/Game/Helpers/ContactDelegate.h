@@ -15,6 +15,13 @@
 // post solve to check break condition
 - (void) postSolve:(b2Contact *)contact:(const b2ContactImpulse*)impulse;
 
+// pre solve
+- (void) preSolve:(b2Contact *)contact:(const b2Manifold *)manifold;
+
+- (void) beginContact:(b2Contact *)contact;
+
+- (void) endContact:(b2Contact *)contact;
+
 @optional
 - (void) hideSprite;
 - (void) showSprite;

@@ -7,99 +7,26 @@
 //
 
 #import "Coin.h"
-#import "Game.h"
-#import "Box2D.h"
+#import "UserData.h"
 #import "Constants.h"
 #import "Box2DHelper.h"
-#import "UserData.h"
-
-@interface Coin()
-- (void)createBox2DBody;
-@end
+#import "Game.h"
 
 @implementation Coin
 
-@synthesize game = _game;
-@synthesize sprite = _sprite;
-
 + (id) coinWithGame:(Game*)game Position:(CGPoint)p{
-	return [[[self alloc] initWithGame:game Position:p] autorelease];
+  [Box2DHelper getSpriteBatch];
+	return [[[self alloc] initWithGame:game Sprite:[CCSprite spriteWithSpriteFrameName:IMAGE_COIN] Radius:RADIUS_COIN Position:p] autorelease];
 }
 
-- (id) initWithGame:(Game*)game Position:(CGPoint)p{
-	
-	if ((self = [super init])) {
-    
-		self.game = game;
-    self.position = p;
-		
-//#ifndef DRAW_BOX2D_WORLD
-		self.sprite = [CCSprite spriteWithFile:IMAGE_COIN];
-    self.sprite.scale = 0.8f;
-		[self addChild:_sprite];
-//#endif
-		_radius = RADIUS_COIN;
-		_body = NULL;
-    
-		[self reset];
-	}
-	return self;
-}
-
-- (void) dealloc {
++ (TTConsumableItem *)createItemTo:(Game *)game On:(Terrain *)terrain At:(int)index{
+  ccVertex2F bp = [terrain getBorderVerticeAt:index];
+  CGPoint p = ccp(bp.x * [Box2DHelper pointsPerPixel], bp.y* [Box2DHelper pointsPerPixel] +kCoinsPositionYOffset);
   
-	self.game = nil;
-	
-//#ifndef DRAW_BOX2D_WORLD
-	self.sprite = nil;
-//#endif
+  Coin *coin = [Coin coinWithGame:game Position:p];
   
-	[super dealloc];
-}
-
-- (void) hideSprite {
-#ifndef DRAW_BOX2D_WORLD
-  [self.sprite removeFromParentAndCleanup: YES];
-#endif
-}
-
-- (void) showSprite {
-#ifndef DRAW_BOX2D_WORLD
-  [self addChild:_sprite];
-#endif
-}
-
-- (void) postSolve:(b2Contact*)contact:(const b2ContactImpulse*)impulse
-{
-}
-
-- (void) reset {
-	if (_body) {
-		_game.world->DestroyBody(_body);
-	}
-	[self createBox2DBody];
-}
-
-- (void)createBox2DBody {
-  b2BodyDef bd;
-	bd.type = b2_staticBody;
-	
-	// start position
-	CGPoint p = self.position;
-  
-	bd.position.Set(p.x * [Box2DHelper metersPerPoint], p.y * [Box2DHelper metersPerPoint]);
-	_body = _game.world->CreateBody(&bd);
-  	
-	b2CircleShape shape;
-	shape.m_radius = _radius * [Box2DHelper metersPerPoint];
-	
-	b2FixtureDef fd;
-	fd.shape = &shape;
-  fd.isSensor = true;
-  
-  UserData *data = [[UserData alloc]initWithName:@"Coin" Delegate:self];
-  _body->SetUserData(data);
-	_body->CreateFixture(&fd);
+  [terrain addChild:coin];
+  return coin;
 }
 
 @end

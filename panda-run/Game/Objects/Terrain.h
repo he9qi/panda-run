@@ -9,10 +9,11 @@
 #import "cocos2d.h"
 #import "Box2D.h"
 
-#define kMaxHillKeyPoints 101
-#define kMaxHillVertices 1000
-#define kMaxBorderVertices 5000
+#define kMaxHillKeyPoints 30
+#define kMaxHillVertices 2000
+#define kMaxBorderVertices 10000
 #define kHillSegmentWidth 15
+#define kTemplePositionOffset 12
 
 @interface Terrain : CCNode{
 	
@@ -21,6 +22,7 @@
 	int nHillKeyPoints;
 	int fromKeyPointI;
 	int toKeyPointI;
+  bool firstTime;
   
   // hill vertices
 	ccVertex2F hillVertices[kMaxHillVertices];
@@ -53,6 +55,11 @@
 - (id) initWithWorld:(b2World*)w;
 
 - (ccVertex2F)getBorderVerticeAt:(int)index;
-- (void) reset;
+- (ccVertex2F)getHillKeyPointAt:(int)index;
+- (ccVertex2F)getTempleBorderVertice;
+
+- (int) getTemplePostition;
+- (bool)reachedEnd;
+- (void)reset;
 
 @end

@@ -18,6 +18,10 @@
 	return 1.0f / [self pointsPerMeter];
 }
 
++ (float) pointsPerPixel {
+	return 1 / CC_CONTENT_SCALE_FACTOR();
+}
+
 + (float) pixelsPerMeter {
 	return [self pointsPerMeter] * CC_CONTENT_SCALE_FACTOR();
 }
@@ -41,6 +45,17 @@
 		break;
 	}
 	return ccc4FFromccc3B(ccc3(r, g, b));
+}
+
+static CCSpriteBatchNode * spriteBatch;
+
++ (CCSpriteBatchNode *)getSpriteBatch{
+  if ( !spriteBatch ){
+    // create sprite sheet
+    [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"sprites.plist"];
+    spriteBatch = [[CCSpriteBatchNode alloc] initWithFile:@"sprites.png" capacity:50];
+  }
+  return spriteBatch;
 }
 
 @end

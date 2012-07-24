@@ -9,6 +9,7 @@
 #import "Game.h"
 #import "Constants.h"
 #import "Box2DHelper.h"
+#import "CCAlertView.h"
 
 
 @interface Game()
@@ -18,12 +19,13 @@
 - (void) deleteBox2DDebug;    // remove debug
 - (BOOL) touchBeganAt:(CGPoint)location;
 - (BOOL) touchEndedAt:(CGPoint)location;
-- (void) addCoin:(int)index;
 - (void) addCoins:(int[])indices;
+- (void) addEnergies:(int[])indices;
 - (void) reset;
 @end
 
-static int coinIndices [kMaxCoins] = { 30, 32, 34, 36, 39 }; 
+static int coinIndices [kMaxCoins] = { 30, 33, 36, 39, 42, 70, 73, 76, 79 }; 
+static int energyIndices [kMaxEnergies] = { 2, 4, 10, 18, 20, 16 }; 
 
 @implementation Game
 
@@ -35,6 +37,9 @@ static int coinIndices [kMaxCoins] = { 30, 32, 34, 36, 39 };
 @synthesize panda   = _panda;
 @synthesize coins   = _coins;
 @synthesize woods   = _woods;
+@synthesize mud     = _mud;
+@synthesize hill    = _hill;
+@synthesize energies= _energies;
 
 + (CCScene*) scene {
 	CCScene *scene = [CCScene node];
@@ -54,8 +59,11 @@ static int coinIndices [kMaxCoins] = { 30, 32, 34, 36, 39 };
     [self createBox2DDebug];
     
 #ifndef DRAW_BOX2D_WORLD    
-    self.sky = [Sky skyWithTextureSize:1024];
+    self.sky = [Sky skyWithTextureSize:TEXTURE_SIZE_SKY];
 		[self addChild:_sky];
+    
+//    _hill = [Hill hillWithTextureSize:512];
+//    [self addChild:_hill];
 #endif
     
 		self.terrain = [Terrain terrainWithWorld:_world];
@@ -66,6 +74,17 @@ static int coinIndices [kMaxCoins] = { 30, 32, 34, 36, 39 };
     
     _coins = [[NSMutableArray alloc] init];
     [self addCoins:coinIndices];
+    
+    _mud = [Mud mudWithTextureSize:1024];
+    [self addChild:_mud];
+    
+    ccVertex2F bp = [_terrain getBorderVerticeAt:[_terrain getTemplePostition]];
+    CGPoint p = ccp(bp.x* [Box2DHelper pointsPerPixel], bp.y * [Box2DHelper pointsPerPixel]+kTemplePositionYOffset);
+    _temple = [Temple templeWithPosition:p];
+    [_terrain addChild:_temple];
+    
+    _energies = [[NSMutableArray alloc] init];
+    [self addEnergies:energyIndices];
     
 //    _woods = [[NSMutableArray alloc] init];
 //    ccVertex2F bp = [_terrain getBorderVerticeAt:20];
@@ -80,6 +99,11 @@ static int coinIndices [kMaxCoins] = { 30, 32, 34, 36, 39 };
 //    Bridge *bridge = [Bridge bridgeWithGame:self Position:p];
 //    [_terrain addChild:bridge];
     
+//    ccVertex2F bp = [_terrain getBorderVerticeAt:13];
+//    CGPoint p = ccp(bp.x, bp.y + 10.0f);
+//    Water *water = [Water waterWithGame:self Position:p];
+//    [_terrain addChild:water];
+    
 #ifdef __IPHONE_OS_VERSION_MAX_ALLOWED
 		self.isTouchEnabled = YES;
 #else
@@ -93,20 +117,62 @@ static int coinIndices [kMaxCoins] = { 30, 32, 34, 36, 39 };
 	return self;
 }
 
+- (void)pause
+{
+  [self pauseSchedulerAndActions];
+  for(CCSprite *sprite in [self children]) {
+    [[CCActionManager sharedManager] pauseTarget:sprite];
+  }
+}
+
+- (void)resume
+{
+  [self resumeSchedulerAndActions];
+  for(CCSprite *sprite in [self children]) {
+    [[CCActionManager sharedManager] resumeTarget:sprite];
+  }
+}
+
+- (void)over
+{
+  [self pause];
+  CCAlertView *alertView = [[CCAlertView alloc] init];
+  alertView.isRelativeAnchorPoint = YES;
+  alertView.position = ccp(self.contentSize.width/2, self.contentSize.height/2);
+//  alertView.Message = @"Nice Job!!!";
+  alertView.SubMessage = @"Your panda has reached temple!!!.";
+  alertView.Button1 = @"OK";
+  alertView.button1Target = self;
+  alertView.button1Selector = @selector(onAlertButtonOK:);
+  
+  [self addChild:alertView z:1001];
+}
+
+- (void) onAlertButtonOK:(id) alertView // companion function for YES button
+{
+	// do something
+  [[CCDirector sharedDirector] popScene];	
+  [self reset];
+}
+
+- (bool) isHD{
+  return _screenW > 480;
+}
+
 - (void) addCoins:(int[])indices{
   for (int i=0; i<kMaxCoins; i++) {
     if (indices[i]) {
-      [self addCoin:indices[i]];
+      [_coins addObject:(Coin *)[Coin createItemTo:self On:_terrain At:indices[i]]];
     }
   }
 }
 
-- (void) addCoin:(int)index{
-  ccVertex2F bp = [_terrain getBorderVerticeAt:index];
-  CGPoint p = ccp(bp.x, bp.y + RADIUS_COIN + 5.0f);
-  Coin *coin = [Coin coinWithGame:self Position:p];
-  [_coins addObject:coin];
-  [_terrain addChild:coin];
+- (void) addEnergies:(int[])indices{
+  for (int i=0; i<kMaxEnergies; i++) {
+    if (indices[i]) {
+      [_energies addObject:(Energy *)[Energy createItemTo:self On:_terrain At:indices[i]]];
+    }
+  }
 }
 
 - (void) createBox2DWorld {
@@ -123,6 +189,8 @@ static int coinIndices [kMaxCoins] = { 30, 32, 34, 36, 39 };
 	self.sky = nil;
   self.terrain = nil;
   self.panda = nil;
+  self.mud = nil;
+  self.hill = nil;
   
   /**
    When you add an object to an array, it calls retain on that object. 
@@ -135,6 +203,9 @@ static int coinIndices [kMaxCoins] = { 30, 32, 34, 36, 39 };
   
   [self.woods release];
   self.woods = nil;
+  
+  [self.energies release];
+  self.energies = nil;
   
 	delete _world;
 	_world = NULL;
@@ -161,12 +232,21 @@ static int coinIndices [kMaxCoins] = { 30, 32, 34, 36, 39 };
 	}
 	float scale = minHeight / height;
 	_terrain.scale = scale;
-	_terrain.offsetX = _panda.position.x;
   
 #ifndef DRAW_BOX2D_WORLD
-	[_sky setOffsetX:_terrain.offsetX*0.2f];
 	[_sky setScale:1.0f-(1.0f-scale)*0.75f];
+	[_hill setScale:1.0f-(1.0f-scale)*0.85f];
+	[_mud setScale:1.0f-(1.0f-scale)];
 #endif
+  
+//  if (![_terrain reachedEnd]) {
+    _terrain.offsetX = _panda.position.x;
+#ifndef DRAW_BOX2D_WORLD
+    [_mud setOffsetX:_terrain.offsetX-5.0f];
+    [_hill setOffsetX:_terrain.offsetX];
+    [_sky setOffsetX:_terrain.offsetX*0.2f];
+#endif
+//  }
 
 }
 
@@ -218,7 +298,9 @@ static int coinIndices [kMaxCoins] = { 30, 32, 34, 36, 39 };
 //	if (CGRectContainsPoint(rect, location)) {
 //		[self reset];
 //	} else {
-		_panda.diving = YES;
+  if ( [self isRunning] ) {
+    _panda.diving = YES;
+  }
 //	}
 	return YES;
 }
@@ -243,9 +325,8 @@ static int coinIndices [kMaxCoins] = { 30, 32, 34, 36, 39 };
   [_panda reset];
   
   for (Coin *coin in _coins) [coin reset];
-  for (BreakableWood *bw in _woods) [bw reset];
+  for (Energy *en in _energies) [en reset];
 }
-
 
 /**********  Box2D World Debug  ********/
 
@@ -266,8 +347,8 @@ static int coinIndices [kMaxCoins] = { 30, 32, 34, 36, 39 };
 	
 	uint32 flags = 0;
 	flags += b2Draw::e_shapeBit;
-  flags += b2Draw::e_jointBit;
-  flags += b2Draw::e_aabbBit;
+//  flags += b2Draw::e_jointBit;
+//  flags += b2Draw::e_aabbBit;
   //	flags += b2Draw::e_pairBit;
   //	flags += b2Draw::e_centerOfMassBit;
 	_render->SetFlags(flags);

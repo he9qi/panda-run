@@ -11,17 +11,22 @@
 
 @interface UserData : NSObject{
   NSString *_name;
-  NSInteger _sid;
+  NSString *_group;
 }
 
 @property (nonatomic, retain) NSString *name;
+@property (nonatomic, retain) NSString *group;
+
 @property (nonatomic, copy) id<ContactDelegate> ccObj;
 
-@property NSInteger sid;
 
 + (id) userDataWithName:(NSString*)name;
 - (id) initWithName:(NSString *)name;
-- (id) initWithName:(NSString *)name SID:(NSInteger)sid;
+- (id) initWithName:(NSString *)name Group:(NSString *)group;
 - (id) initWithName:(NSString *)name Delegate:(id<ContactDelegate>)delegate;
+- (id) initWithName:(NSString *)name Group:(NSString *)group Delegate:(id<ContactDelegate>)delegate;
+
+- (bool) isA:(NSString *)objName;
+- (bool) belongsTo:(NSString *)groupName;
 
 @end

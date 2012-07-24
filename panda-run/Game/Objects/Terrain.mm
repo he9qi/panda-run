@@ -50,6 +50,7 @@
 		[self generateBorderVertices];
 		[self createBox2DBody];
     
+    firstTime = YES;
 		self.offsetX = 0;
 	}
 	return self;
@@ -80,8 +81,8 @@
 	[rt begin];
 	[self renderhill];
 	[self renderGradient];
-//	[self renderHighlight];
-//	[self renderTopBorder];
+	[self renderHighlight];
+	[self renderTopBorder];
 	[self renderNoise];
 	[rt end];
 	
@@ -104,7 +105,7 @@
   y2 = 0;
 	
   //sky color
-	ccColor3B cb = (ccColor3B){255,255,255};
+	ccColor3B cb = (ccColor3B){230,177,27};
 	c = ccc4FFromccc3B(cb);
   
   for (int k=0; k<6; k++) {
@@ -176,6 +177,63 @@
 	glDrawArrays(GL_TRIANGLE_STRIP, 0, (GLsizei)nVertices);
 }
 
+- (void) renderHighlight {
+	
+	float highlightAlpha = 0.5f;
+	float highlightWidth = textureSize/8;
+	
+	ccVertex2F vertices[4];
+	ccColor4F colors[4];
+	int nVertices = 0;
+	
+	vertices[nVertices] = (ccVertex2F){0, 0};
+	colors[nVertices++] = (ccColor4F){1, 1, 1, highlightAlpha}; // yellow
+	vertices[nVertices] = (ccVertex2F){textureSize, 0};
+	colors[nVertices++] = (ccColor4F){1, 1, 1, highlightAlpha};
+	
+	vertices[nVertices] = (ccVertex2F){0, highlightWidth};
+	colors[nVertices++] = (ccColor4F){0, 0, 0, 0};
+	vertices[nVertices] = (ccVertex2F){textureSize, highlightWidth};
+	colors[nVertices++] = (ccColor4F){0, 0, 0, 0};
+	
+	// adjust vertices for retina
+	for (int i=0; i<nVertices; i++) {
+		vertices[i].x *= CC_CONTENT_SCALE_FACTOR();
+		vertices[i].y *= CC_CONTENT_SCALE_FACTOR();
+	}
+	
+	glVertexPointer(2, GL_FLOAT, 0, vertices);
+	glColorPointer(4, GL_FLOAT, 0, colors);
+	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+	glDrawArrays(GL_TRIANGLE_STRIP, 0, (GLsizei)nVertices);
+}
+
+- (void) renderTopBorder {
+	
+	float borderAlpha = 0.5f;
+	float borderWidth = 2.0f;
+	
+	ccVertex2F vertices[2];
+	int nVertices = 0;
+	
+	vertices[nVertices++] = (ccVertex2F){0, borderWidth/2};
+	vertices[nVertices++] = (ccVertex2F){textureSize, borderWidth/2};
+	
+	// adjust vertices for retina
+	for (int i=0; i<nVertices; i++) {
+		vertices[i].x *= CC_CONTENT_SCALE_FACTOR();
+		vertices[i].y *= CC_CONTENT_SCALE_FACTOR();
+	}
+	
+	glDisableClientState(GL_COLOR_ARRAY);
+	
+	glLineWidth(borderWidth*CC_CONTENT_SCALE_FACTOR());
+	glColor4f(0, 0, 0, borderAlpha);
+	glVertexPointer(2, GL_FLOAT, 0, vertices);
+	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+	glDrawArrays(GL_LINE_STRIP, 0, (GLsizei)nVertices);
+}
+
 
 - (void) generateHillKeyPoints {
   
@@ -193,11 +251,11 @@
 	hillKeyPoints[nHillKeyPoints++] = (ccVertex2F){x, y};
 	
 	int minDX = 160, rangeDX = 80;
-	int minDY = 60,  rangeDY = 60;
+	int minDY = 50,  rangeDY = 40;
 	float sign = -1; // +1 - going up, -1 - going  down
-	float maxHeight = screenH;
-	float minHeight = 20;
-	while (nHillKeyPoints < kMaxHillKeyPoints-1) {
+	float maxHeight = screenH - 150;
+	float minHeight = 60;
+	while (nHillKeyPoints < kMaxHillKeyPoints-3) { //save 3 for last finish points
 		dx = arc4random()%rangeDX+minDX;
 		x += dx;
 		dy = arc4random()%rangeDY+minDY;
@@ -209,9 +267,17 @@
 		hillKeyPoints[nHillKeyPoints++] = (ccVertex2F){x, y};
 	}
   
-	// cliff
+	// finish point
 	x += minDX+rangeDX;
-	y = 0;
+	y = screenH - 200;
+	hillKeyPoints[nHillKeyPoints++] = (ccVertex2F){x, y};
+	
+	x += minDX+rangeDX;
+	y = screenH - 200;
+	hillKeyPoints[nHillKeyPoints++] = (ccVertex2F){x, y};
+  
+	x += rangeDX;
+	y = screenH - 200;
 	hillKeyPoints[nHillKeyPoints++] = (ccVertex2F){x, y};
   
 	// adjust vertices for retina
@@ -222,6 +288,7 @@
 	
 	fromKeyPointI = 0;
 	toKeyPointI = 0;
+  firstTime = YES;
 }
 
 - (void) renderNoise {
@@ -229,7 +296,7 @@
 	glEnableClientState(GL_TEXTURE_COORD_ARRAY);
 	glEnable(GL_TEXTURE_2D);
 	
-	CCSprite *s = [CCSprite spriteWithFile:@"mountain_bg.jpg"];
+	CCSprite *s = [CCSprite spriteWithFile:@"mountain_bg.png"];
 	[s setBlendFunc:(ccBlendFunc){GL_DST_COLOR, GL_ZERO}];
 	s.position = ccp(textureSize/2, textureSize/2);
 	float imageSize = s.textureRect.size.width;
@@ -240,6 +307,19 @@
 
 - (ccVertex2F)getBorderVerticeAt:(int)p{
   return borderVertices[p];
+}
+
+- (ccVertex2F)getHillKeyPointAt:(int)p{
+  return hillKeyPoints[p];
+}
+
+- (ccVertex2F)getTempleBorderVertice
+{
+  return [self getBorderVerticeAt:[self getTemplePostition]];
+}
+
+- (int)getTemplePostition{
+  return nBorderVertices-kTemplePositionOffset;
 }
 
 - (void) generateBorderVertices {
@@ -294,11 +374,22 @@
 	body->CreateFixture(&shape, 0);
 }
 
+- (ccVertex2F)getEndPosition
+{
+  return hillKeyPoints[nHillKeyPoints-2];
+}
+
+- (bool)reachedEnd
+{
+  float rightSideX = _offsetX+screenW*7/8/self.scale;
+  return ([self getEndPosition].x < rightSideX);
+}
+
 - (void) refreshHillVertices {
 //  CCLOG(@"Terrain::refreshHillVertices");
-#ifdef DRAW_BOX2D_WORLD
-	return;
-#endif
+//#ifdef DRAW_BOX2D_WORLD
+//	return;
+//#endif
 	
 	static int prevFromKeyPointI = -1;
 	static int prevToKeyPointI = -1;
@@ -311,6 +402,10 @@
 	// adjust position for retina
 	leftSideX *= CC_CONTENT_SCALE_FACTOR();
 	rightSideX *= CC_CONTENT_SCALE_FACTOR();
+  
+//  CCLOG(@"leftSideX = %f", leftSideX);
+//  CCLOG(@"rightSideX = %f", rightSideX);
+//  CCLOG(@"_offsetX = %f", _offsetX);
 	
 	while (hillKeyPoints[fromKeyPointI+1].x < leftSideX) {
 		fromKeyPointI++;
@@ -326,7 +421,7 @@
 			break;
 		}
 	}
-	
+  
 	if (prevFromKeyPointI != fromKeyPointI || prevToKeyPointI != toKeyPointI) {
 		
 //		CCLOG(@"building hillVertices array for the visible area");
@@ -367,7 +462,7 @@
 			p0 = p1;
 		}
 		
-    CCLOG(@"nHillVertices = %d", nHillVertices);
+//    CCLOG(@"nHillVertices = %d", nHillVertices);
 		
 		prevFromKeyPointI = fromKeyPointI;
 		prevToKeyPointI = toKeyPointI;
@@ -375,7 +470,6 @@
 }
 
 - (void) setOffsetX:(float)offsetX {
-	static BOOL firstTime = YES;
 	if (_offsetX != offsetX || firstTime) {
 		firstTime = NO;
 		_offsetX = offsetX;
@@ -424,6 +518,7 @@
 	self.sprite = [self generateSprite];
 #endif
 	
+  firstTime = YES;
 	fromKeyPointI = 0;
 	toKeyPointI = 0;
 }

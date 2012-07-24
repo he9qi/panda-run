@@ -41,8 +41,7 @@
     
     // create sprite sheet
 		[[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"sprites.plist"];
-		CCSpriteBatchNode *batch = [[CCSpriteBatchNode alloc] initWithFile:@"sprites.png" capacity:50];
-		[self addChild:batch];
+		[[CCSpriteBatchNode alloc] initWithFile:@"sprites.png" capacity:50];
     
     // create the sprite
 		_sprite = [CCSprite spriteWithSpriteFrameName:@"panda_walk_2.png"];
@@ -55,6 +54,7 @@
 #endif
 		_body = NULL;
 		_radius = RADIUS_PANDA;
+    _energized = false;
     
 		_contactListener = new PandaContactListener(self);
 		_game.world->SetContactListener(_contactListener);
@@ -155,6 +155,10 @@
 	_body->CreateFixture(&fd);
 }
 
+- (void) energify {
+  _energized = TRUE;
+}
+
 - (void) sleep {
 	_awake = NO;
 	_body->SetActive(false);
@@ -198,6 +202,20 @@
 			_body->ApplyForce(b2Vec2(0,-40),_body->GetPosition());
 		}
 	}
+  
+  // apply force if panda is energized
+  if (_energized) {
+    
+    b2Vec2 vel = _body->GetLinearVelocity();
+    
+    float y = abs(vel.y)*kEnergyMagifySize;
+    float x = vel.x*kEnergyMagifySize/2;
+    
+    CCLOG(@"vel = %f, %f => %f, %f", vel.x, vel.y, x, y);
+    
+    _body->ApplyForce(b2Vec2(x, y),_body->GetPosition());
+    _energized = false;
+  }
 	
 	// limit velocity
 	const float minVelocityX = 3;
@@ -230,6 +248,13 @@
 #else
 	self.rotation = -1 * CC_RADIANS_TO_DEGREES(angle);
 #endif
+  
+  ccVertex2F tv = [_game.terrain getTempleBorderVertice]; 
+  
+  if (p.x > tv.x - kPandaReachTempleOffset) {
+    [self sleep];
+    [_game over];
+  }
   
   // there might be more than 1 contact, so need to 
   // traverse through to contact list
@@ -264,18 +289,7 @@
     UserData *sb = (UserData*) bodyB->GetUserData();    
     
     if (sa != nil && sb != nil) {
-      if([sa.name isEqualToString:@"Coin"] && [sb.name isEqualToString:@"Panda"]) {
-        _game.world->DestroyBody(bodyA);
-        id<ContactDelegate> cd = (id<ContactDelegate>)sa.ccObj;
-        [cd hideSprite];
-      }
-      else{
-        if (![sa.name isEqualToString:@"Terrain"]) {
-//          CCLOG(@"sa => %@ | sb => %@", sa.name, sb.name);
-        }
-      }
-      
-      if([sa.name isEqualToString:@"Panda"] || [sb.name isEqualToString:@"Panda"]){
+      if([sa isA:@"Terrain"] && [sb isA:@"Panda"]){
         if (_flying) {
           [self landed];
         }

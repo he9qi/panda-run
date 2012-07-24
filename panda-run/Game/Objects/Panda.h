@@ -12,6 +12,8 @@
 
 #define kPerfectTakeOffVelocityY 2.0f
 #define kMaxEnergy 100
+#define kEnergyMagifySize 25.0f
+#define kPandaReachTempleOffset 100.0f
 
 @class Game;
 class PandaContactListener;
@@ -38,6 +40,8 @@ typedef enum {
   
   CCRepeatForever *_walkForeverAction;
   CCRepeatForever *_rotateForeverAction;
+  
+  BOOL _energized;
 }
 
 @property (nonatomic, retain) Game *game;
@@ -51,6 +55,7 @@ typedef enum {
 - (id) initWithGame:(Game*)game;
 
 - (void) reset;
+- (void) energify;
 - (void) sleep;
 - (void) wake;
 - (void) updatePhysics;
