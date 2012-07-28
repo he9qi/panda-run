@@ -13,7 +13,7 @@
 #define kMaxHillVertices 2000
 #define kMaxBorderVertices 10000
 #define kHillSegmentWidth 15
-#define kTemplePositionOffset 12
+#define kTemplePositionOffset 39
 
 @interface Terrain : CCNode{
 	
@@ -31,6 +31,7 @@
   
   // border vertices - actual collision
 	ccVertex2F borderVertices[kMaxBorderVertices];
+  b2Vec2 borderNormals[kMaxBorderVertices];
 	int nBorderVertices;
   
   // sprite
@@ -54,6 +55,8 @@
 + (id) terrainWithWorld:(b2World*)w;
 - (id) initWithWorld:(b2World*)w;
 
+- (int)getNumBorderVertices;
+- (b2Vec2)getBorderNormalAt:(int)index;
 - (ccVertex2F)getBorderVerticeAt:(int)index;
 - (ccVertex2F)getHillKeyPointAt:(int)index;
 - (ccVertex2F)getTempleBorderVertice;

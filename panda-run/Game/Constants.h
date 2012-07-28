@@ -11,6 +11,15 @@
 #define IMAGE_HILL @"hill.png"
 #define IMAGE_TEMPLE @"temple.png"
 #define IMAGE_ENERGY @"energy.png"
+#define IMAGE_BUSH @"bush.png"
+#define IMAGE_TREE @"tree.png"
+#define IMAGE_GRASS @"grass.png"
+
+
+#define kCoinPositionYOffset 15.0f
+#define kBushPositionYOffset 1.0f
+#define kTerrainItemPositionYOffset 40.0f
+
 
 
 #define BG_MENU @"menu_background.png"
@@ -22,5 +31,5 @@
 
 #define LINEAR_VELOCITY_THRESHOLD 0.000001f
 
-#define TEXTURE_SIZE_SKY 1024
+#define TEXTURE_SIZE_SKY 2048
 #define TEXTURE_SIZE_MUD 1024

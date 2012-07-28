@@ -82,6 +82,7 @@
 	[self renderhill];
 	[self renderGradient];
 	[self renderHighlight];
+//  [self renderGrass];
 	[self renderTopBorder];
 	[self renderNoise];
 	[rt end];
@@ -208,16 +209,72 @@
 	glDrawArrays(GL_TRIANGLE_STRIP, 0, (GLsizei)nVertices);
 }
 
+- (void) renderGrass {
+  float borderWidth = 15.0f;
+  
+  ccVertex2F *vertices = (ccVertex2F*)malloc(sizeof(ccVertex2F)*6);
+	ccColor4F *colors = (ccColor4F*)malloc(sizeof(ccColor4F)*6);
+	int nVertices = 0;
+	
+	float x1, x2, y1, y2;
+	ccColor4F c;
+  
+  x1 = 0;
+  y1 = 0;
+  
+  x2 = (float)textureSize;
+  y2 = borderWidth;
+	
+  //sky color
+	ccColor3B cb = (ccColor3B){255,255,27};
+	c = ccc4FFromccc3B(cb);
+  
+  for (int k=0; k<6; k++) {
+    colors[nVertices+k] = c;
+  }
+  vertices[nVertices++] = (ccVertex2F){x1, y1}; //0, 0
+  vertices[nVertices++] = (ccVertex2F){x2, y1}; //512, 0
+  vertices[nVertices++] = (ccVertex2F){x1, y2}; //0, 512
+  
+  vertices[nVertices++] = (ccVertex2F){x1, y2}; //512, 0
+  vertices[nVertices++] = (ccVertex2F){x2, y1}; //512, 512
+  vertices[nVertices++] = (ccVertex2F){x2, y2}; //0, 512
+  
+  CCLOG(@"grass nVertices = %d", nVertices);
+  
+	// adjust vertices for retina
+	for (int i=0; i<nVertices; i++) {
+		vertices[i].x *= CC_CONTENT_SCALE_FACTOR();
+		vertices[i].y *= CC_CONTENT_SCALE_FACTOR();
+	}
+	
+	glDisable(GL_TEXTURE_2D);
+	glDisableClientState(GL_TEXTURE_COORD_ARRAY);
+	
+	glColor4f(0, 1, 0, 1);
+	glVertexPointer(2, GL_FLOAT, 0, vertices);
+	glColorPointer(4, GL_FLOAT, 0, colors);
+	glBlendFunc(GL_ONE, GL_ONE_MINUS_SRC_ALPHA);
+	glDrawArrays(GL_TRIANGLES, 0, (GLsizei)nVertices);
+	
+	free(vertices);
+	free(colors);
+
+}
+
 - (void) renderTopBorder {
 	
 	float borderAlpha = 0.5f;
 	float borderWidth = 2.0f;
 	
-	ccVertex2F vertices[2];
+	ccVertex2F vertices[4];
+  ccColor4F colors[4];
 	int nVertices = 0;
 	
-	vertices[nVertices++] = (ccVertex2F){0, borderWidth/2};
-	vertices[nVertices++] = (ccVertex2F){textureSize, borderWidth/2};
+	vertices[nVertices] = (ccVertex2F){0, borderWidth/2};
+	colors[nVertices++] = ccc4FFromccc3B(ccYELLOW); // yellow
+	vertices[nVertices] = (ccVertex2F){textureSize, borderWidth/2};
+	colors[nVertices++] = ccc4FFromccc3B(ccYELLOW); // yellow
 	
 	// adjust vertices for retina
 	for (int i=0; i<nVertices; i++) {
@@ -255,7 +312,7 @@
 	float sign = -1; // +1 - going up, -1 - going  down
 	float maxHeight = screenH - 150;
 	float minHeight = 60;
-	while (nHillKeyPoints < kMaxHillKeyPoints-3) { //save 3 for last finish points
+	while (nHillKeyPoints < kMaxHillKeyPoints-4) { //save 4 for last finish points
 		dx = arc4random()%rangeDX+minDX;
 		x += dx;
 		dy = arc4random()%rangeDY+minDY;
@@ -269,15 +326,19 @@
   
 	// finish point
 	x += minDX+rangeDX;
-	y = screenH - 200;
-	hillKeyPoints[nHillKeyPoints++] = (ccVertex2F){x, y};
-	
-	x += minDX+rangeDX;
-	y = screenH - 200;
+	y = screenH - 100;
 	hillKeyPoints[nHillKeyPoints++] = (ccVertex2F){x, y};
   
-	x += rangeDX;
-	y = screenH - 200;
+	x += minDX;
+	y = screenH - 100;
+	hillKeyPoints[nHillKeyPoints++] = (ccVertex2F){x, y};
+  
+	x += minDX;
+	y = 100;
+	hillKeyPoints[nHillKeyPoints++] = (ccVertex2F){x, y};
+  
+	x += 2*minDX;
+	y = 0;
 	hillKeyPoints[nHillKeyPoints++] = (ccVertex2F){x, y};
   
 	// adjust vertices for retina
@@ -305,6 +366,11 @@
 	[s visit];
 }
 
+- (b2Vec2)getBorderNormalAt:(int)index
+{
+  return borderNormals[index];
+}
+
 - (ccVertex2F)getBorderVerticeAt:(int)p{
   return borderVertices[p];
 }
@@ -320,6 +386,10 @@
 
 - (int)getTemplePostition{
   return nBorderVertices-kTemplePositionOffset;
+}
+
+- (int)getNumBorderVertices{
+  return nBorderVertices;
 }
 
 - (void) generateBorderVertices {
@@ -340,7 +410,15 @@
 		for (int j=1; j<hSegments+1; j++) {
 			pt1.x = p0.x + j*dx;
 			pt1.y = ymid + ampl * cosf(da*j);
+      
+      float dx = pt1.x-pt0.x;
+      float dy = pt1.y-pt0.y;
+      
+      borderNormals[nBorderVertices].x = dy;
+      borderNormals[nBorderVertices].y = -dx;
+      
 			borderVertices[nBorderVertices++] = pt1;
+      
 			pt0 = pt1;
 		}
 		

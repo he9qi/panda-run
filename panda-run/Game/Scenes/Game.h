@@ -20,12 +20,17 @@
 #import "Hill.h"
 #import "Temple.h"
 #import "Energy.h"
+#import "Bush.h"
 
 #define kVelocityIterations 8
 #define kPositionIterations 3
+
 #define kMaxCoins 101
 #define kMaxWoods 101
 #define kMaxEnergies 101
+#define kMaxBushes 101
+#define kMaxTerrainItems 101
+
 #define kTemplePositionYOffset 50.0f
 
 @interface Game : CCLayer{
@@ -37,9 +42,13 @@
 	Sky *_sky;
 	Terrain *_terrain;
   Panda *_panda;
+  
 	NSMutableArray *_coins;
 	NSMutableArray *_woods;
 	NSMutableArray *_energies;
+	NSMutableArray *_bushes;
+	NSMutableArray *_trees;
+	NSMutableArray *_grasses;
   
   Water *_water;
   Mud *_mud;
@@ -58,6 +67,9 @@
 @property (nonatomic, copy  ) NSMutableArray  *coins;
 @property (nonatomic, copy  ) NSMutableArray  *woods;
 @property (nonatomic, copy  ) NSMutableArray  *energies;
+@property (nonatomic, copy  ) NSMutableArray  *bushes;
+@property (nonatomic, copy  ) NSMutableArray  *trees;
+@property (nonatomic, copy  ) NSMutableArray  *grasses;
 
 
 + (CCScene*) scene;

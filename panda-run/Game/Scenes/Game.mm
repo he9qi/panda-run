@@ -10,6 +10,7 @@
 #import "Constants.h"
 #import "Box2DHelper.h"
 #import "CCAlertView.h"
+#import "TerrainImageItem.h"
 
 
 @interface Game()
@@ -24,8 +25,12 @@
 - (void) reset;
 @end
 
-static int coinIndices [kMaxCoins] = { 30, 33, 36, 39, 42, 70, 73, 76, 79 }; 
-static int energyIndices [kMaxEnergies] = { 2, 4, 10, 18, 20, 16 }; 
+static int coinIndices [kMaxCoins]        = { 30, 33, 36, 39, 42, 70, 73, 76, 79 }; 
+static int energyIndices [kMaxEnergies]   = { 2, 4, 10, 18, 20, 16 }; 
+static int bushIndices [kMaxBushes]       = { 15, 50, 70, 85, 95, 110, 135, 150, 165, 180, 199, 220, 240, 255, 280, 290, 301 };
+static int treeIndices [kMaxTerrainItems] = { 25, 35, 37, 60, 65, 80, 110, 140, 146, 170, 190, 210, 239, 278 };
+static int woodIndices [kMaxWoods]        = { 30, 40, 50, 60, 75, 85, 100, 200, 300 }; 
+static int grassIndices [kMaxWoods]        = { 1, 2, 3, 4, 5, 6, 7, 8 }; 
 
 @implementation Game
 
@@ -40,6 +45,9 @@ static int energyIndices [kMaxEnergies] = { 2, 4, 10, 18, 20, 16 };
 @synthesize mud     = _mud;
 @synthesize hill    = _hill;
 @synthesize energies= _energies;
+@synthesize bushes  = _bushes;
+@synthesize trees   = _trees;
+@synthesize grasses = _grasses;
 
 + (CCScene*) scene {
 	CCScene *scene = [CCScene node];
@@ -62,11 +70,24 @@ static int energyIndices [kMaxEnergies] = { 2, 4, 10, 18, 20, 16 };
     self.sky = [Sky skyWithTextureSize:TEXTURE_SIZE_SKY];
 		[self addChild:_sky];
     
-//    _hill = [Hill hillWithTextureSize:512];
-//    [self addChild:_hill];
+    _hill = [Hill hillWithTextureSize:1024];
+    [self addChild:_hill];
 #endif
     
 		self.terrain = [Terrain terrainWithWorld:_world];
+    
+    _bushes = [[NSMutableArray alloc] init];
+    [self addBushes:bushIndices];
+    
+    _trees = [[NSMutableArray alloc] init];
+    [self addImageItem:IMAGE_TREE At:treeIndices To:_trees];
+    
+    _woods = [[NSMutableArray alloc] init];
+    [self addImageItem:IMAGE_WOOD At:woodIndices To:_woods];
+    
+    _grasses = [[NSMutableArray alloc] init];
+    [self addGrasses];
+    
 		[self addChild:_terrain];
     
 		self.panda = [Panda heroWithGame:self];
@@ -75,8 +96,8 @@ static int energyIndices [kMaxEnergies] = { 2, 4, 10, 18, 20, 16 };
     _coins = [[NSMutableArray alloc] init];
     [self addCoins:coinIndices];
     
-    _mud = [Mud mudWithTextureSize:1024];
-    [self addChild:_mud];
+//    _mud = [Mud mudWithTextureSize:1024];
+//    [self addChild:_mud];
     
     ccVertex2F bp = [_terrain getBorderVerticeAt:[_terrain getTemplePostition]];
     CGPoint p = ccp(bp.x* [Box2DHelper pointsPerPixel], bp.y * [Box2DHelper pointsPerPixel]+kTemplePositionYOffset);
@@ -85,10 +106,6 @@ static int energyIndices [kMaxEnergies] = { 2, 4, 10, 18, 20, 16 };
     
     _energies = [[NSMutableArray alloc] init];
     [self addEnergies:energyIndices];
-    
-//    _woods = [[NSMutableArray alloc] init];
-//    ccVertex2F bp = [_terrain getBorderVerticeAt:20];
-//    CGPoint p = ccp(bp.x, bp.y + RADIUS_COIN + 30.0f);
 //
 //    BreakableWood *bw = [BreakableWood breakableWoodWithGame:self Position:p];
 //    [_woods addObject:bw];
@@ -159,6 +176,31 @@ static int energyIndices [kMaxEnergies] = { 2, 4, 10, 18, 20, 16 };
   return _screenW > 480;
 }
 
+- (void) addImageItem:(NSString *)name At:(int[])indices To:(NSMutableArray *)items
+{
+  for (int i=0; i<kMaxBushes; i++) {
+    if (indices[i]) {
+      [items addObject:(TerrainImageItem *)[TerrainImageItem createItemWithImage:name On:_terrain At:indices[i]]];
+    }
+  }
+}
+
+- (void) addGrasses{
+  for (int i=0; i<[_terrain getNumBorderVertices]; i++) {
+    if (i % 4 == 0) {
+      [_grasses addObject:(TerrainImageItem *)[TerrainImageItem createItemWithImage:IMAGE_GRASS On:_terrain At:i]];
+    }
+  }
+}
+
+- (void) addBushes:(int[])indices{
+  for (int i=0; i<kMaxBushes; i++) {
+    if (indices[i]) {
+      [_bushes addObject:(Bush *)[Bush createItemOn:_terrain At:indices[i]]];
+    }
+  }
+}
+
 - (void) addCoins:(int[])indices{
   for (int i=0; i<kMaxCoins; i++) {
     if (indices[i]) {
@@ -207,6 +249,9 @@ static int energyIndices [kMaxEnergies] = { 2, 4, 10, 18, 20, 16 };
   [self.energies release];
   self.energies = nil;
   
+  [self.grasses release];
+  self.grasses = nil;
+  
 	delete _world;
 	_world = NULL;
 }
@@ -235,15 +280,15 @@ static int energyIndices [kMaxEnergies] = { 2, 4, 10, 18, 20, 16 };
   
 #ifndef DRAW_BOX2D_WORLD
 	[_sky setScale:1.0f-(1.0f-scale)*0.75f];
-	[_hill setScale:1.0f-(1.0f-scale)*0.85f];
+	[_hill setScale:1.0f-(1.0f-scale)*0.95f];
 	[_mud setScale:1.0f-(1.0f-scale)];
 #endif
   
 //  if (![_terrain reachedEnd]) {
     _terrain.offsetX = _panda.position.x;
 #ifndef DRAW_BOX2D_WORLD
-    [_mud setOffsetX:_terrain.offsetX-5.0f];
-    [_hill setOffsetX:_terrain.offsetX];
+    [_mud setOffsetX:_terrain.offsetX];
+    [_hill setOffsetX:_terrain.offsetX*0.95f];
     [_sky setOffsetX:_terrain.offsetX*0.2f];
 #endif
 //  }

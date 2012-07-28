@@ -45,6 +45,7 @@
 - (void) dealloc {
   
 	self.game = nil;
+  self.sprite = nil;
   
   if ( _name ) { [_name release]; }
 

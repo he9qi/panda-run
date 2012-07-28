@@ -33,6 +33,16 @@
 	return self;
 }
 
++ (TTImageItem *)createItemOn:(CCNode *)terrain At:(int)index
+{
+  return nil;
+}
+
++ (TTImageItem *)createItemWithImage:(NSString *)imageName On:(CCNode *)terrain At:(int)index
+{
+  return nil;
+}
+
 - (void) dealloc {
   
 	//#ifndef DRAW_BOX2D_WORLD

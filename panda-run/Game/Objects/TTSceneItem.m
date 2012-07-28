@@ -3,7 +3,7 @@
 //  panda-run
 //
 //  Created by Qi He on 12-7-22.
-//  Copyright (c) 2012年 __MyCompanyName__. All rights reserved.
+//  Copyright (c) 2012年 Heyook. All rights reserved.
 //
 
 #import "TTSceneItem.h"
@@ -36,6 +36,7 @@
     _innerSprite = sprite;
     _color       = color;
     
+//    self.sprite = sprite;
     self.sprite  = [self generateSprite];
     
 		[self addChild:_sprite];
@@ -61,9 +62,9 @@
 	CCSprite *sprite = [CCSprite spriteWithTexture:texture rect:rect];
 	ccTexParams tp = {GL_NEAREST, GL_NEAREST, GL_REPEAT, GL_REPEAT};
 	[sprite.texture setTexParameters:&tp];
-	sprite.anchorPoint = ccp(1.0f/8.0f, 0);
-	sprite.position = ccp(screenW/8, 0);
-	
+	sprite.anchorPoint = ccp(0, 0);
+	sprite.flipY = YES;
+  
 	return sprite;
 }
 
@@ -73,9 +74,10 @@
 	
 	[_innerSprite setBlendFunc:(ccBlendFunc){GL_DST_COLOR, GL_ZERO}];
 	_innerSprite.position = ccp(textureSize/2, textureSize/2);
-	_innerSprite.scale = (float)textureSize/512.0f*CC_CONTENT_SCALE_FACTOR();
+	_innerSprite.scale = CC_CONTENT_SCALE_FACTOR();
   
-	glColor4f(1,1,1,1);
+	glColor4f(1,1,1,0);
+	glLineWidth(0.0f);
   
 	[_innerSprite visit];
 }

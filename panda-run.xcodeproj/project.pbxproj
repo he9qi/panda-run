@@ -182,7 +182,7 @@
 		775075BD1599DDD600E628B1 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 775075BC1599DDD600E628B1 /* QuartzCore.framework */; };
 		775075C61599EAAC00E628B1 /* Game.mm in Sources */ = {isa = PBXBuildFile; fileRef = 775075C51599EAAC00E628B1 /* Game.mm */; };
 		775075C91599F0DF00E628B1 /* Sky.m in Sources */ = {isa = PBXBuildFile; fileRef = 775075C81599F0DF00E628B1 /* Sky.m */; };
-		7775BCF415BC1DD2003A6190 /* TTImageItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 7775BCF315BC1DD2003A6190 /* TTImageItem.m */; };
+		7775BCF415BC1DD2003A6190 /* TTImageItem.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7775BCF315BC1DD2003A6190 /* TTImageItem.mm */; };
 		7775BCF815BC2200003A6190 /* TTSceneItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 7775BCF715BC2200003A6190 /* TTSceneItem.m */; };
 		7775BCFB15BD961E003A6190 /* TTConsumableItem.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7775BCFA15BD961D003A6190 /* TTConsumableItem.mm */; };
 		7775BCFE15BE2614003A6190 /* Energy.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7775BCFD15BE2614003A6190 /* Energy.mm */; };
@@ -190,6 +190,8 @@
 		7775BD0315BEBC11003A6190 /* CCAlertView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7775BD0215BEBC11003A6190 /* CCAlertView.mm */; };
 		7775BD0615BEBD89003A6190 /* CCMenuItemFontWithStroke.m in Sources */ = {isa = PBXBuildFile; fileRef = 7775BD0515BEBD89003A6190 /* CCMenuItemFontWithStroke.m */; };
 		7775BD0815BEC027003A6190 /* pause.png in Resources */ = {isa = PBXBuildFile; fileRef = 7775BD0715BEC027003A6190 /* pause.png */; };
+		7775BD0B15BFE120003A6190 /* Bush.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7775BD0A15BFE11E003A6190 /* Bush.mm */; };
+		7775BD1115C03ACD003A6190 /* TerrainImageItem.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7775BD1015C03ACB003A6190 /* TerrainImageItem.mm */; };
 		77818DE2159B0BF0001F3516 /* Terrain.mm in Sources */ = {isa = PBXBuildFile; fileRef = 77818DE1159B0BF0001F3516 /* Terrain.mm */; };
 		779A2F23159ED14D00BE1F75 /* UserData.mm in Sources */ = {isa = PBXBuildFile; fileRef = 779A2F22159ED14D00BE1F75 /* UserData.mm */; };
 		77B092B315A48009003BAE33 /* BreakableWood.mm in Sources */ = {isa = PBXBuildFile; fileRef = 77B092B215A48009003BAE33 /* BreakableWood.mm */; };
@@ -579,7 +581,7 @@
 		775075C71599F0DF00E628B1 /* Sky.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Sky.h; path = Objects/Sky.h; sourceTree = "<group>"; };
 		775075C81599F0DF00E628B1 /* Sky.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Sky.m; path = Objects/Sky.m; sourceTree = "<group>"; };
 		7775BCF215BC1DD2003A6190 /* TTImageItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TTImageItem.h; path = Objects/TTImageItem.h; sourceTree = "<group>"; };
-		7775BCF315BC1DD2003A6190 /* TTImageItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TTImageItem.m; path = Objects/TTImageItem.m; sourceTree = "<group>"; };
+		7775BCF315BC1DD2003A6190 /* TTImageItem.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = TTImageItem.mm; path = Objects/TTImageItem.mm; sourceTree = "<group>"; };
 		7775BCF615BC2200003A6190 /* TTSceneItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TTSceneItem.h; path = Objects/TTSceneItem.h; sourceTree = "<group>"; };
 		7775BCF715BC2200003A6190 /* TTSceneItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TTSceneItem.m; path = Objects/TTSceneItem.m; sourceTree = "<group>"; };
 		7775BCF915BD961C003A6190 /* TTConsumableItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TTConsumableItem.h; path = Objects/TTConsumableItem.h; sourceTree = "<group>"; };
@@ -592,6 +594,10 @@
 		7775BD0415BEBD89003A6190 /* CCMenuItemFontWithStroke.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CCMenuItemFontWithStroke.h; path = Helpers/CCMenuItemFontWithStroke.h; sourceTree = "<group>"; };
 		7775BD0515BEBD89003A6190 /* CCMenuItemFontWithStroke.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CCMenuItemFontWithStroke.m; path = Helpers/CCMenuItemFontWithStroke.m; sourceTree = "<group>"; };
 		7775BD0715BEC027003A6190 /* pause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pause.png; path = "panda-run/Images/pause.png"; sourceTree = SOURCE_ROOT; };
+		7775BD0915BFE11B003A6190 /* Bush.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Bush.h; path = Objects/Bush.h; sourceTree = "<group>"; };
+		7775BD0A15BFE11E003A6190 /* Bush.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = Bush.mm; path = Objects/Bush.mm; sourceTree = "<group>"; };
+		7775BD0F15C03AC9003A6190 /* TerrainImageItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TerrainImageItem.h; path = Objects/TerrainImageItem.h; sourceTree = "<group>"; };
+		7775BD1015C03ACB003A6190 /* TerrainImageItem.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = TerrainImageItem.mm; path = Objects/TerrainImageItem.mm; sourceTree = "<group>"; };
 		77818DE0159B0BF0001F3516 /* Terrain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Terrain.h; path = Objects/Terrain.h; sourceTree = "<group>"; };
 		77818DE1159B0BF0001F3516 /* Terrain.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = Terrain.mm; path = Objects/Terrain.mm; sourceTree = "<group>"; };
 		779A2F21159ED14C00BE1F75 /* UserData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserData.h; path = Objects/UserData.h; sourceTree = "<group>"; };
@@ -1278,13 +1284,17 @@
 				77F67A4B15BBE2AD000C2CA5 /* Temple.h */,
 				77F67A4C15BBE2AF000C2CA5 /* Temple.m */,
 				7775BCF215BC1DD2003A6190 /* TTImageItem.h */,
-				7775BCF315BC1DD2003A6190 /* TTImageItem.m */,
+				7775BCF315BC1DD2003A6190 /* TTImageItem.mm */,
 				7775BCF615BC2200003A6190 /* TTSceneItem.h */,
 				7775BCF715BC2200003A6190 /* TTSceneItem.m */,
 				7775BCF915BD961C003A6190 /* TTConsumableItem.h */,
 				7775BCFA15BD961D003A6190 /* TTConsumableItem.mm */,
 				7775BCFC15BE2613003A6190 /* Energy.h */,
 				7775BCFD15BE2614003A6190 /* Energy.mm */,
+				7775BD0915BFE11B003A6190 /* Bush.h */,
+				7775BD0A15BFE11E003A6190 /* Bush.mm */,
+				7775BD0F15C03AC9003A6190 /* TerrainImageItem.h */,
+				7775BD1015C03ACB003A6190 /* TerrainImageItem.mm */,
 			);
 			name = Objects;
 			sourceTree = "<group>";
@@ -1648,12 +1658,14 @@
 				77F67A3F15BABF11000C2CA5 /* Mud.m in Sources */,
 				77F67A4415BAFE1B000C2CA5 /* Hill.m in Sources */,
 				77F67A4D15BBE2B1000C2CA5 /* Temple.m in Sources */,
-				7775BCF415BC1DD2003A6190 /* TTImageItem.m in Sources */,
+				7775BCF415BC1DD2003A6190 /* TTImageItem.mm in Sources */,
 				7775BCF815BC2200003A6190 /* TTSceneItem.m in Sources */,
 				7775BCFB15BD961E003A6190 /* TTConsumableItem.mm in Sources */,
 				7775BCFE15BE2614003A6190 /* Energy.mm in Sources */,
 				7775BD0315BEBC11003A6190 /* CCAlertView.mm in Sources */,
 				7775BD0615BEBD89003A6190 /* CCMenuItemFontWithStroke.m in Sources */,
+				7775BD0B15BFE120003A6190 /* Bush.mm in Sources */,
+				7775BD1115C03ACD003A6190 /* TerrainImageItem.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

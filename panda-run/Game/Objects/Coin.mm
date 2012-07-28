@@ -21,7 +21,7 @@
 
 + (TTConsumableItem *)createItemTo:(Game *)game On:(Terrain *)terrain At:(int)index{
   ccVertex2F bp = [terrain getBorderVerticeAt:index];
-  CGPoint p = ccp(bp.x * [Box2DHelper pointsPerPixel], bp.y* [Box2DHelper pointsPerPixel] +kCoinsPositionYOffset);
+  CGPoint p = ccp(bp.x * [Box2DHelper pointsPerPixel], bp.y* [Box2DHelper pointsPerPixel] + kCoinPositionYOffset);
   
   Coin *coin = [Coin coinWithGame:game Position:p];
   

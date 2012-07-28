@@ -8,6 +8,9 @@
 
 #import "cocos2d.h"
 
+@class Terrain;
+@class Game;
+
 @interface TTImageItem : CCNode{
 	CCSprite *_sprite;      //texture image for item
 }
@@ -16,5 +19,8 @@
 
 + (id) itemWithSprite:(CCSprite *)sprite Position:(CGPoint)p;
 - (id) initWithSprite:(CCSprite *)sprite Position:(CGPoint)p;
+
++ (TTImageItem *)createItemOn:(CCNode *)terrain At:(int)index;
++ (TTImageItem *)createItemWithImage:(NSString *)imageName On:(CCNode *)terrain At:(int)index;
 
 @end

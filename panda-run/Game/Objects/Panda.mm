@@ -251,7 +251,7 @@
   
   ccVertex2F tv = [_game.terrain getTempleBorderVertice]; 
   
-  if (p.x > tv.x - kPandaReachTempleOffset) {
+  if( (tv.x - p.x)* CC_CONTENT_SCALE_FACTOR() < kPandaReachTempleOffset ) {
     [self sleep];
     [_game over];
   }

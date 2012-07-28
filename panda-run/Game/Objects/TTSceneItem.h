@@ -3,7 +3,7 @@
 //  panda-run
 //
 //  Created by Qi He on 12-7-22.
-//  Copyright (c) 2012年 __MyCompanyName__. All rights reserved.
+//  Copyright (c) 2012年 Heyook. All rights reserved.
 //
 
 #import "cocos2d.h"
