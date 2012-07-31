@@ -14,6 +14,12 @@
 #define IMAGE_BUSH @"bush.png"
 #define IMAGE_TREE @"tree.png"
 #define IMAGE_GRASS @"grass.png"
+#define IMAGE_LEAF @"leaf.png"
+#define IMAGE_SPRITE @"sprites.png"
+
+#define PLIST_SPRITE @"sprites.plist"
+
+#define ANGLE_TO_DEGREE 180/M_PI
 
 
 #define kCoinPositionYOffset 15.0f

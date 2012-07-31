@@ -20,10 +20,10 @@
   
   
   //TODO: offset is different for different image, will find a better way!
-  float offset = [sprite boundingBox].size.height / 8;
+  float offset = [sprite boundingBox].size.height / 20.0f;
   
   if( ![imageName isEqualToString:IMAGE_GRASS] ){
-    offset += offset * 4;
+    offset += [sprite boundingBox].size.height / 2.0f;
   }
   
   CGPoint newP = ccp(p.x, p.y+offset);

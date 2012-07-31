@@ -11,6 +11,7 @@
 #import "Box2DHelper.h"
 #import "CCAlertView.h"
 #import "TerrainImageItem.h"
+#import "TTSpriteItem.h"
 
 
 @interface Game()
@@ -28,7 +29,7 @@
 static int coinIndices [kMaxCoins]        = { 30, 33, 36, 39, 42, 70, 73, 76, 79 }; 
 static int energyIndices [kMaxEnergies]   = { 2, 4, 10, 18, 20, 16 }; 
 static int bushIndices [kMaxBushes]       = { 15, 50, 70, 85, 95, 110, 135, 150, 165, 180, 199, 220, 240, 255, 280, 290, 301 };
-static int treeIndices [kMaxTerrainItems] = { 25, 35, 37, 60, 65, 80, 110, 140, 146, 170, 190, 210, 239, 278 };
+static int treeIndices [kMaxTerrainItems] = { 25, 35, 37, 60, 65, 80, 110, 112, 114, 116, 120, 140, 146, 170, 190, 210, 239, 278 };
 static int woodIndices [kMaxWoods]        = { 30, 40, 50, 60, 75, 85, 100, 200, 300 }; 
 static int grassIndices [kMaxWoods]        = { 1, 2, 3, 4, 5, 6, 7, 8 }; 
 
@@ -106,6 +107,7 @@ static int grassIndices [kMaxWoods]        = { 1, 2, 3, 4, 5, 6, 7, 8 };
     
     _energies = [[NSMutableArray alloc] init];
     [self addEnergies:energyIndices];
+
 //
 //    BreakableWood *bw = [BreakableWood breakableWoodWithGame:self Position:p];
 //    [_woods addObject:bw];

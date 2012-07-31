@@ -10,6 +10,7 @@
 #import "Game.h"
 #import "SimpleAudioEngine.h"
 #import "Constants.h"
+#import "TTSpriteItem.h"
 
 @interface Menu()
 - (void)tapDownAt:(CGPoint)location;
@@ -40,10 +41,23 @@
 		[background.texture setTexParameters:&tp];
     
     // sprite sheet
-		[[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"sprites.plist"];
-		CCSpriteBatchNode *batch = [[CCSpriteBatchNode alloc] initWithFile:@"sprites.png" capacity:50];
-		[self addChild:batch];
-		
+		[[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:PLIST_SPRITE];
+    
+    batch = [CCSpriteBatchNode batchNodeWithFile:IMAGE_SPRITE capacity:50];
+		[self addChild:batch z:1 tag:GameSceneNodeTagSpritesBatch];
+    
+    
+    _leaves = [[NSMutableArray alloc] init];
+		// Create a number of leaves up front and re-use them whenever necessary.
+		for (int i = 0; i < kMaxLeaves; i++){
+			TTSpriteItem* si = [TTSpriteItem createSpriteItemWithName:IMAGE_LEAF];
+			[batch addChild:si z:1 tag:GameSceneNodeTagLeaf];
+      [_leaves addObject:si];
+      [si start];
+		}
+    
+    nextInactiveLeaf = 0;
+    
 		// sprites
 		CCSprite *sprite;
     
@@ -55,8 +69,21 @@
 		playButton = [sprite retain];
     
     [[SimpleAudioEngine sharedEngine] preloadEffect:@"click.caf"];
+    
   }
   return self;
+}
+
+- (void)dealloc
+{
+  playButton = nil;
+	tipsButton = nil;
+	quitButton = nil;
+  
+  batch = nil;
+	[_leaves release];
+  
+  [super dealloc];
 }
 
 - (void)registerWithTouchDispatcher {

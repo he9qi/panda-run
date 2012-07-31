@@ -9,10 +9,16 @@
 #import "cocos2d.h"
 #import "GLES-Render.h"
 
+#define kMaxLeaves 3
+
 @interface Menu : CCLayer {
   CCSprite *playButton;
 	CCSprite *tipsButton;
 	CCSprite *quitButton;
+  
+  CCSpriteBatchNode* batch;
+  int nextInactiveLeaf;
+	NSMutableArray *_leaves;
 }
 
 + (CCScene*) scene;

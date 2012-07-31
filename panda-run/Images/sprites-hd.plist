@@ -270,6 +270,25 @@
         <key>textureRotated</key>
         <false/>
       </dict>
+      <key>leaf.png</key>
+      <dict>
+        <key>aliases</key>
+        <array/>
+        <key>spriteColorRect</key>
+        <string>{{0, 1024}, {47, 47}}</string>
+        <key>spriteOffset</key>
+        <string>{0, 0}</string>
+        <key>spriteSize</key>
+        <string>{47, 47}</string>
+        <key>spriteSourceSize</key>
+        <string>{47, 47}</string>
+        <key>spriteTrimmed</key>
+        <true/>
+        <key>textureRect</key>
+        <string>{{470, 177}, {47, 47}}</string>
+        <key>textureRotated</key>
+        <false/>
+      </dict>
     </dict>
     <key>metadata</key>
     <dict>

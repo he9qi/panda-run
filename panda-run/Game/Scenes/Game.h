@@ -33,6 +33,13 @@
 
 #define kTemplePositionYOffset 50.0f
 
+typedef enum
+{
+	GameSceneNodeTagLeaf = 1,
+	GameSceneNodeTagSpritesBatch,
+	
+} GameSceneNodeTags;
+
 @interface Game : CCLayer{
   int _screenW;             //screen width
 	int _screenH;             //screen height
