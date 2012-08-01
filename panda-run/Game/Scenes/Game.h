@@ -36,6 +36,7 @@
 typedef enum
 {
 	GameSceneNodeTagLeaf = 1,
+	GameSceneNodeTagCloud = 1,
 	GameSceneNodeTagSpritesBatch,
 	
 } GameSceneNodeTags;

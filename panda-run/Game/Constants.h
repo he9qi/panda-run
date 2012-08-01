@@ -16,6 +16,10 @@
 #define IMAGE_GRASS @"grass.png"
 #define IMAGE_LEAF @"leaf.png"
 #define IMAGE_SPRITE @"sprites.png"
+#define IMAGE_CLOUD1 @"cloud1.png"
+#define IMAGE_CLOUD2 @"cloud2.png"
+#define IMAGE_CLOUD3 @"cloud3.png"
+
 
 #define PLIST_SPRITE @"sprites.plist"
 

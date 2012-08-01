@@ -16,7 +16,7 @@
 + (id) itemWithImage:(NSString *)imageName Position:(CGPoint)p Angle:(float)angle
 {
   CCSprite *sprite = [CCSprite spriteWithSpriteFrameName:imageName];
-  sprite.rotation = - angle * 180 / M_PI;
+  sprite.rotation = - angle * ANGLE_TO_DEGREE;
   
   
   //TODO: offset is different for different image, will find a better way!

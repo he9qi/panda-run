@@ -1,0 +1,15 @@
+//
+//  Cloud.h
+//  panda-run
+//
+//  Created by Qi He on 12-8-1.
+//  Copyright (c) 2012年 Heyook. All rights reserved.
+//
+
+#import "TTSpriteItem.h"
+
+@interface Cloud : TTSpriteItem
+
++ (Cloud *)createCloud;
+
+@end

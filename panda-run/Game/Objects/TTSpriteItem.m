@@ -21,6 +21,8 @@
 {
   if ((self = [super initWithSpriteFrameName:imageName]))
 	{
+    _screenWidth = [[CCDirector sharedDirector] winSize].width;
+    _screenHeight= [[CCDirector sharedDirector] winSize].height;
 	}
 	
 	return self;
@@ -33,13 +35,9 @@
 }
 
 - (void)reset
-{
-  float screenWidth = [[CCDirector sharedDirector] winSize].width;
-  float screenHeight= [[CCDirector sharedDirector] winSize].height;
-	
-  self.position = CGPointMake(screenWidth, (arc4random() % 5 * 0.1 + 0.25)*screenHeight );
-  
-  _timeCount = 0;
+{	
+  self.position = CGPointMake(_screenWidth, (arc4random() % 5 * 0.1 + 0.25) * _screenHeight );
+  _timeCount    = 0;
   _rotationRandomFactor = arc4random() % 10 * 0.1 + 0.5;
 }
 
@@ -50,7 +48,16 @@
 	[self scheduleUpdate];
 }
 
--(void) update:(ccTime)delta
+- (bool)isOutsideScreen
+{
+  return   
+      self.position.x > _screenWidth 
+   || self.position.x < 0
+   || self.position.y < 0
+   || self.position.y > _screenHeight;
+}
+
+- (void) update:(ccTime)delta
 {
   if (_timeCount == 20) {
     
@@ -73,11 +80,7 @@
   self.rotation = self.rotation + _rotationChange;
 	self.position = ccpAdd(self.position, self.velocity);
 	
-	if (   self.position.x > [[CCDirector sharedDirector] winSize].width 
-      || self.position.x < 0
-      || self.position.y < 0
-      || self.position.y > [[CCDirector sharedDirector] winSize].height )
-	{
+	if ( [self isOutsideScreen] ){
     [self reset];
 	}
 }

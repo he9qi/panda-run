@@ -11,6 +11,7 @@
 #import "SimpleAudioEngine.h"
 #import "Constants.h"
 #import "TTSpriteItem.h"
+#import "Cloud.h"
 
 @interface Menu()
 - (void)tapDownAt:(CGPoint)location;
@@ -47,16 +48,18 @@
 		[self addChild:batch z:1 tag:GameSceneNodeTagSpritesBatch];
     
     
-    _leaves = [[NSMutableArray alloc] init];
 		// Create a number of leaves up front and re-use them whenever necessary.
 		for (int i = 0; i < kMaxLeaves; i++){
 			TTSpriteItem* si = [TTSpriteItem createSpriteItemWithName:IMAGE_LEAF];
 			[batch addChild:si z:1 tag:GameSceneNodeTagLeaf];
-      [_leaves addObject:si];
       [si start];
 		}
     
-    nextInactiveLeaf = 0;
+    for (int i = 0; i < kMaxCloud; i++){
+			Cloud* cloud = [Cloud createCloud];
+			[batch addChild:cloud z:1 tag:GameSceneNodeTagCloud];
+      [cloud start];
+		}
     
 		// sprites
 		CCSprite *sprite;
@@ -81,7 +84,6 @@
 	quitButton = nil;
   
   batch = nil;
-	[_leaves release];
   
   [super dealloc];
 }

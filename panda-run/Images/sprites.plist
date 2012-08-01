@@ -289,6 +289,63 @@
 			<key>textureRotated</key>
 			<false/>
 		</dict>
+		<key>cloud1.png</key>
+		<dict>
+			<key>aliases</key>
+			<array/>
+			<key>spriteColorRect</key>
+			<string>{{0, 1024}, {60, 25}}</string>
+			<key>spriteOffset</key>
+			<string>{0, 0}</string>
+			<key>spriteSize</key>
+			<string>{60, 25}</string>
+			<key>spriteSourceSize</key>
+			<string>{60, 25}</string>
+			<key>spriteTrimmed</key>
+			<true/>
+			<key>textureRect</key>
+			<string>{{509, 0}, {60, 25}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		<key>cloud2.png</key>
+		<dict>
+			<key>aliases</key>
+			<array/>
+			<key>spriteColorRect</key>
+			<string>{{0, 1024}, {60, 32}}</string>
+			<key>spriteOffset</key>
+			<string>{0, 0}</string>
+			<key>spriteSize</key>
+			<string>{60, 32}</string>
+			<key>spriteSourceSize</key>
+			<string>{60, 32}</string>
+			<key>spriteTrimmed</key>
+			<true/>
+			<key>textureRect</key>
+			<string>{{509, 26}, {60, 32}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		<key>cloud3.png</key>
+		<dict>
+			<key>aliases</key>
+			<array/>
+			<key>spriteColorRect</key>
+			<string>{{0, 1024}, {60, 34}}</string>
+			<key>spriteOffset</key>
+			<string>{0, 0}</string>
+			<key>spriteSize</key>
+			<string>{60, 34}</string>
+			<key>spriteSourceSize</key>
+			<string>{60, 34}</string>
+			<key>spriteTrimmed</key>
+			<true/>
+			<key>textureRect</key>
+			<string>{{509, 65}, {60, 34}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
 	</dict>
 	<key>metadata</key>
 	<dict>

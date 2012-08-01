@@ -14,6 +14,8 @@
   float   _rotationChange;
   float   _rotationRandomFactor;
   int     _timeCount;
+  float   _screenWidth;
+  float   _screenHeight;
 }
 
 @property (readwrite, nonatomic) CGPoint velocity;
@@ -21,5 +23,6 @@
 + (TTSpriteItem *) createSpriteItemWithName:(NSString *)name;
 
 - (void) start;
+- (bool) isOutsideScreen;
 
 @end

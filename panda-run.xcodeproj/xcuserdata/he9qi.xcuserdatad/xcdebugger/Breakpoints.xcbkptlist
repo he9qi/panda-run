@@ -489,11 +489,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "panda-run/Game/Objects/TTSpriteItem.m"
-         timestampString = "365441064.776549"
+         timestampString = "365490380.773013"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "74"
-         endingLineNumber = "74"
+         startingLineNumber = "81"
+         endingLineNumber = "81"
          landmarkName = "-update:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -502,11 +502,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "panda-run/Game/Objects/TTSpriteItem.m"
-         timestampString = "365441064.776549"
+         timestampString = "365490380.773013"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "81"
-         endingLineNumber = "81"
+         startingLineNumber = "84"
+         endingLineNumber = "84"
          landmarkName = "-update:"
          landmarkType = "5">
       </FileBreakpoint>

@@ -183,6 +183,7 @@
 		775075C61599EAAC00E628B1 /* Game.mm in Sources */ = {isa = PBXBuildFile; fileRef = 775075C51599EAAC00E628B1 /* Game.mm */; };
 		775075C91599F0DF00E628B1 /* Sky.m in Sources */ = {isa = PBXBuildFile; fileRef = 775075C81599F0DF00E628B1 /* Sky.m */; };
 		7753394B15C6192D008BEAEF /* TTSpriteItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 7753394A15C6192D008BEAEF /* TTSpriteItem.m */; };
+		7753394F15C8E9A9008BEAEF /* Cloud.m in Sources */ = {isa = PBXBuildFile; fileRef = 7753394E15C8E9A9008BEAEF /* Cloud.m */; };
 		7775BCF415BC1DD2003A6190 /* TTImageItem.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7775BCF315BC1DD2003A6190 /* TTImageItem.mm */; };
 		7775BCF815BC2200003A6190 /* TTSceneItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 7775BCF715BC2200003A6190 /* TTSceneItem.m */; };
 		7775BCFB15BD961E003A6190 /* TTConsumableItem.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7775BCFA15BD961D003A6190 /* TTConsumableItem.mm */; };
@@ -583,6 +584,8 @@
 		775075C81599F0DF00E628B1 /* Sky.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Sky.m; path = Objects/Sky.m; sourceTree = "<group>"; };
 		7753394915C6192D008BEAEF /* TTSpriteItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TTSpriteItem.h; path = Objects/TTSpriteItem.h; sourceTree = "<group>"; };
 		7753394A15C6192D008BEAEF /* TTSpriteItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TTSpriteItem.m; path = Objects/TTSpriteItem.m; sourceTree = "<group>"; };
+		7753394D15C8E9A8008BEAEF /* Cloud.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Cloud.h; path = Objects/Cloud.h; sourceTree = "<group>"; };
+		7753394E15C8E9A9008BEAEF /* Cloud.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Cloud.m; path = Objects/Cloud.m; sourceTree = "<group>"; };
 		7775BCF215BC1DD2003A6190 /* TTImageItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TTImageItem.h; path = Objects/TTImageItem.h; sourceTree = "<group>"; };
 		7775BCF315BC1DD2003A6190 /* TTImageItem.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = TTImageItem.mm; path = Objects/TTImageItem.mm; sourceTree = "<group>"; };
 		7775BCF615BC2200003A6190 /* TTSceneItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TTSceneItem.h; path = Objects/TTSceneItem.h; sourceTree = "<group>"; };
@@ -1300,6 +1303,8 @@
 				7775BD1015C03ACB003A6190 /* TerrainImageItem.mm */,
 				7753394915C6192D008BEAEF /* TTSpriteItem.h */,
 				7753394A15C6192D008BEAEF /* TTSpriteItem.m */,
+				7753394D15C8E9A8008BEAEF /* Cloud.h */,
+				7753394E15C8E9A9008BEAEF /* Cloud.m */,
 			);
 			name = Objects;
 			sourceTree = "<group>";
@@ -1672,6 +1677,7 @@
 				7775BD0B15BFE120003A6190 /* Bush.mm in Sources */,
 				7775BD1115C03ACD003A6190 /* TerrainImageItem.mm in Sources */,
 				7753394B15C6192D008BEAEF /* TTSpriteItem.m in Sources */,
+				7753394F15C8E9A9008BEAEF /* Cloud.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
