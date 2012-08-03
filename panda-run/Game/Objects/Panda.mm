@@ -41,7 +41,7 @@
     
     // create sprite sheet
 		[[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"sprites.plist"];
-		[[CCSpriteBatchNode alloc] initWithFile:@"sprites.png" capacity:50];
+		[[CCSpriteBatchNode alloc] initWithFile:IMAGE_SPRITE capacity:50];
     
     // create the sprite
 		_sprite = [CCSprite spriteWithSpriteFrameName:@"panda_walk_2.png"];
@@ -251,7 +251,9 @@
   
   ccVertex2F tv = [_game.terrain getTempleBorderVertice]; 
   
-  if( (tv.x - p.x)* CC_CONTENT_SCALE_FACTOR() < kPandaReachTempleOffset ) {
+//  CCLOG(@"tv.x %f, p.x %f, factor %f", tv.x, p.x, CC_CONTENT_SCALE_FACTOR());
+  
+  if( (tv.x - p.x * CC_CONTENT_SCALE_FACTOR()) < kPandaReachTempleOffset ) {
     [self sleep];
     [_game over];
   }

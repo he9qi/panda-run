@@ -26,7 +26,7 @@
 #define ANGLE_TO_DEGREE 180/M_PI
 
 
-#define kCoinPositionYOffset 15.0f
+#define kCoinPositionYOffset 15.0f 
 #define kBushPositionYOffset 1.0f
 #define kTerrainItemPositionYOffset 40.0f
 
@@ -41,5 +41,6 @@
 
 #define LINEAR_VELOCITY_THRESHOLD 0.000001f
 
-#define TEXTURE_SIZE_SKY 2048
+#define TEXTURE_SIZE_SKY 1024
 #define TEXTURE_SIZE_MUD 1024
+#define TEXTURE_SIZE_HILL 1024

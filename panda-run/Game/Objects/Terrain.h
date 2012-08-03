@@ -12,8 +12,20 @@
 #define kMaxHillKeyPoints 30
 #define kMaxHillVertices 2000
 #define kMaxBorderVertices 10000
+#define kMaxTerrainItems 101
+
 #define kHillSegmentWidth 15
-#define kTemplePositionOffset 39
+
+#define kTemplePositionOffset 40 * CC_CONTENT_SCALE_FACTOR()
+
+typedef enum
+{
+	cTerrainImageItemTree,
+  cTerrainImageItemBush,
+	cTerrainImageItemWood,
+  cTerrainImageItemGrass
+  
+} cTerrainImageItem;
 
 @interface Terrain : CCNode{
 	
@@ -47,6 +59,7 @@
 	int screenH;
 	int textureSize;
 	float _offsetX;
+  
 }
 
 @property (nonatomic, retain) CCSprite *sprite;
@@ -62,7 +75,8 @@
 - (ccVertex2F)getTempleBorderVertice;
 
 - (int) getTemplePostition;
-- (bool)reachedEnd;
 - (void)reset;
+
+- (void)addImageItemWithType:(int)cType At:(int *)indices To:(NSMutableArray *)items;
 
 @end

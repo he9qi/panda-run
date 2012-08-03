@@ -51,10 +51,9 @@
 - (bool)isOutsideScreen
 {
   return   
-      self.position.x > _screenWidth 
-   || self.position.x < 0
-   || self.position.y < 0
-   || self.position.y > _screenHeight;
+//      self.position.x > _screenWidth 
+  self.position.x < 0 || self.position.y < 0;
+//   || self.position.y > _screenHeight;
 }
 
 - (void) update:(ccTime)delta

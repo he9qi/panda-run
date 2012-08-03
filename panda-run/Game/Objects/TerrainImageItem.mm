@@ -15,22 +15,21 @@
 
 + (id) itemWithImage:(NSString *)imageName Position:(CGPoint)p Angle:(float)angle
 {
+  return [self itemWithImage:imageName Position:p Angle:angle Offset:TERRAIN_IMAGE_OFFSET_FACTOR];
+}
+
++ (id) itemWithImage:(NSString *)imageName Position:(CGPoint)p Angle:(float)angle Offset:(float)offsetFactor
+{
   CCSprite *sprite = [CCSprite spriteWithSpriteFrameName:imageName];
   sprite.rotation = - angle * ANGLE_TO_DEGREE;
   
-  
-  //TODO: offset is different for different image, will find a better way!
-  float offset = [sprite boundingBox].size.height / 20.0f;
-  
-  if( ![imageName isEqualToString:IMAGE_GRASS] ){
-    offset += [sprite boundingBox].size.height / 2.0f;
-  }
+  float offset = [sprite boundingBox].size.height / offsetFactor;
   
   CGPoint newP = ccp(p.x, p.y+offset);
   return [[[self alloc] initWithSprite:sprite Position:newP] autorelease];
 }
 
-+ (TTImageItem *)createItemWithImage:(NSString *)imageName On:(CCNode *)terrain At:(int)index
++ (TTImageItem *)createItemWithImage:(NSString *)imageName On:(CCNode *)terrain At:(int)index Offset:(float)offsetFactor
 {
   ccVertex2F bp = [(Terrain*)terrain getBorderVerticeAt:index];
   CGPoint p = ccp(bp.x * [Box2DHelper pointsPerPixel], bp.y* [Box2DHelper pointsPerPixel]);
@@ -41,10 +40,15 @@
   b2Vec2 vertical; vertical.x = 0; vertical.y = 1;
   float angle = b2Cross(normal, vertical);
   
-  TerrainImageItem *tii = [TerrainImageItem itemWithImage:imageName Position:p Angle:angle];
+  TerrainImageItem *tii = [TerrainImageItem itemWithImage:imageName Position:p Angle:angle Offset:offsetFactor];
   [terrain addChild:tii z:-1];
   
   return tii;
+}
+
++ (TTImageItem *)createItemWithImage:(NSString *)imageName On:(CCNode *)terrain At:(int)index
+{
+  return [self createItemWithImage:imageName On:terrain At:index Offset:TERRAIN_IMAGE_OFFSET_FACTOR];
 }
 
 @end

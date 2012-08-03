@@ -4,355 +4,435 @@
 <dict>
 	<key>frames</key>
 	<dict>
-		<key>panda_walk_1.png</key>
-		<dict>
-			<key>aliases</key>
-			<array/>
-			<key>spriteColorRect</key>
-			<string>{{0, 0}, {32, 32}}</string>
-			<key>spriteOffset</key>
-			<string>{0, 0}</string>
-			<key>spriteSize</key>
-			<string>{32, 32}</string>
-			<key>spriteSourceSize</key>
-			<string>{32, 32}</string>
-			<key>spriteTrimmed</key>
-			<true/>
-			<key>textureRect</key>
-			<string>{{120, 210}, {32, 32}}</string>
-			<key>textureRotated</key>
-			<false/>
-		</dict>
-		<key>panda_walk_2.png</key>
-		<dict>
-			<key>aliases</key>
-			<array/>
-			<key>spriteColorRect</key>
-			<string>{{0, 100}, {32, 32}}</string>
-			<key>spriteOffset</key>
-			<string>{0, 0}</string>
-			<key>spriteSize</key>
-			<string>{32, 32}</string>
-			<key>spriteSourceSize</key>
-			<string>{32, 32}</string>
-			<key>spriteTrimmed</key>
-			<true/>
-			<key>textureRect</key>
-			<string>{{152, 177}, {32, 32}}</string>
-			<key>textureRotated</key>
-			<false/>
-		</dict>
-		<key>panda_walk_3.png</key>
-		<dict>
-			<key>aliases</key>
-			<array/>
-			<key>spriteColorRect</key>
-			<string>{{0, 1024}, {32, 32}}</string>
-			<key>spriteOffset</key>
-			<string>{0, 0}</string>
-			<key>spriteSize</key>
-			<string>{32, 32}</string>
-			<key>spriteSourceSize</key>
-			<string>{32, 32}</string>
-			<key>spriteTrimmed</key>
-			<true/>
-			<key>textureRect</key>
-			<string>{{120, 111}, {32, 32}}</string>
-			<key>textureRotated</key>
-			<false/>
-		</dict>
-		<key>panda_slide_1.png</key>
-		<dict>
-			<key>aliases</key>
-			<array/>
-			<key>spriteColorRect</key>
-			<string>{{0, 0}, {32, 32}}</string>
-			<key>spriteOffset</key>
-			<string>{0, 0}</string>
-			<key>spriteSize</key>
-			<string>{32, 32}</string>
-			<key>spriteSourceSize</key>
-			<string>{32, 32}</string>
-			<key>spriteTrimmed</key>
-			<true/>
-			<key>textureRect</key>
-			<string>{{120, 77}, {32, 32}}</string>
-			<key>textureRotated</key>
-			<false/>
-		</dict>
-		<key>panda_fly_1.png</key>
-		<dict>
-			<key>aliases</key>
-			<array/>
-			<key>spriteColorRect</key>
-			<string>{{0, 0}, {32, 32}}</string>
-			<key>spriteOffset</key>
-			<string>{0, 0}</string>
-			<key>spriteSize</key>
-			<string>{32, 32}</string>
-			<key>spriteSourceSize</key>
-			<string>{32, 32}</string>
-			<key>spriteTrimmed</key>
-			<true/>
-			<key>textureRect</key>
-			<string>{{152, 210}, {32, 32}}</string>
-			<key>textureRotated</key>
-			<false/>
-		</dict>
-		<key>play_button.png</key>
-		<dict>
-			<key>aliases</key>
-			<array/>
-			<key>spriteColorRect</key>
-			<string>{{0, 1024}, {120, 38}}</string>
-			<key>spriteOffset</key>
-			<string>{0, 0}</string>
-			<key>spriteSize</key>
-			<string>{120, 38}</string>
-			<key>spriteSourceSize</key>
-			<string>{120, 38}</string>
-			<key>spriteTrimmed</key>
-			<true/>
-			<key>textureRect</key>
-			<string>{{0, 78}, {120, 38}}</string>
-			<key>textureRotated</key>
-			<false/>
-		</dict>
-		<key>play_button_2.png</key>
-		<dict>
-			<key>aliases</key>
-			<array/>
-			<key>spriteColorRect</key>
-			<string>{{0, 1024}, {120, 38}}</string>
-			<key>spriteOffset</key>
-			<string>{0, 0}</string>
-			<key>spriteSize</key>
-			<string>{120, 38}</string>
-			<key>spriteSourceSize</key>
-			<string>{120, 38}</string>
-			<key>spriteTrimmed</key>
-			<true/>
-			<key>textureRect</key>
-			<string>{{0, 40}, {120, 38}}</string>
-			<key>textureRotated</key>
-			<false/>
-		</dict>
-		<key>temple.png</key>
-		<dict>
-			<key>aliases</key>
-			<array/>
-			<key>spriteColorRect</key>
-			<string>{{0, 1024}, {145, 104}}</string>
-			<key>spriteOffset</key>
-			<string>{0, 0}</string>
-			<key>spriteSize</key>
-			<string>{145, 104}</string>
-			<key>spriteSourceSize</key>
-			<string>{145, 104}</string>
-			<key>spriteTrimmed</key>
-			<true/>
-			<key>textureRect</key>
-			<string>{{356, 0}, {145, 104}}</string>
-			<key>textureRotated</key>
-			<false/>
-		</dict>
-		<key>energy.png</key>
-		<dict>
-			<key>aliases</key>
-			<array/>
-			<key>spriteColorRect</key>
-			<string>{{0, 1024}, {24, 24}}</string>
-			<key>spriteOffset</key>
-			<string>{0, 0}</string>
-			<key>spriteSize</key>
-			<string>{24, 24}</string>
-			<key>spriteSourceSize</key>
-			<string>{24, 24}</string>
-			<key>spriteTrimmed</key>
-			<true/>
-			<key>textureRect</key>
-			<string>{{332, 224}, {24, 24}}</string>
-			<key>textureRotated</key>
-			<false/>
-		</dict>
-		<key>coin.png</key>
-		<dict>
-			<key>aliases</key>
-			<array/>
-			<key>spriteColorRect</key>
-			<string>{{0, 1024}, {28, 28}}</string>
-			<key>spriteOffset</key>
-			<string>{0, 0}</string>
-			<key>spriteSize</key>
-			<string>{28, 28}</string>
-			<key>spriteSourceSize</key>
-			<string>{28, 28}</string>
-			<key>spriteTrimmed</key>
-			<true/>
-			<key>textureRect</key>
-			<string>{{332, 197}, {28, 28}}</string>
-			<key>textureRotated</key>
-			<false/>
-		</dict>
 		<key>bush.png</key>
 		<dict>
-			<key>aliases</key>
-			<array/>
-			<key>spriteColorRect</key>
-			<string>{{0, 1024}, {117, 55}}</string>
-			<key>spriteOffset</key>
-			<string>{0, 0}</string>
-			<key>spriteSize</key>
-			<string>{117, 55}</string>
-			<key>spriteSourceSize</key>
-			<string>{117, 55}</string>
-			<key>spriteTrimmed</key>
-			<true/>
-			<key>textureRect</key>
-			<string>{{413, 107}, {117, 55}}</string>
-			<key>textureRotated</key>
+			<key>frame</key>
+			<string>{{45,260},{117,55}}</string>
+			<key>offset</key>
+			<string>{0,0}</string>
+			<key>rotated</key>
 			<false/>
-		</dict>
-		<key>tree.png</key>
-		<dict>
-			<key>aliases</key>
-			<array/>
-			<key>spriteColorRect</key>
-			<string>{{0, 1024}, {54, 85}}</string>
-			<key>spriteOffset</key>
-			<string>{0, 0}</string>
-			<key>spriteSize</key>
-			<string>{54, 85}</string>
-			<key>spriteSourceSize</key>
-			<string>{54, 85}</string>
-			<key>spriteTrimmed</key>
-			<true/>
-			<key>textureRect</key>
-			<string>{{358, 128}, {54, 85}}</string>
-			<key>textureRotated</key>
-			<false/>
-		</dict>
-		<key>wood.png</key>
-		<dict>
-			<key>aliases</key>
-			<array/>
-			<key>spriteColorRect</key>
-			<string>{{0, 1024}, {54, 41}}</string>
-			<key>spriteOffset</key>
-			<string>{0, 0}</string>
-			<key>spriteSize</key>
-			<string>{54, 41}</string>
-			<key>spriteSourceSize</key>
-			<string>{54, 41}</string>
-			<key>spriteTrimmed</key>
-			<true/>
-			<key>textureRect</key>
-			<string>{{415, 168}, {54, 41}}</string>
-			<key>textureRotated</key>
-			<false/>
-		</dict>
-		<key>grass.png</key>
-		<dict>
-			<key>aliases</key>
-			<array/>
-			<key>spriteColorRect</key>
-			<string>{{0, 1024}, {100, 51}}</string>
-			<key>spriteOffset</key>
-			<string>{0, 0}</string>
-			<key>spriteSize</key>
-			<string>{100, 51}</string>
-			<key>spriteSourceSize</key>
-			<string>{100, 51}</string>
-			<key>spriteTrimmed</key>
-			<true/>
-			<key>textureRect</key>
-			<string>{{360, 226}, {100, 51}}</string>
-			<key>textureRotated</key>
-			<false/>
-		</dict>
-		<key>leaf.png</key>
-		<dict>
-			<key>aliases</key>
-			<array/>
-			<key>spriteColorRect</key>
-			<string>{{0, 1024}, {47, 47}}</string>
-			<key>spriteOffset</key>
-			<string>{0, 0}</string>
-			<key>spriteSize</key>
-			<string>{47, 47}</string>
-			<key>spriteSourceSize</key>
-			<string>{47, 47}</string>
-			<key>spriteTrimmed</key>
-			<true/>
-			<key>textureRect</key>
-			<string>{{471, 177}, {47, 47}}</string>
-			<key>textureRotated</key>
-			<false/>
+			<key>sourceColorRect</key>
+			<string>{{0,0},{117,55}}</string>
+			<key>sourceSize</key>
+			<string>{117,55}</string>
 		</dict>
 		<key>cloud1.png</key>
 		<dict>
-			<key>aliases</key>
-			<array/>
-			<key>spriteColorRect</key>
-			<string>{{0, 1024}, {60, 25}}</string>
-			<key>spriteOffset</key>
-			<string>{0, 0}</string>
-			<key>spriteSize</key>
-			<string>{60, 25}</string>
-			<key>spriteSourceSize</key>
-			<string>{60, 25}</string>
-			<key>spriteTrimmed</key>
+			<key>frame</key>
+			<string>{{45,424},{60,34}}</string>
+			<key>offset</key>
+			<string>{0,0}</string>
+			<key>rotated</key>
 			<true/>
-			<key>textureRect</key>
-			<string>{{509, 0}, {60, 25}}</string>
-			<key>textureRotated</key>
-			<false/>
+			<key>sourceColorRect</key>
+			<string>{{0,0},{60,34}}</string>
+			<key>sourceSize</key>
+			<string>{60,34}</string>
 		</dict>
 		<key>cloud2.png</key>
 		<dict>
-			<key>aliases</key>
-			<array/>
-			<key>spriteColorRect</key>
-			<string>{{0, 1024}, {60, 32}}</string>
-			<key>spriteOffset</key>
-			<string>{0, 0}</string>
-			<key>spriteSize</key>
-			<string>{60, 32}</string>
-			<key>spriteSourceSize</key>
-			<string>{60, 32}</string>
-			<key>spriteTrimmed</key>
+			<key>frame</key>
+			<string>{{81,424},{60,32}}</string>
+			<key>offset</key>
+			<string>{0,0}</string>
+			<key>rotated</key>
 			<true/>
-			<key>textureRect</key>
-			<string>{{509, 26}, {60, 32}}</string>
-			<key>textureRotated</key>
-			<false/>
+			<key>sourceColorRect</key>
+			<string>{{0,0},{60,32}}</string>
+			<key>sourceSize</key>
+			<string>{60,32}</string>
 		</dict>
 		<key>cloud3.png</key>
 		<dict>
-			<key>aliases</key>
-			<array/>
-			<key>spriteColorRect</key>
-			<string>{{0, 1024}, {60, 34}}</string>
-			<key>spriteOffset</key>
-			<string>{0, 0}</string>
-			<key>spriteSize</key>
-			<string>{60, 34}</string>
-			<key>spriteSourceSize</key>
-			<string>{60, 34}</string>
-			<key>spriteTrimmed</key>
-			<true/>
-			<key>textureRect</key>
-			<string>{{509, 65}, {60, 34}}</string>
-			<key>textureRotated</key>
+			<key>frame</key>
+			<string>{{45,370},{60,25}}</string>
+			<key>offset</key>
+			<string>{0,0}</string>
+			<key>rotated</key>
 			<false/>
+			<key>sourceColorRect</key>
+			<string>{{0,0},{60,25}}</string>
+			<key>sourceSize</key>
+			<string>{60,25}</string>
+		</dict>
+		<key>coin.png</key>
+		<dict>
+			<key>frame</key>
+			<string>{{217,454},{26,26}}</string>
+			<key>offset</key>
+			<string>{0,0}</string>
+			<key>rotated</key>
+			<false/>
+			<key>sourceColorRect</key>
+			<string>{{0,0},{26,26}}</string>
+			<key>sourceSize</key>
+			<string>{26,26}</string>
+		</dict>
+		<key>energy.png</key>
+		<dict>
+			<key>frame</key>
+			<string>{{45,486},{24,24}}</string>
+			<key>offset</key>
+			<string>{0,0}</string>
+			<key>rotated</key>
+			<false/>
+			<key>sourceColorRect</key>
+			<string>{{0,0},{24,24}}</string>
+			<key>sourceSize</key>
+			<string>{24,24}</string>
+		</dict>
+		<key>grass.png</key>
+		<dict>
+			<key>frame</key>
+			<string>{{45,317},{100,51}}</string>
+			<key>offset</key>
+			<string>{0,0}</string>
+			<key>rotated</key>
+			<false/>
+			<key>sourceColorRect</key>
+			<string>{{0,0},{100,51}}</string>
+			<key>sourceSize</key>
+			<string>{100,51}</string>
+		</dict>
+		<key>leaf.png</key>
+		<dict>
+			<key>frame</key>
+			<string>{{71,486},{23,24}}</string>
+			<key>offset</key>
+			<string>{0,0}</string>
+			<key>rotated</key>
+			<false/>
+			<key>sourceColorRect</key>
+			<string>{{0,0},{23,24}}</string>
+			<key>sourceSize</key>
+			<string>{23,24}</string>
+		</dict>
+		<key>menu_button_pressed.png</key>
+		<dict>
+			<key>frame</key>
+			<string>{{2,385},{123,41}}</string>
+			<key>offset</key>
+			<string>{0,0}</string>
+			<key>rotated</key>
+			<true/>
+			<key>sourceColorRect</key>
+			<string>{{0,0},{123,41}}</string>
+			<key>sourceSize</key>
+			<string>{123,41}</string>
+		</dict>
+		<key>menu_pressed.png</key>
+		<dict>
+			<key>frame</key>
+			<string>{{2,260},{123,41}}</string>
+			<key>offset</key>
+			<string>{0,0}</string>
+			<key>rotated</key>
+			<true/>
+			<key>sourceColorRect</key>
+			<string>{{0,0},{123,41}}</string>
+			<key>sourceSize</key>
+			<string>{123,41}</string>
+		</dict>
+		<key>panda_fly_1.png</key>
+		<dict>
+			<key>frame</key>
+			<string>{{164,460},{28,32}}</string>
+			<key>offset</key>
+			<string>{0,0}</string>
+			<key>rotated</key>
+			<false/>
+			<key>sourceColorRect</key>
+			<string>{{2,0},{28,32}}</string>
+			<key>sourceSize</key>
+			<string>{32,32}</string>
+		</dict>
+		<key>panda_slide_1.png</key>
+		<dict>
+			<key>frame</key>
+			<string>{{217,424},{28,28}}</string>
+			<key>offset</key>
+			<string>{-1,0}</string>
+			<key>rotated</key>
+			<false/>
+			<key>sourceColorRect</key>
+			<string>{{1,2},{28,28}}</string>
+			<key>sourceSize</key>
+			<string>{32,32}</string>
+		</dict>
+		<key>panda_walk_1.png</key>
+		<dict>
+			<key>frame</key>
+			<string>{{155,426},{32,32}}</string>
+			<key>offset</key>
+			<string>{0,0}</string>
+			<key>rotated</key>
+			<false/>
+			<key>sourceColorRect</key>
+			<string>{{0,0},{32,32}}</string>
+			<key>sourceSize</key>
+			<string>{32,32}</string>
+		</dict>
+		<key>panda_walk_2.png</key>
+		<dict>
+			<key>frame</key>
+			<string>{{189,424},{26,32}}</string>
+			<key>offset</key>
+			<string>{0,0}</string>
+			<key>rotated</key>
+			<false/>
+			<key>sourceColorRect</key>
+			<string>{{3,0},{26,32}}</string>
+			<key>sourceSize</key>
+			<string>{32,32}</string>
+		</dict>
+		<key>panda_walk_3.png</key>
+		<dict>
+			<key>frame</key>
+			<string>{{130,468},{32,32}}</string>
+			<key>offset</key>
+			<string>{0,0}</string>
+			<key>rotated</key>
+			<false/>
+			<key>sourceColorRect</key>
+			<string>{{0,0},{32,32}}</string>
+			<key>sourceSize</key>
+			<string>{32,32}</string>
+		</dict>
+		<key>play_button.png</key>
+		<dict>
+			<key>frame</key>
+			<string>{{2,217},{123,41}}</string>
+			<key>offset</key>
+			<string>{0,0}</string>
+			<key>rotated</key>
+			<false/>
+			<key>sourceColorRect</key>
+			<string>{{0,0},{123,41}}</string>
+			<key>sourceSize</key>
+			<string>{123,41}</string>
+		</dict>
+		<key>play_button_pressed.png</key>
+		<dict>
+			<key>frame</key>
+			<string>{{127,217},{123,41}}</string>
+			<key>offset</key>
+			<string>{0,0}</string>
+			<key>rotated</key>
+			<false/>
+			<key>sourceColorRect</key>
+			<string>{{0,0},{123,41}}</string>
+			<key>sourceSize</key>
+			<string>{123,41}</string>
+		</dict>
+		<key>quit_button.png</key>
+		<dict>
+			<key>frame</key>
+			<string>{{2,174},{123,41}}</string>
+			<key>offset</key>
+			<string>{0,0}</string>
+			<key>rotated</key>
+			<false/>
+			<key>sourceColorRect</key>
+			<string>{{0,0},{123,41}}</string>
+			<key>sourceSize</key>
+			<string>{123,41}</string>
+		</dict>
+		<key>quit_button_pressed.png</key>
+		<dict>
+			<key>frame</key>
+			<string>{{127,174},{123,41}}</string>
+			<key>offset</key>
+			<string>{0,0}</string>
+			<key>rotated</key>
+			<false/>
+			<key>sourceColorRect</key>
+			<string>{{0,0},{123,41}}</string>
+			<key>sourceSize</key>
+			<string>{123,41}</string>
+		</dict>
+		<key>restart_button.png</key>
+		<dict>
+			<key>frame</key>
+			<string>{{2,131},{123,41}}</string>
+			<key>offset</key>
+			<string>{0,0}</string>
+			<key>rotated</key>
+			<false/>
+			<key>sourceColorRect</key>
+			<string>{{0,0},{123,41}}</string>
+			<key>sourceSize</key>
+			<string>{123,41}</string>
+		</dict>
+		<key>restart_button_pressed.png</key>
+		<dict>
+			<key>frame</key>
+			<string>{{127,131},{123,41}}</string>
+			<key>offset</key>
+			<string>{0,0}</string>
+			<key>rotated</key>
+			<false/>
+			<key>sourceColorRect</key>
+			<string>{{0,0},{123,41}}</string>
+			<key>sourceSize</key>
+			<string>{123,41}</string>
+		</dict>
+		<key>resume_button.png</key>
+		<dict>
+			<key>frame</key>
+			<string>{{2,88},{123,41}}</string>
+			<key>offset</key>
+			<string>{0,0}</string>
+			<key>rotated</key>
+			<false/>
+			<key>sourceColorRect</key>
+			<string>{{0,0},{123,41}}</string>
+			<key>sourceSize</key>
+			<string>{123,41}</string>
+		</dict>
+		<key>resume_button_pressed.png</key>
+		<dict>
+			<key>frame</key>
+			<string>{{127,88},{123,41}}</string>
+			<key>offset</key>
+			<string>{0,0}</string>
+			<key>rotated</key>
+			<false/>
+			<key>sourceColorRect</key>
+			<string>{{0,0},{123,41}}</string>
+			<key>sourceSize</key>
+			<string>{123,41}</string>
+		</dict>
+		<key>stone.png</key>
+		<dict>
+			<key>frame</key>
+			<string>{{96,486},{32,17}}</string>
+			<key>offset</key>
+			<string>{0,0}</string>
+			<key>rotated</key>
+			<false/>
+			<key>sourceColorRect</key>
+			<string>{{0,0},{32,17}}</string>
+			<key>sourceSize</key>
+			<string>{32,17}</string>
+		</dict>
+		<key>temple-back.png</key>
+		<dict>
+			<key>frame</key>
+			<string>{{115,426},{38,40}}</string>
+			<key>offset</key>
+			<string>{0,0}</string>
+			<key>rotated</key>
+			<false/>
+			<key>sourceColorRect</key>
+			<string>{{0,0},{38,40}}</string>
+			<key>sourceSize</key>
+			<string>{38,40}</string>
+		</dict>
+		<key>temple.png</key>
+		<dict>
+			<key>frame</key>
+			<string>{{164,316},{106,76}}</string>
+			<key>offset</key>
+			<string>{0,0}</string>
+			<key>rotated</key>
+			<true/>
+			<key>sourceColorRect</key>
+			<string>{{0,0},{106,76}}</string>
+			<key>sourceSize</key>
+			<string>{106,76}</string>
+		</dict>
+		<key>tips_button.png</key>
+		<dict>
+			<key>frame</key>
+			<string>{{2,45},{123,41}}</string>
+			<key>offset</key>
+			<string>{0,0}</string>
+			<key>rotated</key>
+			<false/>
+			<key>sourceColorRect</key>
+			<string>{{0,0},{123,41}}</string>
+			<key>sourceSize</key>
+			<string>{123,41}</string>
+		</dict>
+		<key>tips_button_pressed.png</key>
+		<dict>
+			<key>frame</key>
+			<string>{{127,45},{123,41}}</string>
+			<key>offset</key>
+			<string>{0,0}</string>
+			<key>rotated</key>
+			<false/>
+			<key>sourceColorRect</key>
+			<string>{{0,0},{123,41}}</string>
+			<key>sourceSize</key>
+			<string>{123,41}</string>
+		</dict>
+		<key>tree.png</key>
+		<dict>
+			<key>frame</key>
+			<string>{{164,260},{54,85}}</string>
+			<key>offset</key>
+			<string>{0,0}</string>
+			<key>rotated</key>
+			<true/>
+			<key>sourceColorRect</key>
+			<string>{{0,0},{54,85}}</string>
+			<key>sourceSize</key>
+			<string>{54,85}</string>
+		</dict>
+		<key>try_again_button.png</key>
+		<dict>
+			<key>frame</key>
+			<string>{{2,2},{123,41}}</string>
+			<key>offset</key>
+			<string>{0,0}</string>
+			<key>rotated</key>
+			<false/>
+			<key>sourceColorRect</key>
+			<string>{{0,0},{123,41}}</string>
+			<key>sourceSize</key>
+			<string>{123,41}</string>
+		</dict>
+		<key>try_again_button_pressed.png</key>
+		<dict>
+			<key>frame</key>
+			<string>{{127,2},{123,41}}</string>
+			<key>offset</key>
+			<string>{0,0}</string>
+			<key>rotated</key>
+			<false/>
+			<key>sourceColorRect</key>
+			<string>{{0,0},{123,41}}</string>
+			<key>sourceSize</key>
+			<string>{123,41}</string>
+		</dict>
+		<key>wood.png</key>
+		<dict>
+			<key>frame</key>
+			<string>{{115,370},{54,41}}</string>
+			<key>offset</key>
+			<string>{0,0}</string>
+			<key>rotated</key>
+			<true/>
+			<key>sourceColorRect</key>
+			<string>{{0,0},{54,41}}</string>
+			<key>sourceSize</key>
+			<string>{54,41}</string>
 		</dict>
 	</dict>
 	<key>metadata</key>
 	<dict>
 		<key>format</key>
-		<integer>3</integer>
+		<integer>2</integer>
+		<key>realTextureFileName</key>
+		<string>sprites.png</string>
 		<key>size</key>
-		<string>{1024, 1024}</string>
+		<string>{256, 512}</string>
+		<key>smartupdate</key>
+		<string>$TexturePacker:SmartUpdate:52c11b9984372c3b830ce2ab578dc09f$</string>
+		<key>textureFileName</key>
+		<string>sprites.png</string>
 	</dict>
 </dict>
 </plist>

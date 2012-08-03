@@ -10,6 +10,7 @@
 #import "Constants.h"
 #import "Box2DHelper.h"
 #import "UserData.h"
+#import "TerrainImageItem.h"
 
 @interface Terrain()
 
@@ -385,7 +386,7 @@
 }
 
 - (int)getTemplePostition{
-  return nBorderVertices-kTemplePositionOffset;
+  return nBorderVertices - kTemplePositionOffset;
 }
 
 - (int)getNumBorderVertices{
@@ -450,17 +451,6 @@
   UserData *data = [[UserData alloc]initWithName:@"Terrain"];
   body->SetUserData(data);
 	body->CreateFixture(&shape, 0);
-}
-
-- (ccVertex2F)getEndPosition
-{
-  return hillKeyPoints[nHillKeyPoints-2];
-}
-
-- (bool)reachedEnd
-{
-  float rightSideX = _offsetX+screenW*7/8/self.scale;
-  return ([self getEndPosition].x < rightSideX);
 }
 
 - (void) refreshHillVertices {
@@ -599,6 +589,44 @@
   firstTime = YES;
 	fromKeyPointI = 0;
 	toKeyPointI = 0;
+}
+
+- (void)addImageItemWithType:(int)cType At:(int *)indices To:(NSMutableArray *)items
+{
+  for (int i=0; i < kMaxTerrainItems; i++) {
+    if (indices[i]) {
+      
+      int index = indices[i] * CC_CONTENT_SCALE_FACTOR();
+      
+      NSString *name;
+      float offsetFactor = TERRAIN_IMAGE_OFFSET_FACTOR;
+      
+      switch ( cType ) {
+        case cTerrainImageItemTree:
+          name = IMAGE_TREE;
+          offsetFactor = 2.25f + arc4random() % 10 * 0.1f;
+          break;
+        case cTerrainImageItemBush:
+          name = IMAGE_BUSH;
+          offsetFactor = 4.5f + arc4random() % 10 * 0.1f;
+          break;
+        case cTerrainImageItemWood:
+          name = IMAGE_WOOD;
+          offsetFactor = 3.75f + arc4random() % 10 * 0.1f;
+          break;
+        case cTerrainImageItemGrass:
+          name = IMAGE_GRASS;
+          offsetFactor = TERRAIN_IMAGE_OFFSET_FACTOR;
+          
+        default:
+          name = IMAGE_GRASS;
+          break;
+      }
+      
+      if (name == nil) { continue; }
+      [items addObject:(TerrainImageItem *)[TerrainImageItem createItemWithImage:name On:self At:index Offset:offsetFactor]];
+    }
+  }
 }
 
 

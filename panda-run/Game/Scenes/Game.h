@@ -25,18 +25,17 @@
 #define kVelocityIterations 8
 #define kPositionIterations 3
 
+#define kMaxCloud 3
 #define kMaxCoins 101
-#define kMaxWoods 101
 #define kMaxEnergies 101
-#define kMaxBushes 101
-#define kMaxTerrainItems 101
 
-#define kTemplePositionYOffset 50.0f
+#define kTemplePositionYOffset 38.0f
 
 typedef enum
 {
 	GameSceneNodeTagLeaf = 1,
-	GameSceneNodeTagCloud = 1,
+	GameSceneNodeTagCloud,
+	GameSceneNodeTagSky,
 	GameSceneNodeTagSpritesBatch,
 	
 } GameSceneNodeTags;
@@ -57,6 +56,7 @@ typedef enum
 	NSMutableArray *_bushes;
 	NSMutableArray *_trees;
 	NSMutableArray *_grasses;
+	NSMutableArray *_clouds;
   
   Water *_water;
   Mud *_mud;
@@ -78,6 +78,7 @@ typedef enum
 @property (nonatomic, copy  ) NSMutableArray  *bushes;
 @property (nonatomic, copy  ) NSMutableArray  *trees;
 @property (nonatomic, copy  ) NSMutableArray  *grasses;
+@property (nonatomic, copy  ) NSMutableArray  *clouds;
 
 
 + (CCScene*) scene;

@@ -7,6 +7,7 @@
 //
 
 #import "Box2DHelper.h"
+#import "Constants.h"
 
 @implementation Box2DHelper
 
@@ -53,7 +54,7 @@ static CCSpriteBatchNode * spriteBatch;
   if ( !spriteBatch ){
     // create sprite sheet
     [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"sprites.plist"];
-    spriteBatch = [[CCSpriteBatchNode alloc] initWithFile:@"sprites.png" capacity:50];
+    spriteBatch = [[CCSpriteBatchNode alloc] initWithFile:IMAGE_SPRITE capacity:50];
   }
   return spriteBatch;
 }

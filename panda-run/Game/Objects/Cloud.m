@@ -22,10 +22,10 @@ static NSString *clouds[NUM_CLOUDS] = {IMAGE_CLOUD1, IMAGE_CLOUD2, IMAGE_CLOUD3 
 
 - (void)reset
 {	
-  float x = cosf( arc4random() % 10 ) * 0.5f - 0.25f;
-  float h = (arc4random() % 10 * 0.05 + 0.8) * _screenHeight;
+  float x = cosf( arc4random() % 10 ) * 0.10f - 0.10f;
+  float h = (arc4random() % 5 * 0.025 + 0.8) * _screenHeight;
   
-  self.position = CGPointMake(_screenWidth, h );
+  self.position = CGPointMake(_screenWidth + arc4random() % 10 * 5, h );
   self.velocity = CGPointMake(x, 0);
   
   int randomIndex = arc4random() % NUM_CLOUDS;
