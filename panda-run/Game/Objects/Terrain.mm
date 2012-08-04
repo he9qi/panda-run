@@ -382,6 +382,7 @@
 
 - (ccVertex2F)getTempleBorderVertice
 {
+//  CCLOG(@"temple position = %d", [self getTemplePostition]);
   return [self getBorderVerticeAt:[self getTemplePostition]];
 }
 
@@ -589,6 +590,7 @@
   firstTime = YES;
 	fromKeyPointI = 0;
 	toKeyPointI = 0;
+  self.offsetX = 0;
 }
 
 - (void)addImageItemWithType:(int)cType At:(int *)indices To:(NSMutableArray *)items

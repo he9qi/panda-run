@@ -19,7 +19,7 @@
 
 @synthesize Message, SubMessage, Button1, Button2, button1Target, button1Selector, button2Target, button2Selector;
 
--(id) init  {
+- (id) initWithSprite:(CCSprite *)sprite {
   
   if((self = [super init]))
     
@@ -27,7 +27,7 @@
     self.isTouchEnabled = YES;
     
     //tODO
-		alertViewSprite = [CCSprite spriteWithFile:@"over.png"];
+		alertViewSprite = sprite;
 		[self addChild:alertViewSprite z:-1];
     
 		// 287X139
@@ -60,6 +60,12 @@
 		[alertMenu alignItemsHorizontallyWithPadding:10];
 		alertMenu.position = ccp(size.width/2, 0);
 		[alertViewSprite addChild:alertMenu];
+//    
+//    alertMenu = [CCMenu menuWithItems:Cancel, nil];
+//		alertMenu.anchorPoint = ccp(.5,0);
+//		[alertMenu alignItemsHorizontallyWithPadding:10];
+//		alertMenu.position = ccp(size.width/2+10, 0);
+//		[alertViewSprite addChild:alertMenu];
     
 		alertViewSprite.scale = .6;
 		alertViewSprite.opacity = 150;

@@ -39,4 +39,6 @@
 @property (nonatomic, retain) id button2Target;
 @property (nonatomic) SEL button2Selector;
 
+-(id) initWithSprite:(CCSprite *)sprite;
+
 @end

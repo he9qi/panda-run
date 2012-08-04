@@ -10,8 +10,9 @@
 #import "Game.h"
 #import "SimpleAudioEngine.h"
 #import "Constants.h"
-#import "TTSpriteItem.h"
+#import "Leaf.h"
 #import "Cloud.h"
+
 
 @interface Menu()
 - (void)tapDownAt:(CGPoint)location;
@@ -43,33 +44,51 @@
     
     // sprite sheet
 		[[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:PLIST_SPRITE];
-    
     batch = [CCSpriteBatchNode batchNodeWithFile:IMAGE_SPRITE capacity:50];
 		[self addChild:batch z:1 tag:GameSceneNodeTagSpritesBatch];
     
-    
 		// Create a number of leaves up front and re-use them whenever necessary.
-		for (int i = 0; i < kMaxLeaves; i++){
-			TTSpriteItem* si = [TTSpriteItem createSpriteItemWithName:IMAGE_LEAF];
-			[batch addChild:si z:1 tag:GameSceneNodeTagLeaf];
-      [si start];
-		}
+		[Leaf createLeavesTo:batch Count:kMaxLeaves Z:1 Tag:GameSceneNodeTagLeaf];
     
-    for (int i = 0; i < kMaxCloud; i++){
-			Cloud* cloud = [Cloud createCloud];
-			[batch addChild:cloud z:1 tag:GameSceneNodeTagCloud];
-      [cloud start];
-		}
+    // Create cloud
+    [Cloud createCloudsTo:batch Count:kMaxCloud Z:1 Tag:GameSceneNodeTagCloud]; 
     
 		// sprites
 		CCSprite *sprite;
     
-    sprite = [CCSprite spriteWithSpriteFrameName:@"play_button.png"];
-		sprite.position = ccp(sw/2+150, sh/2+10);
+    sprite = [CCSprite spriteWithSpriteFrameName:IMAGE_BUTTON_PLAY];
 		sprite.opacity = 0;
-		[sprite runAction:[CCFadeIn actionWithDuration:0.1f]];
-		[batch addChild:sprite];
-		playButton = [sprite retain];
+		[sprite runAction:[CCFadeIn actionWithDuration:0.25f]];
+    playButton = [CCMenuItemImage itemFromNormalSprite:sprite selectedSprite:[CCSprite spriteWithSpriteFrameName:IMAGE_BUTTON_PLAY_PRESSED] target:self selector:@selector(onPlayButtonClicked:)];
+    
+		sprite.opacity = 0;
+		[sprite runAction:[CCFadeIn actionWithDuration:0.25f]];
+    sprite = [CCSprite spriteWithSpriteFrameName:IMAGE_BUTTON_TIPS];
+    tipsButton = [CCMenuItemImage itemFromNormalSprite:sprite selectedSprite:[CCSprite spriteWithSpriteFrameName:IMAGE_BUTTON_TIPS_PRESSED] target:self selector:@selector(onTipsButtonClicked:)];
+    
+		sprite.opacity = 0;
+		[sprite runAction:[CCFadeIn actionWithDuration:0.25f]];
+    sprite = [CCSprite spriteWithSpriteFrameName:IMAGE_BUTTON_QUIT];
+    quitButton = [CCMenuItemImage itemFromNormalSprite:sprite selectedSprite:[CCSprite spriteWithSpriteFrameName:IMAGE_BUTTON_QUIT_PRESSED] target:self selector:@selector(onQuitButtonClicked:)];
+    
+    
+    int widthOffset = 3 * sw / 4;
+    int heightOffset = sh / 2 + sprite.contentSize.height/2;
+    
+    CCMenu *button = [CCMenu menuWithItems:playButton, nil];
+		button.anchorPoint = ccp(.5,0);
+		button.position = ccp(widthOffset, heightOffset);
+		[self addChild:button];
+    
+    button = [CCMenu menuWithItems:tipsButton, nil];
+		button.anchorPoint = ccp(.5,0);
+		button.position = ccp(widthOffset, heightOffset - (sprite.contentSize.height+5) );
+		[self addChild:button];
+    
+    button = [CCMenu menuWithItems:quitButton, nil];
+		button.anchorPoint = ccp(.5,0);
+		button.position = ccp(widthOffset, heightOffset - (sprite.contentSize.height+5) * 2);
+		[self addChild:button];
     
     [[SimpleAudioEngine sharedEngine] preloadEffect:@"click.caf"];
     
@@ -105,32 +124,47 @@
   [self tapUpAt:location];
 }
 
-- (bool)tapAtPlayButton:(CGSize)screenSize:(CGPoint)location{
-  // play button
-	CGRect rect = CGRectMake(screenSize.width/2+92, screenSize.height/2-8, 120, 38);
-	return CGRectContainsPoint(rect, location);
+
+- (void) onPlayButtonClicked:(id) sender {
+  [[CCDirector sharedDirector] pushScene:[Game scene]];	
 }
 
-- (void)tapDownAt:(CGPoint)location {
-	CCLOG(@"tapDown");
-	CGSize screenSize = [[CCDirector sharedDirector] winSize];
+- (void) onTipsButtonClicked:(id) sender {
+  
+}
 
-	if( [self tapAtPlayButton:screenSize:location] ) {
-		playButton.scale = 0.95f;
-		[[SimpleAudioEngine sharedEngine] playEffect:@"click.caf"];
-	}
+- (void) onQuitButtonClicked:(id) sender {
+  
+}
+
+
+
+//- (bool)tapAtPlayButton:(CGSize)screenSize:(CGPoint)location{
+//  // play button
+//	CGRect rect = CGRectMake(screenSize.width/2+92, screenSize.height/2-8, 120, 38);
+//	return CGRectContainsPoint(rect, location);
+//}
+
+- (void)tapDownAt:(CGPoint)location {
+//	CCLOG(@"tapDown");
+//	CGSize screenSize = [[CCDirector sharedDirector] winSize];
+//
+//	if( [self tapAtPlayButton:screenSize:location] ) {
+//		playButton.scale = 0.95f;
+//		[[SimpleAudioEngine sharedEngine] playEffect:@"click.caf"];
+//	}
   
 }
 
 - (void)tapUpAt:(CGPoint)location {
-	CCLOG(@"tapUp");
-	playButton.scale = 1.0f;
-  
-  CGSize screenSize = [[CCDirector sharedDirector] winSize];
-  
-	if( [self tapAtPlayButton:screenSize:location] ) {
-    [[CCDirector sharedDirector] pushScene:[Game scene]];	
-  }
+//	CCLOG(@"tapUp");
+//	playButton.scale = 1.0f;
+//  
+//  CGSize screenSize = [[CCDirector sharedDirector] winSize];
+//  
+//	if( [self tapAtPlayButton:screenSize:location] ) {
+//    [[CCDirector sharedDirector] pushScene:[Game scene]];	
+//  }
 }
 
 @end

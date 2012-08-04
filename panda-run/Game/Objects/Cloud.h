@@ -11,5 +11,6 @@
 @interface Cloud : TTSpriteItem
 
 + (Cloud *)createCloud;
++ (NSMutableArray *) createCloudsTo:(CCNode *)node Count:(int)count Z:(NSInteger)z Tag:(NSInteger)tag;
 
 @end

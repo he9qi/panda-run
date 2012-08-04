@@ -28,8 +28,14 @@
 #define kMaxCloud 3
 #define kMaxCoins 101
 #define kMaxEnergies 101
+#define kMaxLeaves 3
 
 #define kTemplePositionYOffset 38.0f
+#define kLeafZDepth 1002
+#define kMenuZDepth 1001
+#define kDimColorZDepth 1000
+
+#define kPauseButtonPadding 8
 
 typedef enum
 {
@@ -62,6 +68,11 @@ typedef enum
   Mud *_mud;
   Hill *_hill;
   Temple *_temple;
+  
+  CCMenuItemImage *pauseButton;
+  CCLayerColor* colorLayer;
+  
+  BOOL _isStarted;
 }
 
 @property (readonly) int screenW;
@@ -85,7 +96,5 @@ typedef enum
 - (void)pause;
 - (void)resume;
 - (void)over;
-
-- (void) onAlertButtonOK:(id) alertView;
 
 @end

@@ -9,15 +9,21 @@
 /* Begin PBXBuildFile section */
 		77466A39159C53E30063AF97 /* Panda.mm in Sources */ = {isa = PBXBuildFile; fileRef = 77466A38159C53E30063AF97 /* Panda.mm */; };
 		77466A3C159C58660063AF97 /* PandaContactListener.mm in Sources */ = {isa = PBXBuildFile; fileRef = 77466A3B159C58660063AF97 /* PandaContactListener.mm */; };
-		77466A3E159C5DE30063AF97 /* hero.png in Resources */ = {isa = PBXBuildFile; fileRef = 77466A3D159C5DE30063AF97 /* hero.png */; };
 		77466A45159D5F500063AF97 /* Coin.mm in Sources */ = {isa = PBXBuildFile; fileRef = 77466A44159D5F500063AF97 /* Coin.mm */; };
 		7749416D15ADA410005BBDA0 /* wood.png in Resources */ = {isa = PBXBuildFile; fileRef = 7749416C15ADA410005BBDA0 /* wood.png */; };
-		7749417015ADC88F005BBDA0 /* coin.png in Resources */ = {isa = PBXBuildFile; fileRef = 7749416F15ADC88F005BBDA0 /* coin.png */; };
-		7749417215ADC952005BBDA0 /* panda.png in Resources */ = {isa = PBXBuildFile; fileRef = 7749417115ADC952005BBDA0 /* panda.png */; };
 		7749417415AE63F3005BBDA0 /* broken_wood.png in Resources */ = {isa = PBXBuildFile; fileRef = 7749417315AE63F3005BBDA0 /* broken_wood.png */; };
 		774C919815CAD776005D6391 /* sprites-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 774C919715CAD775005D6391 /* sprites-hd.png */; };
 		774C919C15CB8624005D6391 /* over-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 774C919A15CB8621005D6391 /* over-hd.png */; };
 		774C919D15CB8624005D6391 /* pause-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 774C919B15CB8622005D6391 /* pause-hd.png */; };
+		774C91A015CB96B7005D6391 /* icon-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 774C919E15CB96B4005D6391 /* icon-hd.png */; };
+		774C91A115CB96B7005D6391 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 774C919F15CB96B5005D6391 /* icon.png */; };
+		774C91B315CC20E8005D6391 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 774C91B115CC20DE005D6391 /* Default.png */; };
+		774C91B415CC20E8005D6391 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 774C91B215CC20E1005D6391 /* Default@2x.png */; };
+		774C91B715CD1581005D6391 /* PauseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 774C91B615CD1580005D6391 /* PauseView.m */; };
+		774C91BA15CD1A9A005D6391 /* Leaf.m in Sources */ = {isa = PBXBuildFile; fileRef = 774C91B915CD1A99005D6391 /* Leaf.m */; };
+		774C91BD15CD22DF005D6391 /* CCLayer+Dimmable.m in Sources */ = {isa = PBXBuildFile; fileRef = 774C91BC15CD22DF005D6391 /* CCLayer+Dimmable.m */; };
+		774C91C015CD249F005D6391 /* CCLayer+Pausable.m in Sources */ = {isa = PBXBuildFile; fileRef = 774C91BF15CD249F005D6391 /* CCLayer+Pausable.m */; };
+		774C91C315CD6068005D6391 /* OverView.m in Sources */ = {isa = PBXBuildFile; fileRef = 774C91C215CD6067005D6391 /* OverView.m */; };
 		775073A41599DD1300E628B1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 775073A31599DD1300E628B1 /* UIKit.framework */; };
 		775073A61599DD1300E628B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 775073A51599DD1300E628B1 /* Foundation.framework */; };
 		775073A81599DD1300E628B1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 775073A71599DD1300E628B1 /* CoreGraphics.framework */; };
@@ -246,16 +252,27 @@
 		77466A38159C53E30063AF97 /* Panda.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = Panda.mm; path = Objects/Panda.mm; sourceTree = "<group>"; };
 		77466A3A159C58660063AF97 /* PandaContactListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PandaContactListener.h; path = Objects/PandaContactListener.h; sourceTree = "<group>"; };
 		77466A3B159C58660063AF97 /* PandaContactListener.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = PandaContactListener.mm; path = Objects/PandaContactListener.mm; sourceTree = "<group>"; };
-		77466A3D159C5DE30063AF97 /* hero.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = hero.png; path = "panda-run/Images/hero.png"; sourceTree = SOURCE_ROOT; };
 		77466A43159D5F500063AF97 /* Coin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Coin.h; path = Objects/Coin.h; sourceTree = "<group>"; };
 		77466A44159D5F500063AF97 /* Coin.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = Coin.mm; path = Objects/Coin.mm; sourceTree = "<group>"; };
 		7749416C15ADA410005BBDA0 /* wood.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = wood.png; path = "panda-run/Images/wood.png"; sourceTree = SOURCE_ROOT; };
-		7749416F15ADC88F005BBDA0 /* coin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = coin.png; path = "panda-run/Images/coin.png"; sourceTree = SOURCE_ROOT; };
-		7749417115ADC952005BBDA0 /* panda.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = panda.png; path = "panda-run/Images/panda.png"; sourceTree = SOURCE_ROOT; };
 		7749417315AE63F3005BBDA0 /* broken_wood.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = broken_wood.png; path = "panda-run/Images/broken_wood.png"; sourceTree = SOURCE_ROOT; };
 		774C919715CAD775005D6391 /* sprites-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "sprites-hd.png"; path = "panda-run/Images/sprites-hd.png"; sourceTree = SOURCE_ROOT; };
 		774C919A15CB8621005D6391 /* over-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "over-hd.png"; path = "panda-run/Images/over-hd.png"; sourceTree = SOURCE_ROOT; };
 		774C919B15CB8622005D6391 /* pause-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "pause-hd.png"; path = "panda-run/Images/pause-hd.png"; sourceTree = SOURCE_ROOT; };
+		774C919E15CB96B4005D6391 /* icon-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon-hd.png"; path = "panda-run/Images/icon-hd.png"; sourceTree = SOURCE_ROOT; };
+		774C919F15CB96B5005D6391 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon.png; path = "panda-run/Images/icon.png"; sourceTree = SOURCE_ROOT; };
+		774C91B115CC20DE005D6391 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = "panda-run/Images/Default.png"; sourceTree = SOURCE_ROOT; };
+		774C91B215CC20E1005D6391 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "panda-run/Images/Default@2x.png"; sourceTree = SOURCE_ROOT; };
+		774C91B515CD1580005D6391 /* PauseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PauseView.h; path = Scenes/PauseView.h; sourceTree = "<group>"; };
+		774C91B615CD1580005D6391 /* PauseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PauseView.m; path = Scenes/PauseView.m; sourceTree = "<group>"; };
+		774C91B815CD1A98005D6391 /* Leaf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Leaf.h; path = Objects/Leaf.h; sourceTree = "<group>"; };
+		774C91B915CD1A99005D6391 /* Leaf.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Leaf.m; path = Objects/Leaf.m; sourceTree = "<group>"; };
+		774C91BB15CD22DF005D6391 /* CCLayer+Dimmable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "CCLayer+Dimmable.h"; path = "Helpers/CCLayer+Dimmable.h"; sourceTree = "<group>"; };
+		774C91BC15CD22DF005D6391 /* CCLayer+Dimmable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "CCLayer+Dimmable.m"; path = "Helpers/CCLayer+Dimmable.m"; sourceTree = "<group>"; };
+		774C91BE15CD249F005D6391 /* CCLayer+Pausable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "CCLayer+Pausable.h"; path = "Helpers/CCLayer+Pausable.h"; sourceTree = "<group>"; };
+		774C91BF15CD249F005D6391 /* CCLayer+Pausable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "CCLayer+Pausable.m"; path = "Helpers/CCLayer+Pausable.m"; sourceTree = "<group>"; };
+		774C91C115CD6067005D6391 /* OverView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OverView.h; path = Scenes/OverView.h; sourceTree = "<group>"; };
+		774C91C215CD6067005D6391 /* OverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OverView.m; path = Scenes/OverView.m; sourceTree = "<group>"; };
 		7750739F1599DD1300E628B1 /* panda-run.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "panda-run.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		775073A31599DD1300E628B1 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		775073A51599DD1300E628B1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -1262,6 +1279,10 @@
 				77CD5FBB15AEC249004997F4 /* Menu.mm */,
 				7775BD0115BEBC11003A6190 /* CCAlertView.h */,
 				7775BD0215BEBC11003A6190 /* CCAlertView.mm */,
+				774C91B515CD1580005D6391 /* PauseView.h */,
+				774C91B615CD1580005D6391 /* PauseView.m */,
+				774C91C115CD6067005D6391 /* OverView.h */,
+				774C91C215CD6067005D6391 /* OverView.m */,
 			);
 			name = Scenes;
 			sourceTree = "<group>";
@@ -1311,6 +1332,8 @@
 				7753394A15C6192D008BEAEF /* TTSpriteItem.m */,
 				7753394D15C8E9A8008BEAEF /* Cloud.h */,
 				7753394E15C8E9A9008BEAEF /* Cloud.m */,
+				774C91B815CD1A98005D6391 /* Leaf.h */,
+				774C91B915CD1A99005D6391 /* Leaf.m */,
 			);
 			name = Objects;
 			sourceTree = "<group>";
@@ -1318,6 +1341,10 @@
 		775075CA1599F31A00E628B1 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				774C91B115CC20DE005D6391 /* Default.png */,
+				774C91B215CC20E1005D6391 /* Default@2x.png */,
+				774C919E15CB96B4005D6391 /* icon-hd.png */,
+				774C919F15CB96B5005D6391 /* icon.png */,
 				774C919A15CB8621005D6391 /* over-hd.png */,
 				774C919B15CB8622005D6391 /* pause-hd.png */,
 				774C919715CAD775005D6391 /* sprites-hd.png */,
@@ -1331,11 +1358,8 @@
 				77CD5FD615AFBF2A004997F4 /* mountain_bg.jpg */,
 				77CD5FBE15AECA66004997F4 /* menu_background.png */,
 				7749417315AE63F3005BBDA0 /* broken_wood.png */,
-				7749417115ADC952005BBDA0 /* panda.png */,
-				7749416F15ADC88F005BBDA0 /* coin.png */,
 				7749416C15ADA410005BBDA0 /* wood.png */,
 				77F67A4515BAFFCD000C2CA5 /* hill.png */,
-				77466A3D159C5DE30063AF97 /* hero.png */,
 				7775BCFF15BEAFDD003A6190 /* over.png */,
 				77CD5FDD15AFC043004997F4 /* sprites.plist */,
 				77F67A1615B408AD000C2CA5 /* sprites-hd.plist */,
@@ -1375,6 +1399,10 @@
 				77FC33DA15A57BCF00F0DF2E /* ContactDelegate.h */,
 				7775BD0415BEBD89003A6190 /* CCMenuItemFontWithStroke.h */,
 				7775BD0515BEBD89003A6190 /* CCMenuItemFontWithStroke.m */,
+				774C91BB15CD22DF005D6391 /* CCLayer+Dimmable.h */,
+				774C91BC15CD22DF005D6391 /* CCLayer+Dimmable.m */,
+				774C91BE15CD249F005D6391 /* CCLayer+Pausable.h */,
+				774C91BF15CD249F005D6391 /* CCLayer+Pausable.m */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -1455,11 +1483,8 @@
 				7750759B1599DD7700E628B1 /* LICENSE_CocosDenshion.txt in Resources */,
 				7750759C1599DD7700E628B1 /* LICENSE_FontLabel.txt in Resources */,
 				7750759D1599DD7700E628B1 /* LICENSE_TouchJSON.txt in Resources */,
-				77466A3E159C5DE30063AF97 /* hero.png in Resources */,
 				77F4003915A59CF0003E3232 /* README.md in Resources */,
 				7749416D15ADA410005BBDA0 /* wood.png in Resources */,
-				7749417015ADC88F005BBDA0 /* coin.png in Resources */,
-				7749417215ADC952005BBDA0 /* panda.png in Resources */,
 				7749417415AE63F3005BBDA0 /* broken_wood.png in Resources */,
 				77CD5FBF15AECA66004997F4 /* menu_background.png in Resources */,
 				77CD5FC915AED035004997F4 /* click.caf in Resources */,
@@ -1485,6 +1510,10 @@
 				774C919815CAD776005D6391 /* sprites-hd.png in Resources */,
 				774C919C15CB8624005D6391 /* over-hd.png in Resources */,
 				774C919D15CB8624005D6391 /* pause-hd.png in Resources */,
+				774C91A015CB96B7005D6391 /* icon-hd.png in Resources */,
+				774C91A115CB96B7005D6391 /* icon.png in Resources */,
+				774C91B315CC20E8005D6391 /* Default.png in Resources */,
+				774C91B415CC20E8005D6391 /* Default@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1690,6 +1719,11 @@
 				7775BD1115C03ACD003A6190 /* TerrainImageItem.mm in Sources */,
 				7753394B15C6192D008BEAEF /* TTSpriteItem.m in Sources */,
 				7753394F15C8E9A9008BEAEF /* Cloud.m in Sources */,
+				774C91B715CD1581005D6391 /* PauseView.m in Sources */,
+				774C91BA15CD1A9A005D6391 /* Leaf.m in Sources */,
+				774C91BD15CD22DF005D6391 /* CCLayer+Dimmable.m in Sources */,
+				774C91C015CD249F005D6391 /* CCLayer+Pausable.m in Sources */,
+				774C91C315CD6068005D6391 /* OverView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1780,6 +1814,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "panda-run/panda-run-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -1790,6 +1826,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
 				OTHER_LDFLAGS = "-lz";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				USER_HEADER_SEARCH_PATHS = "\"panda-run/libs\"";
 				WRAPPER_EXTENSION = app;
 			};
@@ -1799,6 +1837,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "panda-run/panda-run-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = NDEBUG;
@@ -1806,6 +1845,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
 				OTHER_LDFLAGS = "-lz";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				USER_HEADER_SEARCH_PATHS = "\"panda-run/libs\"";
 				WRAPPER_EXTENSION = app;
 			};

@@ -198,6 +198,7 @@
 		if (!_awake) {
 			[self wake];
 			_diving = NO;
+      _body->ApplyForce(b2Vec2(0,10),_body->GetPosition());
 		} else {
 			_body->ApplyForce(b2Vec2(0,-40),_body->GetPosition());
 		}
@@ -228,6 +229,7 @@
 		vel.y = minVelocityY;
 	}
 	_body->SetLinearVelocity(vel);
+//  CCLOG(@"final vel = %f, %f", vel.x, vel.y);
 }
 
 // update panda's position and rotation and check if there's collision

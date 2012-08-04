@@ -20,8 +20,27 @@
 #define IMAGE_CLOUD2 @"cloud2.png"
 #define IMAGE_CLOUD3 @"cloud3.png"
 
+#define IMAGE_OVER @"over.png"
+#define IMAGE_PAUSE @"pause.png"
 
 #define PLIST_SPRITE @"sprites.plist"
+
+#define IMAGE_BUTTON_PLAY @"play_button.png"
+#define IMAGE_BUTTON_PLAY_PRESSED @"play_button_pressed.png"
+#define IMAGE_BUTTON_RESUME @"resume_button.png"
+#define IMAGE_BUTTON_RESUME_PRESSED @"resume_button_pressed.png"
+#define IMAGE_BUTTON_RESTART @"restart_button.png"
+#define IMAGE_BUTTON_RESTART_PRESSED @"restart_button_pressed.png"
+#define IMAGE_BUTTON_MENU @"menu_button.png"
+#define IMAGE_BUTTON_MENU_PRESSED @"menu_button_pressed.png"
+#define IMAGE_BUTTON_QUIT @"quit_button.png"
+#define IMAGE_BUTTON_QUIT_PRESSED @"quit_button_pressed.png"
+#define IMAGE_BUTTON_TIPS @"tips_button.png"
+#define IMAGE_BUTTON_TIPS_PRESSED @"tips_button_pressed.png"
+#define IMAGE_BUTTON_PAUSE @"pause_button.png"
+#define IMAGE_BUTTON_PAUSE_PRESSED @"pause_button.png"
+#define IMAGE_BUTTON_TRY_AGAIN @"try_again_button.png"
+#define IMAGE_BUTTON_TRY_AGAIN_PRESSED @"try_again_button_pressed.png"
 
 #define ANGLE_TO_DEGREE 180/M_PI
 

@@ -9,10 +9,14 @@
 #import "Game.h"
 #import "Constants.h"
 #import "Box2DHelper.h"
-#import "CCAlertView.h"
+#import "PauseView.h"
 #import "TerrainImageItem.h"
 #import "TTSpriteItem.h"
 #import "Cloud.h"
+#import "Leaf.h"
+#import "OverView.h"
+#import "CCLayer+Dimmable.h"
+#import "CCLayer+Pausable.h"
 
 
 @interface Game()
@@ -32,7 +36,7 @@ static int energyIndices [kMaxTerrainItems] = { 2, 4, 10, 18, 20, 16 };
 static int bushIndices [kMaxTerrainItems]   = { 15, 50, 70, 85, 95, 110, 135, 150, 165, 180, 199, 220, 240, 255, 280, 290, 301 };
 static int treeIndices [kMaxTerrainItems]   = { 25, 35, 37, 60, 65, 80, 110, 112, 114, 116, 120, 140, 146, 170, 190, 210, 239, 278 };
 static int woodIndices [kMaxTerrainItems]   = { 30, 40, 50, 60, 75, 85, 100, 200, 300 }; 
-static int grassIndices [kMaxTerrainItems]  = { 1, 2, 3, 4, 5, 6, 7, 8 }; 
+static int grassIndices [kMaxTerrainItems]  = { }; 
 
 @implementation Game
 
@@ -89,7 +93,10 @@ static int grassIndices [kMaxTerrainItems]  = { 1, 2, 3, 4, 5, 6, 7, 8 };
     [_terrain addImageItemWithType:cTerrainImageItemWood At:woodIndices To:_woods];
     
     _grasses = [[NSMutableArray alloc] init];
-    [_terrain addImageItemWithType:cTerrainImageItemGrass At:grassIndices To:_grasses];
+    int templePosition  = [_terrain getTemplePostition] / CC_CONTENT_SCALE_FACTOR();
+    int indices[kMaxTerrainItems] = { templePosition-2, templePosition-0, templePosition + 2 };
+    
+    [_terrain addImageItemWithType:cTerrainImageItemGrass At:indices To:_grasses];
     
 		[self addChild:_terrain];
     
@@ -110,13 +117,7 @@ static int grassIndices [kMaxTerrainItems]  = { 1, 2, 3, 4, 5, 6, 7, 8 };
     _energies = [[NSMutableArray alloc] init];
     [self addEnergies:energyIndices];
     
-    _clouds = [[NSMutableArray alloc] init];
-    for (int i = 0; i < kMaxCloud; i++){
-			Cloud* cloud = [Cloud createCloud];
-			[self addChild:cloud z:-1 tag:GameSceneNodeTagCloud];
-      [cloud start];
-      [self.clouds addObject:cloud];
-		}
+    _clouds = [[Cloud createCloudsTo:self Count:kMaxCloud Z:-1 Tag:GameSceneNodeTagCloud] retain];
     
 
 //
@@ -134,6 +135,24 @@ static int grassIndices [kMaxTerrainItems]  = { 1, 2, 3, 4, 5, 6, 7, 8 };
 //    Water *water = [Water waterWithGame:self Position:p];
 //    [_terrain addChild:water];
     
+    //create pause button
+    
+    CCSprite *sprite;
+    
+    sprite = [CCSprite spriteWithSpriteFrameName:IMAGE_BUTTON_PAUSE];
+		sprite.opacity = 0;
+		[sprite runAction:[CCFadeIn actionWithDuration:0.1f]];
+    
+    pauseButton = [CCMenuItemImage itemFromNormalSprite:sprite selectedSprite:[CCSprite spriteWithSpriteFrameName:IMAGE_BUTTON_PAUSE_PRESSED] target:self selector:@selector(onPauseButtonClicked:)];
+    
+    CCMenu *gameMenu = [CCMenu menuWithItems:pauseButton, nil];
+		gameMenu.anchorPoint = ccp(.5,0);
+		gameMenu.position = ccp(_screenW-pauseButton.contentSize.width/2-kPauseButtonPadding, _screenH-pauseButton.contentSize.height/2-kPauseButtonPadding);
+		[self addChild:gameMenu];
+
+    [self dim];
+    
+    
 #ifdef __IPHONE_OS_VERSION_MAX_ALLOWED
 		self.isTouchEnabled = YES;
 #else
@@ -147,42 +166,91 @@ static int grassIndices [kMaxTerrainItems]  = { 1, 2, 3, 4, 5, 6, 7, 8 };
 	return self;
 }
 
-- (void)pause
-{
-  [self pauseSchedulerAndActions];
-  for(CCSprite *sprite in [self children]) {
-    [[CCActionManager sharedManager] pauseTarget:sprite];
-  }
-}
-
-- (void)resume
-{
-  [self resumeSchedulerAndActions];
-  for(CCSprite *sprite in [self children]) {
-    [[CCActionManager sharedManager] resumeTarget:sprite];
-  }
-}
-
 - (void)over
 {
-  [self pause];
-  CCAlertView *alertView = [[CCAlertView alloc] init];
-  alertView.isRelativeAnchorPoint = YES;
-  alertView.position = ccp(self.contentSize.width/2, self.contentSize.height/2);
-//  alertView.Message = @"Nice Job!!!";
-  alertView.SubMessage = @"Your panda has reached temple!!!.";
-  alertView.Button1 = @"OK";
-  alertView.button1Target = self;
-  alertView.button1Selector = @selector(onAlertButtonOK:);
+  [super pause];
+  [self dim];
   
-  [self addChild:alertView z:1001];
+  [Leaf createLeavesTo:self Count:kMaxLeaves Z:kLeafZDepth Tag:GameSceneNodeTagLeaf];
+  
+  OverView *overView = [[OverView alloc] init];
+  overView.isRelativeAnchorPoint = YES;
+  overView.position = ccp(self.contentSize.width/2, self.contentSize.height/2);
+  overView.tryAgainButtonTarget = self;
+  overView.tryAgainButtonSelector = @selector(onRestartButtonClicked:);
+  overView.menuButtonTarget = self;
+  overView.menuButtonSelector = @selector(onMenuButtonClicked:);
+  
+  [self addChild:overView z:kMenuZDepth];
+
 }
 
-- (void) onAlertButtonOK:(id) alertView // companion function for YES button
+- (void)pause
+{
+  [super pause];
+  [self dim];
+  
+  [Leaf createLeavesTo:self Count:kMaxLeaves Z:kLeafZDepth Tag:GameSceneNodeTagLeaf];
+  
+  PauseView *pauseView = [[PauseView alloc] init];
+  pauseView.isRelativeAnchorPoint = YES;
+  pauseView.position = ccp(self.contentSize.width/2, self.contentSize.height/2);
+  pauseView.resumeButtonTarget = self;
+  pauseView.resumeButtonSelector = @selector(onResumeButtonClicked:);
+  pauseView.restartButtonTarget = self;
+  pauseView.restartButtonSelector = @selector(onRestartButtonClicked:);
+  pauseView.menuButtonTarget = self;
+  pauseView.menuButtonSelector = @selector(onMenuButtonClicked:);
+  pauseView.quitButtonTarget = self;
+  pauseView.quitButtonSelector = @selector(onQuitButtonClicked:);
+  
+  [self addChild:pauseView z:kMenuZDepth];
+  
+}
+
+- (void) removeLeaves{
+  while (Leaf *leaf = (Leaf *)[self getChildByTag:GameSceneNodeTagLeaf]) {
+    [self removeChild:leaf cleanup:YES];
+  }
+}
+
+- (void) resume {
+  [self light];
+  [super resume];
+  [self removeLeaves];
+}
+
+- (void) onResumeButtonClicked:(id) sender
+{
+	// do something
+  [self resume];
+}
+
+- (void) onRestartButtonClicked:(id) sender 
+{
+	// do something
+  [self removeLeaves];
+  [self reset];
+  [self resume];
+}
+
+- (void) onQuitButtonClicked:(id) sender 
 {
 	// do something
   [[CCDirector sharedDirector] popScene];	
   [self reset];
+}
+
+- (void) onMenuButtonClicked:(id) sender 
+{
+	// do something
+  [[CCDirector sharedDirector] popScene];	
+  [self reset];
+}
+
+- (void) onPauseButtonClicked:(id) sender
+{
+  [self pause];
 }
 
 - (void) addCoins:(int *)indices{
@@ -217,6 +285,8 @@ static int grassIndices [kMaxTerrainItems]  = { 1, 2, 3, 4, 5, 6, 7, 8 };
   self.panda = nil;
   self.mud = nil;
   self.hill = nil;
+  
+  colorLayer = nil;
   
   /**
    When you add an object to an array, it calls retain on that object. 
@@ -324,19 +394,22 @@ static int grassIndices [kMaxTerrainItems]  = { 1, 2, 3, 4, 5, 6, 7, 8 };
 #endif
 
 - (BOOL) touchBeganAt:(CGPoint)location {
-//	CGPoint pos = _resetButton.position;
-//	CGSize size = _resetButton.contentSize;
-//	float padding = 8;
-//	float w = size.width+padding*2;
-//	float h = size.height+padding*2;
-//	CGRect rect = CGRectMake(pos.x-w/2, pos.y-h/2, w, h);
-//	if (CGRectContainsPoint(rect, location)) {
-//		[self reset];
-//	} else {
+	
+  if ( !_isStarted ) {
+    _isStarted = true;
+    [self light];
+    
+    _panda.diving = YES;
+    [_panda updatePhysics];
+    return YES;
+  }
+  
+  if ( [self isDimmed] ) return YES;
+  
   if ( [self isRunning] ) {
     _panda.diving = YES;
   }
-//	}
+
 	return YES;
 }
 
@@ -361,6 +434,8 @@ static int grassIndices [kMaxTerrainItems]  = { 1, 2, 3, 4, 5, 6, 7, 8 };
   
   for (Coin *coin in _coins) [coin reset];
   for (Energy *en in _energies) [en reset];
+  
+  _isStarted = false;
 }
 
 /**********  Box2D World Debug  ********/
