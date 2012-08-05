@@ -234,7 +234,6 @@
 		77F67A4115BAEBC4000C2CA5 /* mud.png in Resources */ = {isa = PBXBuildFile; fileRef = 77F67A4015BAEBC3000C2CA5 /* mud.png */; };
 		77F67A4415BAFE1B000C2CA5 /* Hill.m in Sources */ = {isa = PBXBuildFile; fileRef = 77F67A4315BAFE1A000C2CA5 /* Hill.m */; };
 		77F67A4615BAFFCF000C2CA5 /* hill.png in Resources */ = {isa = PBXBuildFile; fileRef = 77F67A4515BAFFCD000C2CA5 /* hill.png */; };
-		77F67A4D15BBE2B1000C2CA5 /* Temple.m in Sources */ = {isa = PBXBuildFile; fileRef = 77F67A4C15BBE2AF000C2CA5 /* Temple.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -668,8 +667,6 @@
 		77F67A4215BAFE19000C2CA5 /* Hill.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Hill.h; path = Objects/Hill.h; sourceTree = "<group>"; };
 		77F67A4315BAFE1A000C2CA5 /* Hill.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Hill.m; path = Objects/Hill.m; sourceTree = "<group>"; };
 		77F67A4515BAFFCD000C2CA5 /* hill.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = hill.png; path = "panda-run/Images/hill.png"; sourceTree = SOURCE_ROOT; };
-		77F67A4B15BBE2AD000C2CA5 /* Temple.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Temple.h; path = Objects/Temple.h; sourceTree = "<group>"; };
-		77F67A4C15BBE2AF000C2CA5 /* Temple.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Temple.m; path = Objects/Temple.m; sourceTree = "<group>"; };
 		77FC33DA15A57BCF00F0DF2E /* ContactDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ContactDelegate.h; path = Helpers/ContactDelegate.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -1312,8 +1309,6 @@
 				77F67A3E15BABF0F000C2CA5 /* Mud.m */,
 				77F67A4215BAFE19000C2CA5 /* Hill.h */,
 				77F67A4315BAFE1A000C2CA5 /* Hill.m */,
-				77F67A4B15BBE2AD000C2CA5 /* Temple.h */,
-				77F67A4C15BBE2AF000C2CA5 /* Temple.m */,
 				7775BCF215BC1DD2003A6190 /* TTImageItem.h */,
 				7775BCF315BC1DD2003A6190 /* TTImageItem.mm */,
 				7775BCF615BC2200003A6190 /* TTSceneItem.h */,
@@ -1715,7 +1710,6 @@
 				77F67A3715BA4799000C2CA5 /* CCTexture2DMutable.m in Sources */,
 				77F67A3F15BABF11000C2CA5 /* Mud.m in Sources */,
 				77F67A4415BAFE1B000C2CA5 /* Hill.m in Sources */,
-				77F67A4D15BBE2B1000C2CA5 /* Temple.m in Sources */,
 				7775BCF415BC1DD2003A6190 /* TTImageItem.mm in Sources */,
 				7775BCF815BC2200003A6190 /* TTSceneItem.m in Sources */,
 				7775BCFB15BD961E003A6190 /* TTConsumableItem.mm in Sources */,

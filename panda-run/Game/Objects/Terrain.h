@@ -9,14 +9,14 @@
 #import "cocos2d.h"
 #import "Box2D.h"
 
-#define kMaxHillKeyPoints 50
+#define kMaxHillKeyPoints 40
 #define kMaxHillVertices 2000
 #define kMaxBorderVertices 10000
 #define kMaxTerrainItems 101
 
 #define kHillSegmentWidth 15
 
-#define kTemplePositionOffset 40 * CC_CONTENT_SCALE_FACTOR()
+#define kTemplePositionOffset 110 * CC_CONTENT_SCALE_FACTOR()
 #define kTemplePositionYOffset 1.50f
 
 typedef enum
@@ -71,6 +71,8 @@ typedef enum
 - (id) initWithWorld:(b2World*)w;
 
 - (int)getNumBorderVertices;
+- (int)getNumHilKeyPoints;
+
 - (b2Vec2)getBorderNormalAt:(int)index;
 - (ccVertex2F)getBorderVerticeAt:(int)index;
 - (ccVertex2F)getHillKeyPointAt:(int)index;

@@ -28,9 +28,6 @@
 - (void) reset;
 @end
 
-static int coinIndices [kMaxTerrainItems]   = { 30, 33, 36, 39, 42, 70, 73, 76, 79 }; 
-static int energyIndices [kMaxTerrainItems] = { 4, 10, 18, 20, 16 }; 
-
 @implementation Game
 
 @synthesize screenW = _screenW;
@@ -86,8 +83,8 @@ static int energyIndices [kMaxTerrainItems] = { 4, 10, 18, 20, 16 };
     int templePosition  = [_terrain getTemplePostition] / CC_CONTENT_SCALE_FACTOR();
     
     for (int i = 10; i < [_terrain getNumBorderVertices]; i++) {
-      if (i%3 == 0) { continue; }
-      switch ( arc4random() % 10 ) {
+      if (i%2 == 0) { continue; }
+      switch ( arc4random() % 15 ) {
         case cTerrainImageItemTree:
           [_terrain addImageItemWithType:cTerrainImageItemTree At:i To:_trees];
           break;
@@ -105,10 +102,13 @@ static int energyIndices [kMaxTerrainItems] = { 4, 10, 18, 20, 16 };
       }
     }
     
+    //temple
     [_terrain addImageItemWithType:cTerrainImageItemTemple At:templePosition To:nil];
     
-    int indices[kMaxTerrainItems] = { templePosition-2, templePosition-0, templePosition + 2 };
-    [_terrain addImageItemsWithType:cTerrainImageItemGrass At:indices To:_grasses];
+    //grass
+    for (int i = templePosition-4; i < [_terrain getNumBorderVertices] ; i+=2) {
+      [_terrain addImageItemWithType:cTerrainImageItemGrass At:i To:_grasses];
+    }
     
 		[self addChild:_terrain];
     
@@ -117,18 +117,30 @@ static int energyIndices [kMaxTerrainItems] = { 4, 10, 18, 20, 16 };
     
     /*************** BUILD TERRAIN END ***************/
     
-    
     _coins = [[NSMutableArray alloc] init];
-    [self addCoins:coinIndices];
+    for (int i=30; i<templePosition-30; i++) {
+      int max = arc4random()%20;
+      if( max % 4 == 0) {
+        for (int k=0; k<max; k+=3) {
+          [_coins addObject:(Coin *)[Coin createItemTo:self On:_terrain At:(i+k) * CC_CONTENT_SCALE_FACTOR()]];
+        }
+      }
+      i = i + max;
+    }
+
+    _energies = [[NSMutableArray alloc] init];
+    for (int i=2; i< [_terrain getNumHilKeyPoints]-2; i+=2) {
+      if( arc4random() % 3 == 1) {
+        [_energies addObject:(Energy *)[Energy createItemTo:self On:_terrain At:i]];
+      }
+    }
+    
+    //Clouds
+    _clouds = [[Cloud createCloudsTo:self Count:kMaxCloud Z:-1 Tag:GameSceneNodeTagCloud] retain];
+    
     
 //    _mud = [Mud mudWithTextureSize:1024];
 //    [self addChild:_mud];
-
-    _energies = [[NSMutableArray alloc] init];
-    [self addEnergies:energyIndices];
-    
-    _clouds = [[Cloud createCloudsTo:self Count:kMaxCloud Z:-1 Tag:GameSceneNodeTagCloud] retain];
-    
 //
 //    BreakableWood *bw = [BreakableWood breakableWoodWithGame:self Position:p];
 //    [_woods addObject:bw];
@@ -161,7 +173,7 @@ static int energyIndices [kMaxTerrainItems] = { 4, 10, 18, 20, 16 };
     
     score = 0;
     scoreLabel = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d", score] fontName:kFontName fontSize:30];
-    scoreLabel.position = ccp(scoreLabel.contentSize.width+kPauseButtonPadding, scoreLabel.contentSize.height+kPauseButtonPadding);
+    scoreLabel.position = ccp(scoreLabel.contentSize.width+kScoreLabelPadding, scoreLabel.contentSize.height+kScoreLabelPadding);
     [self addChild:scoreLabel];
 
     [self dim];

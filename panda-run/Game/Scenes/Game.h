@@ -18,7 +18,6 @@
 #import "Water.h"
 #import "Mud.h"
 #import "Hill.h"
-#import "Temple.h"
 #import "Energy.h"
 #import "Bush.h"
 
@@ -38,6 +37,7 @@
 #define kDimColorZDepth 1000
 
 #define kPauseButtonPadding 8
+#define kScoreLabelPadding 12
 
 typedef enum
 {
@@ -70,7 +70,6 @@ typedef enum
   Water *_water;
   Mud *_mud;
   Hill *_hill;
-  Temple *_temple;
   
   CCMenuItemImage *pauseButton;
   CCLayerColor* colorLayer;

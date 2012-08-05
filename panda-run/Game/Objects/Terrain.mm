@@ -276,19 +276,19 @@
   
 	// finish point
 	x += minDX+rangeDX;
-	y = screenH - 100;
+	y = minHeight;
 	hillKeyPoints[nHillKeyPoints++] = (ccVertex2F){x, y};
   
 	x += minDX;
-	y = screenH - 100;
+	y = minHeight + rangeDY;
 	hillKeyPoints[nHillKeyPoints++] = (ccVertex2F){x, y};
   
 	x += minDX;
-	y = 100;
+	y = minHeight + rangeDY;
 	hillKeyPoints[nHillKeyPoints++] = (ccVertex2F){x, y};
   
-	x += 2*minDX;
-	y = 0;
+	x += 10*minDX;
+	y = minHeight + rangeDY;
 	hillKeyPoints[nHillKeyPoints++] = (ccVertex2F){x, y};
   
 	// adjust vertices for retina
@@ -327,6 +327,10 @@
 
 - (ccVertex2F)getHillKeyPointAt:(int)p{
   return hillKeyPoints[p];
+}
+
+- (int)getNumHilKeyPoints{
+  return nHillKeyPoints;
 }
 
 - (ccVertex2F)getTempleBorderVertice
@@ -585,8 +589,7 @@
 }
 
 
-- (void)addImageItemsWithType:(int)cType At:(int *)indices To:(NSMutableArray *)items
-{
+- (void)addImageItemsWithType:(int)cType At:(int *)indices To:(NSMutableArray *)items{
   for (int i=0; i < kMaxTerrainItems; i++) {
     if (indices[i]) {
       [self addImageItemWithType:cType At:indices[i] To:items];
