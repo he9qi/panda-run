@@ -52,7 +52,9 @@
 		[self createBox2DBody];
     
     firstTime = YES;
-		self.offsetX = 0;
+    fromKeyPointI = 0;
+    toKeyPointI = 0;
+    self.offsetX = 0;
 	}
 	return self;
 }
@@ -121,7 +123,7 @@
   vertices[nVertices++] = (ccVertex2F){x2, (float)textureSize}; //512, 512
   vertices[nVertices++] = (ccVertex2F){x1, (float)textureSize}; //0, 512
   
-  CCLOG(@"nVertices = %d", nVertices);
+  CCLOG(@"Render hill nVertices = %d", nVertices);
   
 	// adjust vertices for retina
 	for (int i=0; i<nVertices; i++) {
@@ -208,59 +210,6 @@
 	glColorPointer(4, GL_FLOAT, 0, colors);
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 	glDrawArrays(GL_TRIANGLE_STRIP, 0, (GLsizei)nVertices);
-}
-
-- (void) renderGrass {
-  float borderWidth = 15.0f;
-  
-  ccVertex2F *vertices = (ccVertex2F*)malloc(sizeof(ccVertex2F)*6);
-	ccColor4F *colors = (ccColor4F*)malloc(sizeof(ccColor4F)*6);
-	int nVertices = 0;
-	
-	float x1, x2, y1, y2;
-	ccColor4F c;
-  
-  x1 = 0;
-  y1 = 0;
-  
-  x2 = (float)textureSize;
-  y2 = borderWidth;
-	
-  //sky color
-	ccColor3B cb = (ccColor3B){255,255,27};
-	c = ccc4FFromccc3B(cb);
-  
-  for (int k=0; k<6; k++) {
-    colors[nVertices+k] = c;
-  }
-  vertices[nVertices++] = (ccVertex2F){x1, y1}; //0, 0
-  vertices[nVertices++] = (ccVertex2F){x2, y1}; //512, 0
-  vertices[nVertices++] = (ccVertex2F){x1, y2}; //0, 512
-  
-  vertices[nVertices++] = (ccVertex2F){x1, y2}; //512, 0
-  vertices[nVertices++] = (ccVertex2F){x2, y1}; //512, 512
-  vertices[nVertices++] = (ccVertex2F){x2, y2}; //0, 512
-  
-  CCLOG(@"grass nVertices = %d", nVertices);
-  
-	// adjust vertices for retina
-	for (int i=0; i<nVertices; i++) {
-		vertices[i].x *= CC_CONTENT_SCALE_FACTOR();
-		vertices[i].y *= CC_CONTENT_SCALE_FACTOR();
-	}
-	
-	glDisable(GL_TEXTURE_2D);
-	glDisableClientState(GL_TEXTURE_COORD_ARRAY);
-	
-	glColor4f(0, 1, 0, 1);
-	glVertexPointer(2, GL_FLOAT, 0, vertices);
-	glColorPointer(4, GL_FLOAT, 0, colors);
-	glBlendFunc(GL_ONE, GL_ONE_MINUS_SRC_ALPHA);
-	glDrawArrays(GL_TRIANGLES, 0, (GLsizei)nVertices);
-	
-	free(vertices);
-	free(colors);
-
 }
 
 - (void) renderTopBorder {
@@ -566,7 +515,7 @@
 	glEnable(GL_TEXTURE_2D);	
 	
 #else
-//	CCLOG(@"stripes texture name = %@", _sprite.texture.name);
+//	CCLOG(@"stripes texture %@ ", _sprite);
 	glBindTexture(GL_TEXTURE_2D, _sprite.texture.name);
 	
 	glDisableClientState(GL_COLOR_ARRAY);

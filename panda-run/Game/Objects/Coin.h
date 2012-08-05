@@ -8,6 +8,8 @@
 
 #import "TTConsumableItem.h"
 
+#define kCoinScore 10
+
 @interface Coin : TTConsumableItem
 
 + (id) coinWithGame:(Game*)game Position:(CGPoint)p;

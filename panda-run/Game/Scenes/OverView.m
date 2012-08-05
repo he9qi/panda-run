@@ -47,6 +47,11 @@
 		alertMenu.position = ccp(3*widthOffset, heightOffset - 3*buttonOffset/4);
 		[viewSprite addChild:alertMenu];
     
+    scoreLabel = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"0"] fontName:kFontName fontSize:30];
+		scoreLabel.anchorPoint = ccp(.5,0);
+    scoreLabel.position = ccp(widthOffset*2, heightOffset + buttonOffset/4);
+    [viewSprite addChild:scoreLabel];
+    
 		viewSprite.scale = .6;
 		viewSprite.opacity = 150;
     
@@ -60,6 +65,14 @@
   }
   
   return self;
+}
+
+- (void)dealloc{
+  [super dealloc];
+  tryAgainButton = nil;
+	menuButton = nil;
+  scoreLabel = nil;
+  viewSprite = nil;
 }
 
 -(void) tryAgainButtonClicked:(id) sender
@@ -106,6 +119,10 @@
   }
 }
 
+- (void)setScore:(int)score
+{
+  [scoreLabel setString:[NSString stringWithFormat:@"SCORE: %d", score]];
+}
 
 
 @end

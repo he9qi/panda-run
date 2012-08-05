@@ -15,9 +15,6 @@
 #import "Cloud.h"
 #import "Leaf.h"
 #import "OverView.h"
-#import "CCLayer+Dimmable.h"
-#import "CCLayer+Pausable.h"
-
 
 @interface Game()
 - (void) createBox2DWorld;    // create the physics world
@@ -32,7 +29,7 @@
 @end
 
 static int coinIndices [kMaxTerrainItems]   = { 30, 33, 36, 39, 42, 70, 73, 76, 79 }; 
-static int energyIndices [kMaxTerrainItems] = { 2, 4, 10, 18, 20, 16 }; 
+static int energyIndices [kMaxTerrainItems] = { 4, 10, 18, 20, 16 }; 
 static int bushIndices [kMaxTerrainItems]   = { 15, 50, 70, 85, 95, 110, 135, 150, 165, 180, 199, 220, 240, 255, 280, 290, 301 };
 static int treeIndices [kMaxTerrainItems]   = { 25, 35, 37, 60, 65, 80, 110, 112, 114, 116, 120, 140, 146, 170, 190, 210, 239, 278 };
 static int woodIndices [kMaxTerrainItems]   = { 30, 40, 50, 60, 75, 85, 100, 200, 300 }; 
@@ -77,8 +74,8 @@ static int grassIndices [kMaxTerrainItems]  = { };
     self.sky = [Sky skyWithTextureSize:TEXTURE_SIZE_SKY];
 		[self addChild:_sky z:-2 tag:GameSceneNodeTagSky];
     
-    _hill = [Hill hillWithTextureSize:TEXTURE_SIZE_HILL];
-    [self addChild:_hill];
+//    _hill = [Hill hillWithTextureSize:TEXTURE_SIZE_HILL];
+//    [self addChild:_hill];
 #endif
     
 		self.terrain = [Terrain terrainWithWorld:_world];
@@ -141,7 +138,7 @@ static int grassIndices [kMaxTerrainItems]  = { };
     
     sprite = [CCSprite spriteWithSpriteFrameName:IMAGE_BUTTON_PAUSE];
 		sprite.opacity = 0;
-		[sprite runAction:[CCFadeIn actionWithDuration:0.1f]];
+		[sprite runAction:[CCFadeIn actionWithDuration:0.25f]];
     
     pauseButton = [CCMenuItemImage itemFromNormalSprite:sprite selectedSprite:[CCSprite spriteWithSpriteFrameName:IMAGE_BUTTON_PAUSE_PRESSED] target:self selector:@selector(onPauseButtonClicked:)];
     
@@ -149,6 +146,11 @@ static int grassIndices [kMaxTerrainItems]  = { };
 		gameMenu.anchorPoint = ccp(.5,0);
 		gameMenu.position = ccp(_screenW-pauseButton.contentSize.width/2-kPauseButtonPadding, _screenH-pauseButton.contentSize.height/2-kPauseButtonPadding);
 		[self addChild:gameMenu];
+    
+    score = 0;
+    scoreLabel = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d", score] fontName:kFontName fontSize:30];
+    scoreLabel.position = ccp(scoreLabel.contentSize.width+kPauseButtonPadding, scoreLabel.contentSize.height+kPauseButtonPadding);
+    [self addChild:scoreLabel];
 
     [self dim];
     
@@ -166,9 +168,20 @@ static int grassIndices [kMaxTerrainItems]  = { };
 	return self;
 }
 
-- (void)over
+- (void) dealloc {
+  
+  [self deleteBox2DDebug];
+	[self deleteBox2DWorld];
+  
+  colorLayer = nil;
+  scoreLabel = nil;
+	
+	[super dealloc];
+}
+
+- (void)finish
 {
-  [super pause];
+  [super finish];
   [self dim];
   
   [Leaf createLeavesTo:self Count:kMaxLeaves Z:kLeafZDepth Tag:GameSceneNodeTagLeaf];
@@ -180,9 +193,20 @@ static int grassIndices [kMaxTerrainItems]  = { };
   overView.tryAgainButtonSelector = @selector(onRestartButtonClicked:);
   overView.menuButtonTarget = self;
   overView.menuButtonSelector = @selector(onMenuButtonClicked:);
+  [overView setScore:score];
   
   [self addChild:overView z:kMenuZDepth];
 
+}
+
+- (void)start{
+  [super start];
+}
+
+- (void)resume{
+  [self light];
+  [super resume];
+  [self removeLeaves];
 }
 
 - (void)pause
@@ -214,12 +238,6 @@ static int grassIndices [kMaxTerrainItems]  = { };
   }
 }
 
-- (void) resume {
-  [self light];
-  [super resume];
-  [self removeLeaves];
-}
-
 - (void) onResumeButtonClicked:(id) sender
 {
 	// do something
@@ -231,26 +249,37 @@ static int grassIndices [kMaxTerrainItems]  = { };
 	// do something
   [self removeLeaves];
   [self reset];
-  [self resume];
+  [self restart];
+  [self dim];
 }
 
 - (void) onQuitButtonClicked:(id) sender 
 {
 	// do something
   [[CCDirector sharedDirector] popScene];	
-  [self reset];
 }
 
 - (void) onMenuButtonClicked:(id) sender 
 {
 	// do something
   [[CCDirector sharedDirector] popScene];	
-  [self reset];
 }
 
 - (void) onPauseButtonClicked:(id) sender
 {
-  [self pause];
+  if ([self isStarted]) [self pause];
+}
+
+- (void)incScore:(int)s
+{
+  score += s;
+  [scoreLabel setString:[NSString stringWithFormat:@"%d", score]];
+}
+
+- (void)resetScore:(int)s
+{
+  score = 0;
+  [scoreLabel setString:[NSString stringWithFormat:@"%d", score]];
 }
 
 - (void) addCoins:(int *)indices{
@@ -269,6 +298,8 @@ static int grassIndices [kMaxTerrainItems]  = { };
   }
 }
 
+/**********  Box2D World Creation and Deletion  ********/
+
 - (void) createBox2DWorld {
 	
 	b2Vec2 gravity;
@@ -285,8 +316,6 @@ static int grassIndices [kMaxTerrainItems]  = { };
   self.panda = nil;
   self.mud = nil;
   self.hill = nil;
-  
-  colorLayer = nil;
   
   /**
    When you add an object to an array, it calls retain on that object. 
@@ -395,9 +424,9 @@ static int grassIndices [kMaxTerrainItems]  = { };
 
 - (BOOL) touchBeganAt:(CGPoint)location {
 	
-  if ( !_isStarted ) {
-    _isStarted = true;
+  if ( [self isIdle] ) {
     [self light];
+    [self start];
     
     _panda.diving = YES;
     [_panda updatePhysics];
@@ -405,10 +434,7 @@ static int grassIndices [kMaxTerrainItems]  = { };
   }
   
   if ( [self isDimmed] ) return YES;
-  
-  if ( [self isRunning] ) {
-    _panda.diving = YES;
-  }
+  if ( [self isRunning] ) _panda.diving = YES;
 
 	return YES;
 }
@@ -416,14 +442,6 @@ static int grassIndices [kMaxTerrainItems]  = { };
 - (BOOL) touchEndedAt:(CGPoint)location {
 	_panda.diving = NO;
 	return YES;
-}
-
-- (void) dealloc {
-  
-  [self deleteBox2DDebug];
-	[self deleteBox2DWorld];
-	
-	[super dealloc];
 }
 
 #pragma mark methods
@@ -435,7 +453,7 @@ static int grassIndices [kMaxTerrainItems]  = { };
   for (Coin *coin in _coins) [coin reset];
   for (Energy *en in _energies) [en reset];
   
-  _isStarted = false;
+  _state = kGameStateIdle;
 }
 
 /**********  Box2D World Debug  ********/

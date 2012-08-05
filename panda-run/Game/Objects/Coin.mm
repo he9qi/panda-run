@@ -29,4 +29,9 @@
   return coin;
 }
 
+- (void)beginContact:(b2Contact *)contact{
+  [super hideSprite];
+  [_game incScore:kCoinScore];
+}
+
 @end

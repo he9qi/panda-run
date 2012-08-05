@@ -34,11 +34,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "panda-run/Game/Objects/Terrain.mm"
-         timestampString = "365562323.855155"
+         timestampString = "365834417.661036"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "83"
-         endingLineNumber = "83"
+         startingLineNumber = "85"
+         endingLineNumber = "85"
          landmarkName = "-generateTexture"
          landmarkType = "5">
       </FileBreakpoint>
@@ -46,25 +46,12 @@
          shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "panda-run/Game/Scenes/Game.mm"
-         timestampString = "365779709.449476"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "78"
-         endingLineNumber = "78"
-         landmarkName = "-init"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
          filePath = "panda-run/Game/Objects/Terrain.mm"
-         timestampString = "365562323.855155"
+         timestampString = "365834417.661036"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "124"
-         endingLineNumber = "124"
+         startingLineNumber = "126"
+         endingLineNumber = "126"
          landmarkName = "-renderhill"
          landmarkType = "5">
       </FileBreakpoint>
@@ -73,11 +60,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "panda-run/Game/Objects/Terrain.mm"
-         timestampString = "365662055.79953"
+         timestampString = "365834417.661036"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "555"
-         endingLineNumber = "555"
+         startingLineNumber = "504"
+         endingLineNumber = "504"
          landmarkName = "-draw"
          landmarkType = "5">
       </FileBreakpoint>
@@ -164,11 +151,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "panda-run/Game/Scenes/Game.mm"
-         timestampString = "365779709.449476"
+         timestampString = "365825190.882415"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "73"
-         endingLineNumber = "73"
+         startingLineNumber = "70"
+         endingLineNumber = "70"
          landmarkName = "-init"
          landmarkType = "5">
       </FileBreakpoint>
@@ -294,11 +281,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "panda-run/Game/Scenes/Game.mm"
-         timestampString = "365783070.18436"
+         timestampString = "365834789.558873"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "247"
-         endingLineNumber = "247"
+         startingLineNumber = "265"
+         endingLineNumber = "265"
          landmarkName = "-onMenuButtonClicked:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -333,50 +320,76 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "panda-run/Game/Objects/Terrain.mm"
-         timestampString = "365662055.79953"
+         timestampString = "365834417.661036"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "378"
+         endingLineNumber = "378"
+         landmarkName = "-generateBorderVertices"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "panda-run/Game/Objects/Terrain.mm"
+         timestampString = "365834417.661036"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "379"
+         endingLineNumber = "379"
+         landmarkName = "-generateBorderVertices"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "panda-run/Game/Objects/Terrain.mm"
+         timestampString = "365834417.661036"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "351"
+         endingLineNumber = "351"
+         landmarkName = "-generateBorderVertices"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "panda-run/Game/Objects/Terrain.mm"
+         timestampString = "365834417.661036"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "443"
+         endingLineNumber = "443"
+         landmarkName = "-refreshHillVertices"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "panda-run/Game/Objects/Terrain.mm"
+         timestampString = "365834417.661036"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "428"
+         endingLineNumber = "428"
+         landmarkName = "-refreshHillVertices"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "panda-run/Game/Objects/Terrain.mm"
+         timestampString = "365834417.661036"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "429"
          endingLineNumber = "429"
-         landmarkName = "-generateBorderVertices"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "panda-run/Game/Objects/Terrain.mm"
-         timestampString = "365662055.79953"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "430"
-         endingLineNumber = "430"
-         landmarkName = "-generateBorderVertices"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "panda-run/Game/Objects/Terrain.mm"
-         timestampString = "365662055.79953"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "402"
-         endingLineNumber = "402"
-         landmarkName = "-generateBorderVertices"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "panda-run/Game/Objects/Terrain.mm"
-         timestampString = "365662055.79953"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "494"
-         endingLineNumber = "494"
          landmarkName = "-refreshHillVertices"
          landmarkType = "5">
       </FileBreakpoint>
@@ -385,37 +398,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "panda-run/Game/Objects/Terrain.mm"
-         timestampString = "365662055.79953"
+         timestampString = "365834417.661036"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "479"
-         endingLineNumber = "479"
-         landmarkName = "-refreshHillVertices"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "panda-run/Game/Objects/Terrain.mm"
-         timestampString = "365662055.79953"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "480"
-         endingLineNumber = "480"
-         landmarkName = "-refreshHillVertices"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "panda-run/Game/Objects/Terrain.mm"
-         timestampString = "365662055.79953"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "546"
-         endingLineNumber = "546"
+         startingLineNumber = "495"
+         endingLineNumber = "495"
          landmarkName = "-setOffsetX:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -424,11 +411,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "panda-run/Game/Objects/Terrain.mm"
-         timestampString = "365662055.79953"
+         timestampString = "365834417.661036"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "542"
-         endingLineNumber = "542"
+         startingLineNumber = "491"
+         endingLineNumber = "491"
          landmarkName = "-setOffsetX:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -437,11 +424,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "panda-run/Game/Objects/Terrain.mm"
-         timestampString = "365662055.79953"
+         timestampString = "365834417.661036"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "547"
-         endingLineNumber = "547"
+         startingLineNumber = "496"
+         endingLineNumber = "496"
          landmarkName = "-setOffsetX:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -450,11 +437,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "panda-run/Game/Objects/Terrain.mm"
-         timestampString = "365562323.855155"
+         timestampString = "365834417.661036"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "275"
-         endingLineNumber = "275"
+         startingLineNumber = "224"
+         endingLineNumber = "224"
          landmarkName = "-renderTopBorder"
          landmarkType = "5">
       </FileBreakpoint>
@@ -463,11 +450,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "panda-run/Game/Objects/TTSpriteItem.m"
-         timestampString = "365527045.627881"
+         timestampString = "365824736.491852"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "80"
-         endingLineNumber = "80"
+         startingLineNumber = "81"
+         endingLineNumber = "81"
          landmarkName = "-update:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -476,11 +463,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "panda-run/Game/Objects/TTSpriteItem.m"
-         timestampString = "365527045.627881"
+         timestampString = "365824736.491852"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "83"
-         endingLineNumber = "83"
+         startingLineNumber = "84"
+         endingLineNumber = "84"
          landmarkName = "-update:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -489,11 +476,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "panda-run/Game/Scenes/Game.mm"
-         timestampString = "365779709.449476"
+         timestampString = "365825190.882415"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "97"
-         endingLineNumber = "97"
+         startingLineNumber = "94"
+         endingLineNumber = "94"
          landmarkName = "-init"
          landmarkType = "5">
       </FileBreakpoint>
@@ -502,11 +489,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "panda-run/Game/Scenes/Game.mm"
-         timestampString = "365779709.449476"
+         timestampString = "365825190.882415"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "99"
-         endingLineNumber = "99"
+         startingLineNumber = "96"
+         endingLineNumber = "96"
          landmarkName = "-init"
          landmarkType = "5">
       </FileBreakpoint>
@@ -515,11 +502,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "panda-run/Game/Scenes/Game.mm"
-         timestampString = "365779709.449476"
+         timestampString = "365825190.882415"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "101"
-         endingLineNumber = "101"
+         startingLineNumber = "98"
+         endingLineNumber = "98"
          landmarkName = "-init"
          landmarkType = "5">
       </FileBreakpoint>
@@ -528,11 +515,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "panda-run/Game/Scenes/Game.mm"
-         timestampString = "365783019.902373"
+         timestampString = "365833188.979785"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "164"
-         endingLineNumber = "164"
+         startingLineNumber = "166"
+         endingLineNumber = "166"
          landmarkName = "-init"
          landmarkType = "5">
       </FileBreakpoint>
@@ -619,11 +606,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "panda-run/Game/Objects/Terrain.mm"
-         timestampString = "365778997.355005"
+         timestampString = "365834417.661036"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "587"
-         endingLineNumber = "587"
+         startingLineNumber = "536"
+         endingLineNumber = "536"
          landmarkName = "-reset"
          landmarkType = "5">
       </FileBreakpoint>
@@ -632,11 +619,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "panda-run/Game/Objects/Terrain.mm"
-         timestampString = "365779065.527743"
+         timestampString = "365834417.661036"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "399"
-         endingLineNumber = "399"
+         startingLineNumber = "348"
+         endingLineNumber = "348"
          landmarkName = "-generateBorderVertices"
          landmarkType = "5">
       </FileBreakpoint>
@@ -645,24 +632,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "panda-run/Game/Scenes/Game.mm"
-         timestampString = "365783070.18436"
+         timestampString = "365834789.558873"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "399"
-         endingLineNumber = "399"
-         landmarkName = "-touchBeganAt:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "panda-run/Game/Scenes/Game.mm"
-         timestampString = "365783070.18436"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "403"
-         endingLineNumber = "403"
+         startingLineNumber = "432"
+         endingLineNumber = "432"
          landmarkName = "-touchBeganAt:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -710,25 +684,12 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "panda-run/Game/Scenes/Game.mm"
-         timestampString = "365783070.18436"
+         timestampString = "365834789.558873"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "318"
-         endingLineNumber = "318"
+         startingLineNumber = "347"
+         endingLineNumber = "347"
          landmarkName = "-update:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "panda-run/Game/Scenes/Game.mm"
-         timestampString = "365783070.18436"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "253"
-         endingLineNumber = "253"
-         landmarkName = "-onPauseButtonClicked:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

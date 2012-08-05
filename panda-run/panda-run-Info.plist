@@ -4,6 +4,10 @@
 <dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>AntsyPants.ttf</string>
+	</array>
 	<key>UIStatusBarHidden</key>
 	<true/>
 	<key>CFBundleDisplayName</key>

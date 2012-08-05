@@ -15,6 +15,7 @@
 }
 
 - (void)dim{
+  if ([self isDimmed]) return;
   CCLayerColor *colorLayer = [CCLayerColor layerWithColor:ccc4(0, 0, 0, 255)];
   [colorLayer setOpacity:175];
   [self addChild:colorLayer z:kDimColorZDepth tag:kDimColorTag];

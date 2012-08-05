@@ -77,6 +77,15 @@
   return self;
 }
 
+- (void)dealloc{
+  [super dealloc];
+  resumeButton = nil;
+	restartButton = nil;
+	menuButton = nil;
+	quitButton = nil;
+  viewSprite = nil;
+}
+
 -(void) resumeButtonClicked:(id) sender
 {
   [self removeFromParentAndCleanup:YES];

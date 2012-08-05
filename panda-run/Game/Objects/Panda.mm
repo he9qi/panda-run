@@ -136,7 +136,7 @@
 	
 	// start position
 	CGPoint p = ccp(0, _game.screenH/2+_radius);
-	CCLOG(@"start position = %f, %f", p.x, p.y);
+	CCLOG(@"panda start position = %f, %f", p.x, p.y);
   
 	bd.position.Set(p.x * [Box2DHelper metersPerPoint], p.y * [Box2DHelper metersPerPoint]);
 	_body = _game.world->CreateBody(&bd);
@@ -257,7 +257,7 @@
   
   if( (tv.x - p.x * CC_CONTENT_SCALE_FACTOR()) < kPandaReachTempleOffset ) {
     [self sleep];
-    [_game over];
+    [_game finish];
   }
   
   // there might be more than 1 contact, so need to 

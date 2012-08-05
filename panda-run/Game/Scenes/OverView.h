@@ -11,6 +11,7 @@
 @interface OverView : CCLayer{
 	CCMenuItemImage *tryAgainButton;
 	CCMenuItemImage *menuButton;
+  CCLabelTTF *scoreLabel;
   
   CCSprite *viewSprite;
   
@@ -26,5 +27,6 @@
 @property (nonatomic, retain) id menuButtonTarget;
 @property (nonatomic) SEL menuButtonSelector;
 
+- (void)setScore:(int)score;
 
 @end

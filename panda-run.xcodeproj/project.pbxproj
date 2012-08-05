@@ -22,7 +22,6 @@
 		774C91B715CD1581005D6391 /* PauseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 774C91B615CD1580005D6391 /* PauseView.m */; };
 		774C91BA15CD1A9A005D6391 /* Leaf.m in Sources */ = {isa = PBXBuildFile; fileRef = 774C91B915CD1A99005D6391 /* Leaf.m */; };
 		774C91BD15CD22DF005D6391 /* CCLayer+Dimmable.m in Sources */ = {isa = PBXBuildFile; fileRef = 774C91BC15CD22DF005D6391 /* CCLayer+Dimmable.m */; };
-		774C91C015CD249F005D6391 /* CCLayer+Pausable.m in Sources */ = {isa = PBXBuildFile; fileRef = 774C91BF15CD249F005D6391 /* CCLayer+Pausable.m */; };
 		774C91C315CD6068005D6391 /* OverView.m in Sources */ = {isa = PBXBuildFile; fileRef = 774C91C215CD6067005D6391 /* OverView.m */; };
 		775073A41599DD1300E628B1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 775073A31599DD1300E628B1 /* UIKit.framework */; };
 		775073A61599DD1300E628B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 775073A51599DD1300E628B1 /* Foundation.framework */; };
@@ -198,11 +197,12 @@
 		7775BCFB15BD961E003A6190 /* TTConsumableItem.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7775BCFA15BD961D003A6190 /* TTConsumableItem.mm */; };
 		7775BCFE15BE2614003A6190 /* Energy.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7775BCFD15BE2614003A6190 /* Energy.mm */; };
 		7775BD0015BEAFDD003A6190 /* over.png in Resources */ = {isa = PBXBuildFile; fileRef = 7775BCFF15BEAFDD003A6190 /* over.png */; };
-		7775BD0315BEBC11003A6190 /* CCAlertView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7775BD0215BEBC11003A6190 /* CCAlertView.mm */; };
 		7775BD0615BEBD89003A6190 /* CCMenuItemFontWithStroke.m in Sources */ = {isa = PBXBuildFile; fileRef = 7775BD0515BEBD89003A6190 /* CCMenuItemFontWithStroke.m */; };
 		7775BD0815BEC027003A6190 /* pause.png in Resources */ = {isa = PBXBuildFile; fileRef = 7775BD0715BEC027003A6190 /* pause.png */; };
 		7775BD0B15BFE120003A6190 /* Bush.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7775BD0A15BFE11E003A6190 /* Bush.mm */; };
 		7775BD1115C03ACD003A6190 /* TerrainImageItem.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7775BD1015C03ACB003A6190 /* TerrainImageItem.mm */; };
+		7777EEBB15CE131700D39D73 /* TTStatableGame.m in Sources */ = {isa = PBXBuildFile; fileRef = 7777EEBA15CE131700D39D73 /* TTStatableGame.m */; };
+		7777EEC215CE21AB00D39D73 /* AntsyPants.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7777EEC115CE21AB00D39D73 /* AntsyPants.ttf */; };
 		77818DE2159B0BF0001F3516 /* Terrain.mm in Sources */ = {isa = PBXBuildFile; fileRef = 77818DE1159B0BF0001F3516 /* Terrain.mm */; };
 		779A2F23159ED14D00BE1F75 /* UserData.mm in Sources */ = {isa = PBXBuildFile; fileRef = 779A2F22159ED14D00BE1F75 /* UserData.mm */; };
 		77B092B315A48009003BAE33 /* BreakableWood.mm in Sources */ = {isa = PBXBuildFile; fileRef = 77B092B215A48009003BAE33 /* BreakableWood.mm */; };
@@ -269,8 +269,6 @@
 		774C91B915CD1A99005D6391 /* Leaf.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Leaf.m; path = Objects/Leaf.m; sourceTree = "<group>"; };
 		774C91BB15CD22DF005D6391 /* CCLayer+Dimmable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "CCLayer+Dimmable.h"; path = "Helpers/CCLayer+Dimmable.h"; sourceTree = "<group>"; };
 		774C91BC15CD22DF005D6391 /* CCLayer+Dimmable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "CCLayer+Dimmable.m"; path = "Helpers/CCLayer+Dimmable.m"; sourceTree = "<group>"; };
-		774C91BE15CD249F005D6391 /* CCLayer+Pausable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "CCLayer+Pausable.h"; path = "Helpers/CCLayer+Pausable.h"; sourceTree = "<group>"; };
-		774C91BF15CD249F005D6391 /* CCLayer+Pausable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "CCLayer+Pausable.m"; path = "Helpers/CCLayer+Pausable.m"; sourceTree = "<group>"; };
 		774C91C115CD6067005D6391 /* OverView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OverView.h; path = Scenes/OverView.h; sourceTree = "<group>"; };
 		774C91C215CD6067005D6391 /* OverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OverView.m; path = Scenes/OverView.m; sourceTree = "<group>"; };
 		7750739F1599DD1300E628B1 /* panda-run.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "panda-run.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -618,8 +616,6 @@
 		7775BCFC15BE2613003A6190 /* Energy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Energy.h; path = Objects/Energy.h; sourceTree = "<group>"; };
 		7775BCFD15BE2614003A6190 /* Energy.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = Energy.mm; path = Objects/Energy.mm; sourceTree = "<group>"; };
 		7775BCFF15BEAFDD003A6190 /* over.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = over.png; path = "panda-run/Images/over.png"; sourceTree = SOURCE_ROOT; };
-		7775BD0115BEBC11003A6190 /* CCAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CCAlertView.h; path = Scenes/CCAlertView.h; sourceTree = "<group>"; };
-		7775BD0215BEBC11003A6190 /* CCAlertView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = CCAlertView.mm; path = Scenes/CCAlertView.mm; sourceTree = "<group>"; };
 		7775BD0415BEBD89003A6190 /* CCMenuItemFontWithStroke.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CCMenuItemFontWithStroke.h; path = Helpers/CCMenuItemFontWithStroke.h; sourceTree = "<group>"; };
 		7775BD0515BEBD89003A6190 /* CCMenuItemFontWithStroke.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CCMenuItemFontWithStroke.m; path = Helpers/CCMenuItemFontWithStroke.m; sourceTree = "<group>"; };
 		7775BD0715BEC027003A6190 /* pause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pause.png; path = "panda-run/Images/pause.png"; sourceTree = SOURCE_ROOT; };
@@ -627,6 +623,9 @@
 		7775BD0A15BFE11E003A6190 /* Bush.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = Bush.mm; path = Objects/Bush.mm; sourceTree = "<group>"; };
 		7775BD0F15C03AC9003A6190 /* TerrainImageItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TerrainImageItem.h; path = Objects/TerrainImageItem.h; sourceTree = "<group>"; };
 		7775BD1015C03ACB003A6190 /* TerrainImageItem.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = TerrainImageItem.mm; path = Objects/TerrainImageItem.mm; sourceTree = "<group>"; };
+		7777EEB915CE131700D39D73 /* TTStatableGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TTStatableGame.h; path = Helpers/TTStatableGame.h; sourceTree = "<group>"; };
+		7777EEBA15CE131700D39D73 /* TTStatableGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TTStatableGame.m; path = Helpers/TTStatableGame.m; sourceTree = "<group>"; };
+		7777EEC115CE21AB00D39D73 /* AntsyPants.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = AntsyPants.ttf; path = Resources/AntsyPants.ttf; sourceTree = "<group>"; };
 		77818DE0159B0BF0001F3516 /* Terrain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Terrain.h; path = Objects/Terrain.h; sourceTree = "<group>"; };
 		77818DE1159B0BF0001F3516 /* Terrain.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = Terrain.mm; path = Objects/Terrain.mm; sourceTree = "<group>"; };
 		779A2F21159ED14C00BE1F75 /* UserData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserData.h; path = Objects/UserData.h; sourceTree = "<group>"; };
@@ -745,6 +744,7 @@
 		775073AB1599DD1300E628B1 /* panda-run */ = {
 			isa = PBXGroup;
 			children = (
+				7777EEC015CE217900D39D73 /* Resources */,
 				775075AF1599DD9300E628B1 /* Game */,
 				775075A41599DD8400E628B1 /* System */,
 				775073D81599DD7700E628B1 /* libs */,
@@ -1277,8 +1277,6 @@
 				775075C51599EAAC00E628B1 /* Game.mm */,
 				77CD5FBA15AEC249004997F4 /* Menu.h */,
 				77CD5FBB15AEC249004997F4 /* Menu.mm */,
-				7775BD0115BEBC11003A6190 /* CCAlertView.h */,
-				7775BD0215BEBC11003A6190 /* CCAlertView.mm */,
 				774C91B515CD1580005D6391 /* PauseView.h */,
 				774C91B615CD1580005D6391 /* PauseView.m */,
 				774C91C115CD6067005D6391 /* OverView.h */,
@@ -1367,6 +1365,14 @@
 			name = Images;
 			sourceTree = "<group>";
 		};
+		7777EEC015CE217900D39D73 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				7777EEC115CE21AB00D39D73 /* AntsyPants.ttf */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 		77CD5FC015AED027004997F4 /* Audio */ = {
 			isa = PBXGroup;
 			children = (
@@ -1401,8 +1407,8 @@
 				7775BD0515BEBD89003A6190 /* CCMenuItemFontWithStroke.m */,
 				774C91BB15CD22DF005D6391 /* CCLayer+Dimmable.h */,
 				774C91BC15CD22DF005D6391 /* CCLayer+Dimmable.m */,
-				774C91BE15CD249F005D6391 /* CCLayer+Pausable.h */,
-				774C91BF15CD249F005D6391 /* CCLayer+Pausable.m */,
+				7777EEB915CE131700D39D73 /* TTStatableGame.h */,
+				7777EEBA15CE131700D39D73 /* TTStatableGame.m */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -1514,6 +1520,7 @@
 				774C91A115CB96B7005D6391 /* icon.png in Resources */,
 				774C91B315CC20E8005D6391 /* Default.png in Resources */,
 				774C91B415CC20E8005D6391 /* Default@2x.png in Resources */,
+				7777EEC215CE21AB00D39D73 /* AntsyPants.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1713,7 +1720,6 @@
 				7775BCF815BC2200003A6190 /* TTSceneItem.m in Sources */,
 				7775BCFB15BD961E003A6190 /* TTConsumableItem.mm in Sources */,
 				7775BCFE15BE2614003A6190 /* Energy.mm in Sources */,
-				7775BD0315BEBC11003A6190 /* CCAlertView.mm in Sources */,
 				7775BD0615BEBD89003A6190 /* CCMenuItemFontWithStroke.m in Sources */,
 				7775BD0B15BFE120003A6190 /* Bush.mm in Sources */,
 				7775BD1115C03ACD003A6190 /* TerrainImageItem.mm in Sources */,
@@ -1722,8 +1728,8 @@
 				774C91B715CD1581005D6391 /* PauseView.m in Sources */,
 				774C91BA15CD1A9A005D6391 /* Leaf.m in Sources */,
 				774C91BD15CD22DF005D6391 /* CCLayer+Dimmable.m in Sources */,
-				774C91C015CD249F005D6391 /* CCLayer+Pausable.m in Sources */,
 				774C91C315CD6068005D6391 /* OverView.m in Sources */,
+				7777EEBB15CE131700D39D73 /* TTStatableGame.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

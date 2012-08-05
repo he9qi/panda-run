@@ -49,7 +49,7 @@
 #define kBushPositionYOffset 1.0f
 #define kTerrainItemPositionYOffset 40.0f
 
-
+#define kFontName @"AntsyPants"
 
 #define BG_MENU @"menu_background.png"
 

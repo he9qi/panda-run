@@ -22,6 +22,9 @@
 #import "Energy.h"
 #import "Bush.h"
 
+#import "CCLayer+Dimmable.h"
+#import "TTStatableGame.h"
+
 #define kVelocityIterations 8
 #define kPositionIterations 3
 
@@ -46,7 +49,7 @@ typedef enum
 	
 } GameSceneNodeTags;
 
-@interface Game : CCLayer{
+@interface Game : TTStatableGame{
   int _screenW;             //screen width
 	int _screenH;             //screen height
 	b2World *_world;          //physics world
@@ -72,7 +75,8 @@ typedef enum
   CCMenuItemImage *pauseButton;
   CCLayerColor* colorLayer;
   
-  BOOL _isStarted;
+  int score;
+  CCLabelTTF *scoreLabel;
 }
 
 @property (readonly) int screenW;
@@ -93,8 +97,7 @@ typedef enum
 
 
 + (CCScene*) scene;
-- (void)pause;
-- (void)resume;
-- (void)over;
+
+- (void)incScore:(int)score;
 
 @end
