@@ -454,6 +454,7 @@ static int grassIndices [kMaxTerrainItems]  = { };
   for (Energy *en in _energies) [en reset];
   
   _state = kGameStateIdle;
+  score = 0;
 }
 
 /**********  Box2D World Debug  ********/
