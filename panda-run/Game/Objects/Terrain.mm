@@ -542,41 +542,55 @@
   self.offsetX = 0;
 }
 
-- (void)addImageItemWithType:(int)cType At:(int *)indices To:(NSMutableArray *)items
+- (void)addImageItemWithType:(int)cType At:(int)index To:(NSMutableArray *)items
+{
+  index *= CC_CONTENT_SCALE_FACTOR();
+    
+  NSString *name;
+  float offsetFactor = TERRAIN_IMAGE_OFFSET_FACTOR;
+  
+  switch ( cType ) {
+    case cTerrainImageItemTree:
+      name = IMAGE_TREE;
+      offsetFactor = 2.25f + arc4random() % 10 * 0.1f;
+      break;
+    case cTerrainImageItemBush:
+      name = IMAGE_BUSH;
+      offsetFactor = 4.5f + arc4random() % 10 * 0.1f;
+      break;
+    case cTerrainImageItemWood:
+      name = IMAGE_WOOD;
+      offsetFactor = 3.75f + arc4random() % 10 * 0.1f;
+      break;
+    case cTerrainImageItemGrass:
+      name = IMAGE_GRASS;
+      offsetFactor = TERRAIN_IMAGE_OFFSET_FACTOR;
+      break;
+    case cTerrainImageItemTemple:
+      name = IMAGE_TEMPLE;
+      offsetFactor = kTemplePositionYOffset;
+      break;
+    default:
+      name = IMAGE_GRASS;
+      break;
+  }
+  
+  if (name != nil) { 
+    TerrainImageItem *tii = (TerrainImageItem *)[TerrainImageItem createItemWithImage:name On:self At:index Offset:offsetFactor];
+    if (items != nil) {
+      [items addObject:tii];
+    }
+  }
+
+}
+
+
+- (void)addImageItemsWithType:(int)cType At:(int *)indices To:(NSMutableArray *)items
 {
   for (int i=0; i < kMaxTerrainItems; i++) {
     if (indices[i]) {
-      
-      int index = indices[i] * CC_CONTENT_SCALE_FACTOR();
-      
-      NSString *name;
-      float offsetFactor = TERRAIN_IMAGE_OFFSET_FACTOR;
-      
-      switch ( cType ) {
-        case cTerrainImageItemTree:
-          name = IMAGE_TREE;
-          offsetFactor = 2.25f + arc4random() % 10 * 0.1f;
-          break;
-        case cTerrainImageItemBush:
-          name = IMAGE_BUSH;
-          offsetFactor = 4.5f + arc4random() % 10 * 0.1f;
-          break;
-        case cTerrainImageItemWood:
-          name = IMAGE_WOOD;
-          offsetFactor = 3.75f + arc4random() % 10 * 0.1f;
-          break;
-        case cTerrainImageItemGrass:
-          name = IMAGE_GRASS;
-          offsetFactor = TERRAIN_IMAGE_OFFSET_FACTOR;
-          
-        default:
-          name = IMAGE_GRASS;
-          break;
-      }
-      
-      if (name == nil) { continue; }
-      [items addObject:(TerrainImageItem *)[TerrainImageItem createItemWithImage:name On:self At:index Offset:offsetFactor]];
-    }
+      [self addImageItemWithType:cType At:indices[i] To:items];
+    }  
   }
 }
 

@@ -13,12 +13,6 @@
 #import "Leaf.h"
 #import "Cloud.h"
 
-
-@interface Menu()
-- (void)tapDownAt:(CGPoint)location;
-- (void)tapUpAt:(CGPoint)location;
-@end
-
 @implementation Menu
 
 + (CCScene*)scene {
@@ -107,24 +101,6 @@
   [super dealloc];
 }
 
-- (void)registerWithTouchDispatcher {
-  [[CCTouchDispatcher sharedDispatcher] addTargetedDelegate:self priority:0 swallowsTouches:YES];
-}
-
-- (BOOL)ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event {
-  CGPoint location = [touch locationInView:[touch view]];
-  location = [[CCDirector sharedDirector] convertToGL:location];
-  [self tapDownAt:location];
-  return YES;
-}
-
-- (void)ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event {
-  CGPoint location = [touch locationInView:[touch view]];
-  location = [[CCDirector sharedDirector] convertToGL:location];
-  [self tapUpAt:location];
-}
-
-
 - (void) onPlayButtonClicked:(id) sender {
   [[CCDirector sharedDirector] pushScene:[Game scene]];	
 }
@@ -138,6 +114,22 @@
 }
 
 
+//- (void)registerWithTouchDispatcher {
+//  [[CCTouchDispatcher sharedDispatcher] addTargetedDelegate:self priority:0 swallowsTouches:YES];
+//}
+//
+//- (BOOL)ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event {
+//  CGPoint location = [touch locationInView:[touch view]];
+//  location = [[CCDirector sharedDirector] convertToGL:location];
+//  [self tapDownAt:location];
+//  return YES;
+//}
+//
+//- (void)ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event {
+//  CGPoint location = [touch locationInView:[touch view]];
+//  location = [[CCDirector sharedDirector] convertToGL:location];
+//  [self tapUpAt:location];
+//}
 
 //- (bool)tapAtPlayButton:(CGSize)screenSize:(CGPoint)location{
 //  // play button
@@ -145,7 +137,7 @@
 //	return CGRectContainsPoint(rect, location);
 //}
 
-- (void)tapDownAt:(CGPoint)location {
+//- (void)tapDownAt:(CGPoint)location {
 //	CCLOG(@"tapDown");
 //	CGSize screenSize = [[CCDirector sharedDirector] winSize];
 //
@@ -153,10 +145,9 @@
 //		playButton.scale = 0.95f;
 //		[[SimpleAudioEngine sharedEngine] playEffect:@"click.caf"];
 //	}
-  
-}
+//}
 
-- (void)tapUpAt:(CGPoint)location {
+//- (void)tapUpAt:(CGPoint)location {
 //	CCLOG(@"tapUp");
 //	playButton.scale = 1.0f;
 //  
@@ -165,6 +156,6 @@
 //	if( [self tapAtPlayButton:screenSize:location] ) {
 //    [[CCDirector sharedDirector] pushScene:[Game scene]];	
 //  }
-}
+//}
 
 @end

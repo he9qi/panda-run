@@ -30,10 +30,6 @@
 
 static int coinIndices [kMaxTerrainItems]   = { 30, 33, 36, 39, 42, 70, 73, 76, 79 }; 
 static int energyIndices [kMaxTerrainItems] = { 4, 10, 18, 20, 16 }; 
-static int bushIndices [kMaxTerrainItems]   = { 15, 50, 70, 85, 95, 110, 135, 150, 165, 180, 199, 220, 240, 255, 280, 290, 301 };
-static int treeIndices [kMaxTerrainItems]   = { 25, 35, 37, 60, 65, 80, 110, 112, 114, 116, 120, 140, 146, 170, 190, 210, 239, 278 };
-static int woodIndices [kMaxTerrainItems]   = { 30, 40, 50, 60, 75, 85, 100, 200, 300 }; 
-static int grassIndices [kMaxTerrainItems]  = { }; 
 
 @implementation Game
 
@@ -78,45 +74,61 @@ static int grassIndices [kMaxTerrainItems]  = { };
 //    [self addChild:_hill];
 #endif
     
-		self.terrain = [Terrain terrainWithWorld:_world];
+    
+    /*************** BUILD TERRAIN ***************/
     
     _bushes = [[NSMutableArray alloc] init];
-    [_terrain addImageItemWithType:cTerrainImageItemBush At:bushIndices To:_bushes];
-    
     _trees = [[NSMutableArray alloc] init];
-    [_terrain addImageItemWithType:cTerrainImageItemTree At:treeIndices To:_trees];
-    
     _woods = [[NSMutableArray alloc] init];
-    [_terrain addImageItemWithType:cTerrainImageItemWood At:woodIndices To:_woods];
-    
     _grasses = [[NSMutableArray alloc] init];
-    int templePosition  = [_terrain getTemplePostition] / CC_CONTENT_SCALE_FACTOR();
-    int indices[kMaxTerrainItems] = { templePosition-2, templePosition-0, templePosition + 2 };
     
-    [_terrain addImageItemWithType:cTerrainImageItemGrass At:indices To:_grasses];
+		self.terrain = [Terrain terrainWithWorld:_world];
+    int templePosition  = [_terrain getTemplePostition] / CC_CONTENT_SCALE_FACTOR();
+    
+    for (int i = 10; i < [_terrain getNumBorderVertices]; i++) {
+      if (i%3 == 0) { continue; }
+      switch ( arc4random() % 10 ) {
+        case cTerrainImageItemTree:
+          [_terrain addImageItemWithType:cTerrainImageItemTree At:i To:_trees];
+          break;
+        case cTerrainImageItemBush:
+          [_terrain addImageItemWithType:cTerrainImageItemBush At:i To:_bushes];
+          break;
+        case cTerrainImageItemWood:
+          [_terrain addImageItemWithType:cTerrainImageItemWood At:i To:_woods];
+          break;
+        case cTerrainImageItemGrass:
+          [_terrain addImageItemWithType:cTerrainImageItemTree At:i To:_trees]; //more trees
+          break;
+        default:
+          break;
+      }
+    }
+    
+    [_terrain addImageItemWithType:cTerrainImageItemTemple At:templePosition To:nil];
+    
+    int indices[kMaxTerrainItems] = { templePosition-2, templePosition-0, templePosition + 2 };
+    [_terrain addImageItemsWithType:cTerrainImageItemGrass At:indices To:_grasses];
     
 		[self addChild:_terrain];
     
 		self.panda = [Panda heroWithGame:self];
 		[_terrain addChild:_panda];
     
+    /*************** BUILD TERRAIN END ***************/
+    
+    
     _coins = [[NSMutableArray alloc] init];
     [self addCoins:coinIndices];
     
 //    _mud = [Mud mudWithTextureSize:1024];
 //    [self addChild:_mud];
-    
-    ccVertex2F bp = [_terrain getBorderVerticeAt:[_terrain getTemplePostition]];
-    CGPoint p = ccp(bp.x* [Box2DHelper pointsPerPixel], bp.y * [Box2DHelper pointsPerPixel]+kTemplePositionYOffset);
-    _temple = [Temple templeWithPosition:p];
-    [_terrain addChild:_temple];
-    
+
     _energies = [[NSMutableArray alloc] init];
     [self addEnergies:energyIndices];
     
     _clouds = [[Cloud createCloudsTo:self Count:kMaxCloud Z:-1 Tag:GameSceneNodeTagCloud] retain];
     
-
 //
 //    BreakableWood *bw = [BreakableWood breakableWoodWithGame:self Position:p];
 //    [_woods addObject:bw];
@@ -370,7 +382,7 @@ static int grassIndices [kMaxTerrainItems]  = { };
 	[_mud setScale:1.0f-(1.0f-scale)];
   
   for (Cloud *cloud in _clouds) {
-    [cloud setScale:1.0f-(1.0f-scale)*0.975f];
+    [cloud setScale:1.0f-(1.0f-scale)*0.980f];
   }
   
 #endif

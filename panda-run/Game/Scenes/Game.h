@@ -33,7 +33,6 @@
 #define kMaxEnergies 101
 #define kMaxLeaves 3
 
-#define kTemplePositionYOffset 38.0f
 #define kLeafZDepth 1002
 #define kMenuZDepth 1001
 #define kDimColorZDepth 1000
@@ -60,12 +59,13 @@ typedef enum
   Panda *_panda;
   
 	NSMutableArray *_coins;
-	NSMutableArray *_woods;
 	NSMutableArray *_energies;
-	NSMutableArray *_bushes;
+	NSMutableArray *_clouds;
+  
+  NSMutableArray *_bushes;
 	NSMutableArray *_trees;
 	NSMutableArray *_grasses;
-	NSMutableArray *_clouds;
+	NSMutableArray *_woods;
   
   Water *_water;
   Mud *_mud;

@@ -9,7 +9,7 @@
 #import "cocos2d.h"
 #import "Box2D.h"
 
-#define kMaxHillKeyPoints 30
+#define kMaxHillKeyPoints 50
 #define kMaxHillVertices 2000
 #define kMaxBorderVertices 10000
 #define kMaxTerrainItems 101
@@ -17,13 +17,15 @@
 #define kHillSegmentWidth 15
 
 #define kTemplePositionOffset 40 * CC_CONTENT_SCALE_FACTOR()
+#define kTemplePositionYOffset 1.50f
 
 typedef enum
 {
 	cTerrainImageItemTree,
   cTerrainImageItemBush,
 	cTerrainImageItemWood,
-  cTerrainImageItemGrass
+  cTerrainImageItemGrass,
+  cTerrainImageItemTemple
   
 } cTerrainImageItem;
 
@@ -77,6 +79,7 @@ typedef enum
 - (int) getTemplePostition;
 - (void)reset;
 
-- (void)addImageItemWithType:(int)cType At:(int *)indices To:(NSMutableArray *)items;
+- (void)addImageItemWithType:(int)cType At:(int)index To:(NSMutableArray *)items;
+- (void)addImageItemsWithType:(int)cType At:(int *)indices To:(NSMutableArray *)items;
 
 @end
