@@ -11,6 +11,9 @@
 #import "Box2D.h"
 #import "ContactDelegate.h"
 
+#define kTTConsumableItemTag 1216
+#define kTTConsumableItemZDepth 2
+
 @class Game;
 @class Terrain;
 

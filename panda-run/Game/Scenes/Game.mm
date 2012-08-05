@@ -276,7 +276,7 @@ static int grassIndices [kMaxTerrainItems]  = { };
   [scoreLabel setString:[NSString stringWithFormat:@"%d", score]];
 }
 
-- (void)resetScore:(int)s
+- (void)resetScore
 {
   score = 0;
   [scoreLabel setString:[NSString stringWithFormat:@"%d", score]];
@@ -454,7 +454,7 @@ static int grassIndices [kMaxTerrainItems]  = { };
   for (Energy *en in _energies) [en reset];
   
   _state = kGameStateIdle;
-  score = 0;
+  [self resetScore];
 }
 
 /**********  Box2D World Debug  ********/

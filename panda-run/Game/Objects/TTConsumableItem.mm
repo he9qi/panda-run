@@ -31,7 +31,7 @@
 		
     //#ifndef DRAW_BOX2D_WORLD
 		self.sprite = sprite;
-		[self addChild:_sprite];
+    [self showSprite];
     //#endif
     
 		_radius = radius;
@@ -64,7 +64,8 @@
 
 - (void) showSprite {
 #ifndef DRAW_BOX2D_WORLD
-  [self addChild:_sprite];
+  if( ![self getChildByTag:kTTConsumableItemTag] ) 
+    [self addChild:_sprite z:kTTConsumableItemZDepth tag:kTTConsumableItemTag];
 #endif
 }
 
@@ -82,6 +83,7 @@
 		_game.world->DestroyBody(_body);
 	}
 	[self createBox2DBody];
+  [self showSprite];
 }
 
 - (void)createBox2DBody {
