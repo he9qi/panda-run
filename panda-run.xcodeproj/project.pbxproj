@@ -204,6 +204,9 @@
 		7777EEBB15CE131700D39D73 /* TTStatableGame.m in Sources */ = {isa = PBXBuildFile; fileRef = 7777EEBA15CE131700D39D73 /* TTStatableGame.m */; };
 		7777EEC215CE21AB00D39D73 /* AntsyPants.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7777EEC115CE21AB00D39D73 /* AntsyPants.ttf */; };
 		77818DE2159B0BF0001F3516 /* Terrain.mm in Sources */ = {isa = PBXBuildFile; fileRef = 77818DE1159B0BF0001F3516 /* Terrain.mm */; };
+		778F16B615CF804C009C7E64 /* Amano.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 778F16B315CF804C009C7E64 /* Amano.ttf */; };
+		778F16B715CF804C009C7E64 /* Amazon.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 778F16B415CF804C009C7E64 /* Amazon.ttf */; };
+		778F16B815CF804C009C7E64 /* Almagro Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 778F16B515CF804C009C7E64 /* Almagro Regular.ttf */; };
 		779A2F23159ED14D00BE1F75 /* UserData.mm in Sources */ = {isa = PBXBuildFile; fileRef = 779A2F22159ED14D00BE1F75 /* UserData.mm */; };
 		77B092B315A48009003BAE33 /* BreakableWood.mm in Sources */ = {isa = PBXBuildFile; fileRef = 77B092B215A48009003BAE33 /* BreakableWood.mm */; };
 		77CD5FBC15AEC249004997F4 /* Menu.mm in Sources */ = {isa = PBXBuildFile; fileRef = 77CD5FBB15AEC249004997F4 /* Menu.mm */; };
@@ -627,6 +630,9 @@
 		7777EEC115CE21AB00D39D73 /* AntsyPants.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = AntsyPants.ttf; path = Resources/AntsyPants.ttf; sourceTree = "<group>"; };
 		77818DE0159B0BF0001F3516 /* Terrain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Terrain.h; path = Objects/Terrain.h; sourceTree = "<group>"; };
 		77818DE1159B0BF0001F3516 /* Terrain.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = Terrain.mm; path = Objects/Terrain.mm; sourceTree = "<group>"; };
+		778F16B315CF804C009C7E64 /* Amano.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Amano.ttf; path = Resources/Amano.ttf; sourceTree = "<group>"; };
+		778F16B415CF804C009C7E64 /* Amazon.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Amazon.ttf; path = Resources/Amazon.ttf; sourceTree = "<group>"; };
+		778F16B515CF804C009C7E64 /* Almagro Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Almagro Regular.ttf"; path = "Resources/Almagro Regular.ttf"; sourceTree = "<group>"; };
 		779A2F21159ED14C00BE1F75 /* UserData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserData.h; path = Objects/UserData.h; sourceTree = "<group>"; };
 		779A2F22159ED14D00BE1F75 /* UserData.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = UserData.mm; path = Objects/UserData.mm; sourceTree = "<group>"; };
 		77B092B115A48009003BAE33 /* BreakableWood.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BreakableWood.h; path = Objects/BreakableWood.h; sourceTree = "<group>"; };
@@ -1363,6 +1369,9 @@
 		7777EEC015CE217900D39D73 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				778F16B315CF804C009C7E64 /* Amano.ttf */,
+				778F16B415CF804C009C7E64 /* Amazon.ttf */,
+				778F16B515CF804C009C7E64 /* Almagro Regular.ttf */,
 				7777EEC115CE21AB00D39D73 /* AntsyPants.ttf */,
 			);
 			name = Resources;
@@ -1516,6 +1525,9 @@
 				774C91B315CC20E8005D6391 /* Default.png in Resources */,
 				774C91B415CC20E8005D6391 /* Default@2x.png in Resources */,
 				7777EEC215CE21AB00D39D73 /* AntsyPants.ttf in Resources */,
+				778F16B615CF804C009C7E64 /* Amano.ttf in Resources */,
+				778F16B715CF804C009C7E64 /* Amazon.ttf in Resources */,
+				778F16B815CF804C009C7E64 /* Almagro Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -67,8 +67,8 @@
     self.sky = [Sky skyWithTextureSize:TEXTURE_SIZE_SKY];
 		[self addChild:_sky z:-2 tag:GameSceneNodeTagSky];
     
-//    _hill = [Hill hillWithTextureSize:TEXTURE_SIZE_HILL];
-//    [self addChild:_hill];
+    _hill = [Hill hillWithTextureSize:TEXTURE_SIZE_HILL];
+    [self addChild:_hill];
 #endif
     
     
@@ -173,7 +173,7 @@
     
     score = 0;
     scoreLabel = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d", score] fontName:kFontName fontSize:30];
-    scoreLabel.position = ccp(scoreLabel.contentSize.width+kScoreLabelPadding, scoreLabel.contentSize.height+kScoreLabelPadding);
+    scoreLabel.position = ccp(scoreLabel.contentSize.width+kScoreLabelPadding, scoreLabel.contentSize.height+kScoreLabelPadding/4);
     [self addChild:scoreLabel];
 
     [self dim];
@@ -202,6 +202,8 @@
 	
 	[super dealloc];
 }
+
+/****************** State functions *********************/
 
 - (void)finish
 {
@@ -256,12 +258,6 @@
   
 }
 
-- (void) removeLeaves{
-  while (Leaf *leaf = (Leaf *)[self getChildByTag:GameSceneNodeTagLeaf]) {
-    [self removeChild:leaf cleanup:YES];
-  }
-}
-
 - (void) onResumeButtonClicked:(id) sender
 {
 	// do something
@@ -292,6 +288,15 @@
 - (void) onPauseButtonClicked:(id) sender
 {
   if ([self isStarted]) [self pause];
+}
+
+
+/****************** Other functions *********************/
+
+- (void) removeLeaves{
+  while (Leaf *leaf = (Leaf *)[self getChildByTag:GameSceneNodeTagLeaf]) {
+    [self removeChild:leaf cleanup:YES];
+  }
 }
 
 - (void)incScore:(int)s
@@ -389,12 +394,12 @@
 	_terrain.scale = scale;
   
 #ifndef DRAW_BOX2D_WORLD
-	[_sky setScale:1.0f-(1.0f-scale)*0.75f];
-	[_hill setScale:1.0f-(1.0f-scale)*0.95f];
+	[_sky setScale:1.0f-(1.0f-scale)*kSkyScaleFactor];
+	[_hill setScale:1.0f-(1.0f-scale)*kHillScaleFactor];
 	[_mud setScale:1.0f-(1.0f-scale)];
   
   for (Cloud *cloud in _clouds) {
-    [cloud setScale:1.0f-(1.0f-scale)*0.980f];
+    [cloud setScale:1.0f-(1.0f-scale)*kCloudOffsetFactor];
   }
   
 #endif
@@ -402,11 +407,26 @@
     _terrain.offsetX = _panda.position.x;
 #ifndef DRAW_BOX2D_WORLD
     [_mud setOffsetX:_terrain.offsetX];
-    [_hill setOffsetX:_terrain.offsetX*0.95f];
-    [_sky setOffsetX:_terrain.offsetX*0.2f];
+    [_hill setOffsetX:_terrain.offsetX*kHillOffsetFactor];
+    [_sky setOffsetX:_terrain.offsetX*kSkyOffsetFactor];
 #endif
 
 }
+
+#pragma mark methods
+
+- (void) reset {
+  [_terrain reset];
+  [_panda reset];
+  
+  for (Coin *coin in _coins) [coin reset];
+  for (Energy *en in _energies) [en reset];
+  
+  _state = kGameStateIdle;
+  [self resetScore];
+}
+
+/************  touches  **************/
 
 #pragma mark touches
 
@@ -468,19 +488,6 @@
 	return YES;
 }
 
-#pragma mark methods
-
-- (void) reset {
-  [_terrain reset];
-  [_panda reset];
-  
-  for (Coin *coin in _coins) [coin reset];
-  for (Energy *en in _energies) [en reset];
-  
-  _state = kGameStateIdle;
-  [self resetScore];
-}
-
 /**********  Box2D World Debug  ********/
 
 - (void) deleteBox2DDebug {
@@ -507,6 +514,31 @@
 	_render->SetFlags(flags);
 	
 #endif
+}
+
+/************ game show **************/
+
+- (void) showHint:(NSString *)hint Scale:(float)scale Duration:(float)duration Position:(CGPoint)position{
+  CCLabelTTF *label = [CCLabelTTF labelWithString:[NSString stringWithFormat:hint] fontName:kHintFontName fontSize:kHintFontSize];
+  label.position = position;
+	[label runAction:[CCScaleTo actionWithDuration:duration scale:scale]];
+	[label runAction:[CCSequence actions:
+                    [CCFadeOut actionWithDuration:duration],
+                    [CCCallFuncND actionWithTarget:label selector:@selector(removeFromParentAndCleanup:) data:(void*)YES],
+                    nil]];
+	[self addChild:label];
+}
+
+- (void) showPerfectSlide{
+  [self showHint:@"perfect" Scale:1.2f Duration:1.0f Position:ccp(_screenW/2, _screenH/16)];
+}
+
+- (void) showHit {
+  [self showHint:@"hit" Scale:1.2f Duration:1.0f Position:ccp(_screenW/2, _screenH/16)];
+}
+
+- (void) showFrenzy {
+  [self showHint:@"CRAZY" Scale:1.4f Duration:2.0f Position:ccp(_screenW/2, _screenH/16)];
 }
 
 @end

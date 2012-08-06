@@ -37,7 +37,13 @@
 #define kDimColorZDepth 1000
 
 #define kPauseButtonPadding 8
-#define kScoreLabelPadding 12
+#define kScoreLabelPadding 30
+
+#define kHillOffsetFactor 0.025f
+#define kHillScaleFactor 0.15f
+#define kSkyScaleFactor 0.05f
+#define kSkyOffsetFactor 0.2f
+#define kCloudOffsetFactor 0.980f
 
 typedef enum
 {
@@ -97,6 +103,9 @@ typedef enum
 
 + (CCScene*) scene;
 
-- (void)incScore:(int)score;
+- (void) incScore:(int)score;
+- (void) showHit;
+- (void) showPerfectSlide;
+- (void) showFrenzy;
 
 @end

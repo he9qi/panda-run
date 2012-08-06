@@ -36,8 +36,10 @@
     _innerSprite = sprite;
     _color       = color;
     
-//    self.sprite = sprite;
-    self.sprite  = [self generateSprite];
+    self.sprite = sprite;
+    _sprite.position = ccp(0, screenH/4);
+    _sprite.anchorPoint = ccp(0, 0.5);
+//    self.sprite  = [self generateSprite];
     
 		[self addChild:_sprite];
 		

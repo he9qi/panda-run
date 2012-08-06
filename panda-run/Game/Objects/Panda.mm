@@ -330,9 +330,9 @@
 		_nPerfectSlides++;
 		if (_nPerfectSlides > 1) {
 			if (_nPerfectSlides == 4) {
-//				[_game showFrenzy];
+				[_game showFrenzy];
 			} else {
-//				[_game showPerfectSlide];
+				[_game showPerfectSlide];
 			}
 		}
 	}
@@ -341,7 +341,7 @@
 - (void) hit {
   //	CCLOG(@"hit");
 	_nPerfectSlides = 0;
-//	[_game showHit];
+	[_game showHit];
 }
 
 - (void) setDiving:(BOOL)diving {

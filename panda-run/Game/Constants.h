@@ -50,6 +50,8 @@
 #define kTerrainItemPositionYOffset 40.0f
 
 #define kFontName @"AntsyPants"
+#define kHintFontName @"Almagro Regular"
+#define kHintFontSize 24
 
 #define BG_MENU @"menu_background.png"
 
