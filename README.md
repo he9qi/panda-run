@@ -2,7 +2,7 @@
 
 3. Score show, and discuss the ways to score
 9. save score in internal iOS db
-10. quit game
+10. quit game (change quit button to some other buttons like`more` or `credit`
 
 1. TIPS!! [done]
 2. Beginning picture!!! [done]

@@ -9,7 +9,7 @@
 #import "cocos2d.h"
 #import "Box2D.h"
 
-#define kMaxHillKeyPoints 100
+#define kMaxHillKeyPoints 50
 #define kMaxHillVertices 2000
 #define kMaxBorderVertices 10000
 #define kMaxTerrainItems 101

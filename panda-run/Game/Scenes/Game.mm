@@ -67,8 +67,8 @@
     self.sky = [Sky skyWithTextureSize:TEXTURE_SIZE_SKY];
 		[self addChild:_sky z:-2 tag:GameSceneNodeTagSky];
     
-//    _hill = [Hill hillWithTextureSize:TEXTURE_SIZE_HILL];
-//    [self addChild:_hill];
+    _hill = [Hill hillWithTextureSize:TEXTURE_SIZE_HILL];
+    [self addChild:_hill];
 #endif
     
     
@@ -120,7 +120,7 @@
     _coins = [[NSMutableArray alloc] init];
     for (int i=30; i<templePosition-30; i++) {
       int max = arc4random()%20;
-      if( max % 4 == 0) {
+      if( max % 5 == 0) {
         for (int k=0; k<max; k+=3) {
           [_coins addObject:(Coin *)[Coin createItemTo:self On:_terrain At:(i+k) * CC_CONTENT_SCALE_FACTOR()]];
         }
@@ -400,7 +400,7 @@
 	[_mud setScale:1.0f-(1.0f-scale)];
   
   for (Cloud *cloud in _clouds) {
-    [cloud setScale:1.0f-(1.0f-scale)*kCloudOffsetFactor];
+    [cloud setScale:1.0f-(1.0f-scale)*kCloudScaleFactor];
   }
   
 #endif

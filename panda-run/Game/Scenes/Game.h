@@ -39,11 +39,11 @@
 #define kPauseButtonPadding 8
 #define kScoreLabelPadding 30
 
-#define kHillOffsetFactor 0.025f
-#define kHillScaleFactor 0.15f
-#define kSkyScaleFactor 0.05f
+#define kHillOffsetFactor 0.01f
 #define kSkyOffsetFactor 0.2f
-#define kCloudOffsetFactor 0.980f
+#define kCloudScaleFactor 0.980f
+#define kHillScaleFactor 0.005f
+#define kSkyScaleFactor 0.05f
 
 typedef enum
 {
