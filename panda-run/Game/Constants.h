@@ -52,8 +52,13 @@
 #define kFontName @"AntsyPants"
 #define kHintFontName @"Almagro Regular"
 #define kHintFontSize 24
+#define kTipsFontName @"AlphaMack AOE"
+#define kTipsFontSize 100
+#define kTipsZDepth 1005
+#define kTipsText @"Touch to begin"
 
 #define BG_MENU @"menu_background.png"
+#define BG_TIPS @"tips.png"
 
 #define RADIUS_PANDA 14.0f
 #define RADIUS_COIN 10.0f

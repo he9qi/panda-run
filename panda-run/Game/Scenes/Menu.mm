@@ -12,6 +12,7 @@
 #import "Constants.h"
 #import "Leaf.h"
 #import "Cloud.h"
+#import "Tips.h"
 
 @implementation Menu
 
@@ -106,7 +107,7 @@
 }
 
 - (void) onTipsButtonClicked:(id) sender {
-  
+  [[CCDirector sharedDirector] pushScene:[Tips scene]];	
 }
 
 - (void) onQuitButtonClicked:(id) sender {

@@ -67,8 +67,8 @@
     self.sky = [Sky skyWithTextureSize:TEXTURE_SIZE_SKY];
 		[self addChild:_sky z:-2 tag:GameSceneNodeTagSky];
     
-    _hill = [Hill hillWithTextureSize:TEXTURE_SIZE_HILL];
-    [self addChild:_hill];
+//    _hill = [Hill hillWithTextureSize:TEXTURE_SIZE_HILL];
+//    [self addChild:_hill];
 #endif
     
     
@@ -83,8 +83,8 @@
     int templePosition  = [_terrain getTemplePostition] / CC_CONTENT_SCALE_FACTOR();
     
     for (int i = 10; i < [_terrain getNumBorderVertices]; i++) {
-      if (i%2 == 0) { continue; }
-      switch ( arc4random() % 15 ) {
+      if (i%5 != 0) { continue; }
+      switch ( arc4random() % 30 ) {
         case cTerrainImageItemTree:
           [_terrain addImageItemWithType:cTerrainImageItemTree At:i To:_trees];
           break;
@@ -178,6 +178,7 @@
 
     [self dim];
     
+    [self showTips];
     
 #ifdef __IPHONE_OS_VERSION_MAX_ALLOWED
 		self.isTouchEnabled = YES;
@@ -424,6 +425,7 @@
   
   _state = kGameStateIdle;
   [self resetScore];
+  [self showTips];
 }
 
 /************  touches  **************/
@@ -471,7 +473,7 @@
   if ( [self isIdle] ) {
     [self light];
     [self start];
-    
+    [self hideTips];
     _panda.diving = YES;
     [_panda updatePhysics];
     return YES;
@@ -539,6 +541,17 @@
 
 - (void) showFrenzy {
   [self showHint:@"CRAZY" Scale:1.4f Duration:2.0f Position:ccp(_screenW/2, _screenH/16)];
+}
+
+- (void) showTips {
+  if( !![self getChildByTag:GameSceneNodeTagTips] ) return;
+  CCLabelTTF *label = [CCLabelTTF labelWithString:[NSString stringWithFormat:kTipsText] fontName:kTipsFontName fontSize:kTipsFontSize];
+  label.position = ccp(_screenW/2, _screenH/2);
+	[self addChild:label z:kTipsZDepth tag:GameSceneNodeTagTips];
+}
+
+- (void) hideTips{
+  [self removeChildByTag:GameSceneNodeTagTips cleanup:YES];
 }
 
 @end

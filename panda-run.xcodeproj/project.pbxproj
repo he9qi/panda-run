@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7720CB9815D2A41100AF188C /* Tips.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7720CB9715D2A41100AF188C /* Tips.mm */; };
 		77466A39159C53E30063AF97 /* Panda.mm in Sources */ = {isa = PBXBuildFile; fileRef = 77466A38159C53E30063AF97 /* Panda.mm */; };
 		77466A3C159C58660063AF97 /* PandaContactListener.mm in Sources */ = {isa = PBXBuildFile; fileRef = 77466A3B159C58660063AF97 /* PandaContactListener.mm */; };
 		77466A45159D5F500063AF97 /* Coin.mm in Sources */ = {isa = PBXBuildFile; fileRef = 77466A44159D5F500063AF97 /* Coin.mm */; };
@@ -208,6 +209,9 @@
 		778F16B715CF804C009C7E64 /* Amazon.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 778F16B415CF804C009C7E64 /* Amazon.ttf */; };
 		778F16B815CF804C009C7E64 /* Almagro Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 778F16B515CF804C009C7E64 /* Almagro Regular.ttf */; };
 		779A2F23159ED14D00BE1F75 /* UserData.mm in Sources */ = {isa = PBXBuildFile; fileRef = 779A2F22159ED14D00BE1F75 /* UserData.mm */; };
+		779B59F115D3453D007750CD /* tips-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 779B59EF15D3453D007750CD /* tips-hd.png */; };
+		779B59F215D3453D007750CD /* tips.png in Resources */ = {isa = PBXBuildFile; fileRef = 779B59F015D3453D007750CD /* tips.png */; };
+		779B59F515D347C4007750CD /* AlphaMack AOE.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 779B59F415D347C4007750CD /* AlphaMack AOE.ttf */; };
 		77B092B315A48009003BAE33 /* BreakableWood.mm in Sources */ = {isa = PBXBuildFile; fileRef = 77B092B215A48009003BAE33 /* BreakableWood.mm */; };
 		77CD5FBC15AEC249004997F4 /* Menu.mm in Sources */ = {isa = PBXBuildFile; fileRef = 77CD5FBB15AEC249004997F4 /* Menu.mm */; };
 		77CD5FBF15AECA66004997F4 /* menu_background.png in Resources */ = {isa = PBXBuildFile; fileRef = 77CD5FBE15AECA66004997F4 /* menu_background.png */; };
@@ -250,6 +254,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7720CB9615D2A41100AF188C /* Tips.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Tips.h; path = Scenes/Tips.h; sourceTree = "<group>"; };
+		7720CB9715D2A41100AF188C /* Tips.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = Tips.mm; path = Scenes/Tips.mm; sourceTree = "<group>"; };
 		77466A37159C53E30063AF97 /* Panda.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Panda.h; path = Objects/Panda.h; sourceTree = "<group>"; };
 		77466A38159C53E30063AF97 /* Panda.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = Panda.mm; path = Objects/Panda.mm; sourceTree = "<group>"; };
 		77466A3A159C58660063AF97 /* PandaContactListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PandaContactListener.h; path = Objects/PandaContactListener.h; sourceTree = "<group>"; };
@@ -635,6 +641,9 @@
 		778F16B515CF804C009C7E64 /* Almagro Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Almagro Regular.ttf"; path = "Resources/Almagro Regular.ttf"; sourceTree = "<group>"; };
 		779A2F21159ED14C00BE1F75 /* UserData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserData.h; path = Objects/UserData.h; sourceTree = "<group>"; };
 		779A2F22159ED14D00BE1F75 /* UserData.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = UserData.mm; path = Objects/UserData.mm; sourceTree = "<group>"; };
+		779B59EF15D3453D007750CD /* tips-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tips-hd.png"; path = "panda-run/Images/tips-hd.png"; sourceTree = SOURCE_ROOT; };
+		779B59F015D3453D007750CD /* tips.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tips.png; path = "panda-run/Images/tips.png"; sourceTree = SOURCE_ROOT; };
+		779B59F415D347C4007750CD /* AlphaMack AOE.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "AlphaMack AOE.ttf"; path = "Resources/AlphaMack AOE.ttf"; sourceTree = "<group>"; };
 		77B092B115A48009003BAE33 /* BreakableWood.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BreakableWood.h; path = Objects/BreakableWood.h; sourceTree = "<group>"; };
 		77B092B215A48009003BAE33 /* BreakableWood.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = BreakableWood.mm; path = Objects/BreakableWood.mm; sourceTree = "<group>"; };
 		77CD5FBA15AEC249004997F4 /* Menu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Menu.h; path = Scenes/Menu.h; sourceTree = "<group>"; };
@@ -1284,6 +1293,8 @@
 				774C91B615CD1580005D6391 /* PauseView.m */,
 				774C91C115CD6067005D6391 /* OverView.h */,
 				774C91C215CD6067005D6391 /* OverView.m */,
+				7720CB9615D2A41100AF188C /* Tips.h */,
+				7720CB9715D2A41100AF188C /* Tips.mm */,
 			);
 			name = Scenes;
 			sourceTree = "<group>";
@@ -1340,6 +1351,8 @@
 		775075CA1599F31A00E628B1 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				779B59EF15D3453D007750CD /* tips-hd.png */,
+				779B59F015D3453D007750CD /* tips.png */,
 				774C91B115CC20DE005D6391 /* Default.png */,
 				774C91B215CC20E1005D6391 /* Default@2x.png */,
 				774C919E15CB96B4005D6391 /* icon-hd.png */,
@@ -1369,6 +1382,7 @@
 		7777EEC015CE217900D39D73 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				779B59F415D347C4007750CD /* AlphaMack AOE.ttf */,
 				778F16B315CF804C009C7E64 /* Amano.ttf */,
 				778F16B415CF804C009C7E64 /* Amazon.ttf */,
 				778F16B515CF804C009C7E64 /* Almagro Regular.ttf */,
@@ -1528,6 +1542,9 @@
 				778F16B615CF804C009C7E64 /* Amano.ttf in Resources */,
 				778F16B715CF804C009C7E64 /* Amazon.ttf in Resources */,
 				778F16B815CF804C009C7E64 /* Almagro Regular.ttf in Resources */,
+				779B59F115D3453D007750CD /* tips-hd.png in Resources */,
+				779B59F215D3453D007750CD /* tips.png in Resources */,
+				779B59F515D347C4007750CD /* AlphaMack AOE.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1736,6 +1753,7 @@
 				774C91BD15CD22DF005D6391 /* CCLayer+Dimmable.m in Sources */,
 				774C91C315CD6068005D6391 /* OverView.m in Sources */,
 				7777EEBB15CE131700D39D73 /* TTStatableGame.m in Sources */,
+				7720CB9815D2A41100AF188C /* Tips.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

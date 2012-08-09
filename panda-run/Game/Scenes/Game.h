@@ -51,6 +51,7 @@ typedef enum
 	GameSceneNodeTagCloud,
 	GameSceneNodeTagSky,
 	GameSceneNodeTagSpritesBatch,
+  GameSceneNodeTagTips,
 	
 } GameSceneNodeTags;
 
