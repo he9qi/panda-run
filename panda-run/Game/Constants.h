@@ -2,6 +2,8 @@
 
 //#define DRAW_BOX2D_WORLD
 
+#define TEXT_HIGH_SCORE @"highScore"
+
 #define IMAGE_BG_SKY @"sky.png"
 #define IMAGE_COIN @"coin.png"
 #define IMAGE_PANDA @"panda.png"

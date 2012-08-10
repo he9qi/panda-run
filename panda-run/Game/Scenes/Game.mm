@@ -6,6 +6,7 @@
 //  Copyright (c) 2012年 Heyook. All rights reserved.
 //
 
+#import <Foundation/Foundation.h>
 #import "Game.h"
 #import "Constants.h"
 #import "Box2DHelper.h"
@@ -26,6 +27,8 @@
 - (void) addCoins:(int[])indices;
 - (void) addEnergies:(int[])indices;
 - (void) reset;
+- (void) saveScore;
+- (int)  highScore;
 @end
 
 @implementation Game
@@ -221,6 +224,10 @@
   overView.menuButtonTarget = self;
   overView.menuButtonSelector = @selector(onMenuButtonClicked:);
   [overView setScore:score];
+  
+  if (score > [self highScore]) {
+    [self saveScore];
+  }
   
   [self addChild:overView z:kMenuZDepth];
 
@@ -552,6 +559,18 @@
 
 - (void) hideTips{
   [self removeChildByTag:GameSceneNodeTagTips cleanup:YES];
+}
+
+/************** score saving ***************/
+-(void)saveScore {
+  NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+  [defaults setInteger:score forKey:TEXT_HIGH_SCORE];
+  [defaults synchronize];
+//  CCLOG(@"saved high score %d", score);
+}
+
+-(int)highScore{
+  return [[NSUserDefaults standardUserDefaults] integerForKey: TEXT_HIGH_SCORE];
 }
 
 @end

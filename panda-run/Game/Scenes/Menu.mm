@@ -77,13 +77,13 @@
     
     button = [CCMenu menuWithItems:tipsButton, nil];
 		button.anchorPoint = ccp(.5,0);
-		button.position = ccp(widthOffset, heightOffset - (sprite.contentSize.height+5) );
+		button.position = ccp(widthOffset, heightOffset - (sprite.contentSize.height+25) );
 		[self addChild:button];
     
-    button = [CCMenu menuWithItems:quitButton, nil];
-		button.anchorPoint = ccp(.5,0);
-		button.position = ccp(widthOffset, heightOffset - (sprite.contentSize.height+5) * 2);
-		[self addChild:button];
+//    button = [CCMenu menuWithItems:quitButton, nil];
+//		button.anchorPoint = ccp(.5,0);
+//		button.position = ccp(widthOffset, heightOffset - (sprite.contentSize.height+5) * 2);
+//		[self addChild:button];
     
     [[SimpleAudioEngine sharedEngine] preloadEffect:@"click.caf"];
     

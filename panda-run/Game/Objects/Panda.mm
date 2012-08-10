@@ -55,6 +55,7 @@
 		_body = NULL;
 		_radius = RADIUS_PANDA;
     _energized = false;
+    _mode = kPandaModeNormal;
     
 		_contactListener = new PandaContactListener(self);
 		_game.world->SetContactListener(_contactListener);
@@ -219,7 +220,7 @@
   }
 	
 	// limit velocity
-	const float minVelocityX = 3;
+	const float minVelocityX = 2;
 	const float minVelocityY = -40;
 	b2Vec2 vel = _body->GetLinearVelocity();
 	if (vel.x < minVelocityX) {
@@ -330,6 +331,7 @@
 		_nPerfectSlides++;
 		if (_nPerfectSlides > 1) {
 			if (_nPerfectSlides == 4) {
+        _mode = kPandaModeFrenzy;
 				[_game showFrenzy];
 			} else {
 				[_game showPerfectSlide];
@@ -338,9 +340,14 @@
 	}
 }
 
+- (bool) isCrazy{
+  return _mode == kPandaModeFrenzy;
+}
+
 - (void) hit {
   //	CCLOG(@"hit");
 	_nPerfectSlides = 0;
+  _mode = kPandaModeNormal;
 	[_game showHit];
 }
 

@@ -25,6 +25,11 @@ typedef enum {
 	kPandaStateFly,
 } PandaState;
 
+typedef enum {
+	kPandaModeNormal,
+	kPandaModeFrenzy
+} PandaMode;
+
 @interface Panda : CCNode{
 	Game *_game;
 	CCSprite *_sprite;
@@ -37,6 +42,7 @@ typedef enum {
 	int _nPerfectSlides;
   int _energy;
   PandaState _state;
+  PandaMode _mode;
   
   CCRepeatForever *_walkForeverAction;
   CCRepeatForever *_rotateForeverAction;
@@ -64,6 +70,7 @@ typedef enum {
 - (void) landed;
 - (void) tookOff;
 - (void) hit;
+- (bool) isCrazy;
 
 
 @end

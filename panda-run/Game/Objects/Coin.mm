@@ -31,7 +31,8 @@
 
 - (void)beginContact:(b2Contact *)contact{
   [super hideSprite];
-  [_game incScore:kCoinScore];
+  float score = _game.panda.isCrazy ? kCoinScore * kPandaCoinMultiFactor : kCoinScore;
+  [_game incScore:score];
 }
 
 @end

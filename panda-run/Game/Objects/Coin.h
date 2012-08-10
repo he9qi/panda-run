@@ -9,6 +9,7 @@
 #import "TTConsumableItem.h"
 
 #define kCoinScore 10
+#define kPandaCoinMultiFactor 2
 
 @interface Coin : TTConsumableItem
 
