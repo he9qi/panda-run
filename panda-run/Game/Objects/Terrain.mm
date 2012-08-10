@@ -464,19 +464,23 @@
 			// triangle strip between p0 and p1
 			int hSegments = floorf((p1.x-p0.x)/kHillSegmentWidth);
 			int vSegments = 1;
-			float dx = (p1.x - p0.x) / hSegments;
-			float da = M_PI / hSegments;
-			float ymid = (p0.y + p1.y) / 2;
-			float ampl = (p0.y - p1.y) / 2;
+      
+      float invHSegments = 1/(float)hSegments;
+      float invVSegments = 1/(float)vSegments;
+			float dx = (p1.x - p0.x) * invHSegments;
+			float da = M_PI * invHSegments;
+			float ymid = (p0.y + p1.y) * 0.5f;
+			float ampl = (p0.y - p1.y) * 0.5f; //use multi, not division
+      
 			pt0 = p0;
 			for (int j=1; j<hSegments+1; j++) {
 				pt1.x = p0.x + j*dx;
 				pt1.y = ymid + ampl * cosf(da*j);
 				for (int k=0; k<vSegments+1; k++) {
-					hillVertices[nHillVertices] = (ccVertex2F){pt0.x, pt0.y-(float)textureSize/vSegments*k};
-					hillTexCoords[nHillVertices++] = (ccVertex2F){pt0.x/(float)textureSize, (float)(k)/vSegments};
-					hillVertices[nHillVertices] = (ccVertex2F){pt1.x, pt1.y-(float)textureSize/vSegments*k};
-					hillTexCoords[nHillVertices++] = (ccVertex2F){pt1.x/(float)textureSize, (float)(k)/vSegments};
+					hillVertices[nHillVertices] = (ccVertex2F){pt0.x, pt0.y-(float)textureSize*invVSegments*k};
+					hillTexCoords[nHillVertices++] = (ccVertex2F){pt0.x/(float)textureSize, (float)(k)*invVSegments};
+					hillVertices[nHillVertices] = (ccVertex2F){pt1.x, pt1.y-(float)textureSize*invVSegments*k};
+					hillTexCoords[nHillVertices++] = (ccVertex2F){pt1.x/(float)textureSize, (float)(k)*invVSegments};
 				}
 				pt0 = pt1;
 			}

@@ -41,9 +41,11 @@
 
 #define kHillOffsetFactor 0.01f
 #define kSkyOffsetFactor 0.2f
-#define kCloudScaleFactor 0.980f
+#define kCloudScaleFactor 0.015f
 #define kHillScaleFactor 0.005f
 #define kSkyScaleFactor 0.05f
+#define kTempleGrassLength 4
+#define kTempleCoinsLength 30
 
 typedef enum
 {

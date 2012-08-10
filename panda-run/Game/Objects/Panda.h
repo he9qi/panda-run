@@ -12,7 +12,7 @@
 
 #define kPerfectTakeOffVelocityY 2.0f
 #define kMaxEnergy 100
-#define kEnergyMagifySize 5.0f
+#define kEnergyMagifySize 2.5f
 #define kPandaReachTempleOffset 25.0f
 
 @class Game;

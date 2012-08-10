@@ -84,7 +84,7 @@
     
     for (int i = 10; i < [_terrain getNumBorderVertices]; i++) {
       if (i%5 != 0) { continue; }
-      switch ( arc4random() % 30 ) {
+      switch ( arc4random() % 20 ) {
         case cTerrainImageItemTree:
           [_terrain addImageItemWithType:cTerrainImageItemTree At:i To:_trees];
           break;
@@ -101,12 +101,12 @@
           break;
       }
     }
-    
+//    
     //temple
     [_terrain addImageItemWithType:cTerrainImageItemTemple At:templePosition To:nil];
     
-    //grass
-    for (int i = templePosition-4; i < [_terrain getNumBorderVertices] ; i+=2) {
+//    //grass
+    for (int i = templePosition - kTempleGrassLength; i < templePosition + kTempleGrassLength * 2; i+=2) {
       [_terrain addImageItemWithType:cTerrainImageItemGrass At:i To:_grasses];
     }
     
@@ -118,7 +118,7 @@
     /*************** BUILD TERRAIN END ***************/
     
     _coins = [[NSMutableArray alloc] init];
-    for (int i=30; i<templePosition-30; i++) {
+    for (int i=kTempleCoinsLength; i<templePosition-kTempleCoinsLength; i++) {
       int max = arc4random()%20;
       if( max % 5 == 0) {
         for (int k=0; k<max; k+=3) {
