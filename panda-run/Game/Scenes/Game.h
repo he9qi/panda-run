@@ -39,10 +39,10 @@
 #define kPauseButtonPadding 8
 #define kScoreLabelPadding 30
 
-#define kHillOffsetFactor 0.01f
+#define kHillOffsetFactor 0.005f
 #define kSkyOffsetFactor 0.2f
 #define kCloudScaleFactor 0.015f
-#define kHillScaleFactor 0.005f
+#define kHillScaleFactor 0.0035f
 #define kSkyScaleFactor 0.05f
 #define kTempleGrassLength 4
 #define kTempleCoinsLength 30

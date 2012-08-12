@@ -39,6 +39,7 @@
     self.sprite = sprite;
     _sprite.position = ccp(0, screenH/4);
     _sprite.anchorPoint = ccp(0, 0.5);
+		_sprite.scale = CC_CONTENT_SCALE_FACTOR();
 //    self.sprite  = [self generateSprite];
     
 		[self addChild:_sprite];
@@ -116,7 +117,7 @@
 		} else {
 			_scale = scale;
 		}
-		_sprite.scale = _scale;
+		_sprite.scale = _scale * CC_CONTENT_SCALE_FACTOR();
 	}
 }
 

@@ -108,10 +108,11 @@
     //temple
     [_terrain addImageItemWithType:cTerrainImageItemTemple At:templePosition To:nil];
     
-//    //grass
-    for (int i = templePosition - kTempleGrassLength; i < templePosition + kTempleGrassLength * 2; i+=2) {
-      [_terrain addImageItemWithType:cTerrainImageItemGrass At:i To:_grasses];
-    }
+//    //add bush now (instead of grass as before)
+//    for (int i = templePosition - kTempleGrassLength; i < templePosition + kTempleGrassLength * 2; i+=2) {
+      [_terrain addImageItemWithType:cTerrainImageItemBush At:templePosition - kTempleGrassLength To:_bushes];
+      [_terrain addImageItemWithType:cTerrainImageItemBush At:templePosition + kTempleGrassLength To:_bushes];
+//    }
     
 		[self addChild:_terrain];
     

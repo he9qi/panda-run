@@ -10,8 +10,8 @@
 #import "Box2D.h"
 
 #define kMaxHillKeyPoints 200
-#define kMaxHillVertices 2000
-#define kMaxBorderVertices 15000
+#define kMaxHillVertices 3000
+#define kMaxBorderVertices 20000
 #define kMaxTerrainItems 101
 
 #define kHillSegmentWidth 15
