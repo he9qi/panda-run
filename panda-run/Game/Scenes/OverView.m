@@ -47,10 +47,18 @@
 		alertMenu.position = ccp(3*widthOffset, heightOffset - 3*buttonOffset/4);
 		[viewSprite addChild:alertMenu];
     
-    scoreLabel = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"0"] fontName:kFontName fontSize:30];
+    scoreLabel = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"0"] fontName:kFontName fontSize:24];
 		scoreLabel.anchorPoint = ccp(.5,0);
-    scoreLabel.position = ccp(widthOffset*2, heightOffset + buttonOffset/4);
+    scoreLabel.position = ccp(widthOffset*2, heightOffset - buttonOffset/4 + 15);
     [viewSprite addChild:scoreLabel];
+    
+    highScoreLabel = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"0"] fontName:kFontName fontSize:24];
+		highScoreLabel.anchorPoint = ccp(.5,0);
+    highScoreLabel.position = ccp(widthOffset*2, heightOffset + 3*buttonOffset/4 + 15);
+    [viewSprite addChild:highScoreLabel];
+    
+    [scoreLabel setColor:ccScore];
+    [highScoreLabel setColor:ccHighScore];
     
 		viewSprite.scale = .6;
 		viewSprite.opacity = 150;
@@ -73,6 +81,7 @@
 	menuButton = nil;
   scoreLabel = nil;
   viewSprite = nil;
+  highScoreLabel = nil;
 }
 
 -(void) tryAgainButtonClicked:(id) sender
@@ -119,9 +128,14 @@
   }
 }
 
+- (void)setHighScore:(int)score
+{
+  [highScoreLabel setString:[NSString stringWithFormat:@"Best Score: %d", score]];
+}
+
 - (void)setScore:(int)score
 {
-  [scoreLabel setString:[NSString stringWithFormat:@"SCORE: %d", score]];
+  [scoreLabel setString:[NSString stringWithFormat:@"Your Score: %d", score]];
 }
 
 

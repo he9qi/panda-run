@@ -53,14 +53,14 @@
     alertMenu = [CCMenu menuWithItems:menuButton, nil];
 		alertMenu.anchorPoint = ccp(.5,0);
 //		[alertMenu alignItemsHorizontallyWithPadding:10];
-		alertMenu.position = ccp(widthOffset, heightOffset - 3*buttonOffset/4);
+		alertMenu.position = ccp(2*widthOffset, heightOffset - 3*buttonOffset/4);
 		[viewSprite addChild:alertMenu];
     
-    alertMenu = [CCMenu menuWithItems:quitButton, nil];
-		alertMenu.anchorPoint = ccp(.5,0);
+//    alertMenu = [CCMenu menuWithItems:quitButton, nil];
+//		alertMenu.anchorPoint = ccp(.5,0);
 //		[alertMenu alignItemsHorizontallyWithPadding:10];
-		alertMenu.position = ccp(3*widthOffset, heightOffset - 3*buttonOffset/4);
-		[viewSprite addChild:alertMenu];
+//		alertMenu.position = ccp(3*widthOffset, heightOffset - 3*buttonOffset/4);
+//		[viewSprite addChild:alertMenu];
     
 		viewSprite.scale = .6;
 		viewSprite.opacity = 150;

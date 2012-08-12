@@ -225,10 +225,10 @@
   overView.menuButtonSelector = @selector(onMenuButtonClicked:);
   [overView setScore:score];
   
-  if (score > [self highScore]) {
-    [self saveScore];
-  }
+  int highScore = [self highScore];
+  [overView setHighScore:highScore];
   
+  if (score > highScore) { [self saveScore]; }
   [self addChild:overView z:kMenuZDepth];
 
 }

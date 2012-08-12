@@ -1,8 +1,9 @@
 # Panda runs to temple - a physics based game
 
-3. Score show, and discuss the ways to score
-9. save score in internal iOS db
-10. quit game (change quit button to some other buttons like`more` or `credit`
+3. Score show, we need animation for getting points!!
+  * coin
+  * when crazy, coin x 2
+  * height, when reach a certain height.
 
 1. TIPS!! [done]
 2. Beginning picture!!! [done]
@@ -11,6 +12,8 @@
 5. flat in the end with grass [done]
 6. different viewlayer for pause over menu [done]
 7. Hit, good slide, crazy! [done]
+9. save score in internal iOS db [done, use NSUserDefaults]
+10. quit game (change quit button to some other buttons like`more` or `credit` [done, removed quit button]
 
 
 @lisaskywood 

@@ -8,10 +8,14 @@
 
 #import "cocos2d.h"
 
+static const ccColor3B ccScore = {110,110,180};
+static const ccColor3B ccHighScore = {190,120,120};
+
 @interface OverView : CCLayer{
 	CCMenuItemImage *tryAgainButton;
 	CCMenuItemImage *menuButton;
   CCLabelTTF *scoreLabel;
+  CCLabelTTF *highScoreLabel;
   
   CCSprite *viewSprite;
   
@@ -28,5 +32,6 @@
 @property (nonatomic) SEL menuButtonSelector;
 
 - (void)setScore:(int)score;
+- (void)setHighScore:(int)score;
 
 @end
