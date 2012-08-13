@@ -70,8 +70,9 @@
 	CCSprite *s = [CCSprite spriteWithFile:IMAGE_BG_SKY];
 	[s setBlendFunc:(ccBlendFunc){GL_DST_COLOR, GL_ZERO}];
 	s.position = ccp(textureSize/2, textureSize/2);
+//  s.scale = _scale * CC_CONTENT_SCALE_FACTOR();//remove this if we have HD version of the image
   
-	s.scale = (float)textureSize/512.0f*CC_CONTENT_SCALE_FACTOR();
+//	s.scale = (float)textureSize/512.0f;
 	glColor4f(1,1,1,1);
 	[s visit];
 }
