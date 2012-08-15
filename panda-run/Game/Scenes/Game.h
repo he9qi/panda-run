@@ -60,6 +60,7 @@ typedef enum
   GameSceneNodeTagShadow,
 	GameSceneNodeTagTerrain,
   GameSceneNodeTagRain,
+  GameSceneNodeTagText,
 	
 } GameSceneNodeTags;
 

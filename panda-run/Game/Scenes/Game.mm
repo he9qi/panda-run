@@ -543,7 +543,7 @@
                     [CCFadeOut actionWithDuration:duration],
                     [CCCallFuncND actionWithTarget:label selector:@selector(removeFromParentAndCleanup:) data:(void*)YES],
                     nil]];
-	[self addChild:label];
+	[self addChild:label z:kTipsZDepth tag:GameSceneNodeTagText];
 }
 
 - (void) showPerfectSlide{
