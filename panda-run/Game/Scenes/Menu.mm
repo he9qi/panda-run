@@ -87,6 +87,9 @@
     
     [[SimpleAudioEngine sharedEngine] preloadEffect:@"click.caf"];
     
+		[[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
+		[[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"intro.mp3"];
+    
   }
   return self;
 }
@@ -103,10 +106,12 @@
 }
 
 - (void) onPlayButtonClicked:(id) sender {
+  [[SimpleAudioEngine sharedEngine] playEffect:@"click.caf"];
   [[CCDirector sharedDirector] pushScene:[Game scene]];	
 }
 
 - (void) onTipsButtonClicked:(id) sender {
+  [[SimpleAudioEngine sharedEngine] playEffect:@"click.caf"];
   [[CCDirector sharedDirector] pushScene:[Tips scene]];	
 }
 

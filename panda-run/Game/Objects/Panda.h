@@ -14,6 +14,7 @@
 #define kMaxEnergy 100
 #define kEnergyMagifySize 2.5f
 #define kPandaReachTempleOffset 25.0f
+#define kFrenzyLimit 4
 
 @class Game;
 class PandaContactListener;
@@ -33,6 +34,8 @@ typedef enum {
 @interface Panda : CCNode{
 	Game *_game;
 	CCSprite *_sprite;
+	CCSprite *_shadowSprite;
+  
 	b2Body *_body;
 	float _radius;
 	BOOL _awake;
@@ -46,6 +49,7 @@ typedef enum {
   
   CCRepeatForever *_walkForeverAction;
   CCRepeatForever *_rotateForeverAction;
+  CCParticleSystem* _fireSystem;
   
   BOOL _energized;
 }

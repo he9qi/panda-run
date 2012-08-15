@@ -7,11 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		770457C315DA0E5100E05FFA /* fire-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 770457C215DA0E5100E05FFA /* fire-hd.png */; };
+		770457C715DA27DC00E05FFA /* fly_leaf-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 770457C515DA27DB00E05FFA /* fly_leaf-hd.png */; };
+		770457C815DA27DC00E05FFA /* fly_leaf.png in Resources */ = {isa = PBXBuildFile; fileRef = 770457C615DA27DB00E05FFA /* fly_leaf.png */; };
+		770457CB15DA299400E05FFA /* star-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 770457C915DA299300E05FFA /* star-hd.png */; };
+		770457CC15DA299400E05FFA /* star.png in Resources */ = {isa = PBXBuildFile; fileRef = 770457CA15DA299400E05FFA /* star.png */; };
 		7720CB9815D2A41100AF188C /* Tips.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7720CB9715D2A41100AF188C /* Tips.mm */; };
 		77466A39159C53E30063AF97 /* Panda.mm in Sources */ = {isa = PBXBuildFile; fileRef = 77466A38159C53E30063AF97 /* Panda.mm */; };
 		77466A3C159C58660063AF97 /* PandaContactListener.mm in Sources */ = {isa = PBXBuildFile; fileRef = 77466A3B159C58660063AF97 /* PandaContactListener.mm */; };
 		77466A45159D5F500063AF97 /* Coin.mm in Sources */ = {isa = PBXBuildFile; fileRef = 77466A44159D5F500063AF97 /* Coin.mm */; };
-		7749416D15ADA410005BBDA0 /* wood.png in Resources */ = {isa = PBXBuildFile; fileRef = 7749416C15ADA410005BBDA0 /* wood.png */; };
 		774C919815CAD776005D6391 /* sprites-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 774C919715CAD775005D6391 /* sprites-hd.png */; };
 		774C919C15CB8624005D6391 /* over-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 774C919A15CB8621005D6391 /* over-hd.png */; };
 		774C919D15CB8624005D6391 /* pause-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 774C919B15CB8622005D6391 /* pause-hd.png */; };
@@ -214,6 +218,9 @@
 		779B5A0715D8E1E4007750CD /* sky-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 779B5A0615D8E1E4007750CD /* sky-hd.png */; };
 		779B5A0B15D8E4BD007750CD /* hill-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 779B5A0915D8E4BD007750CD /* hill-hd.png */; };
 		779B5A0C15D8E4BD007750CD /* mountain_bg-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 779B5A0A15D8E4BD007750CD /* mountain_bg-hd.png */; };
+		779B5A1315D8E834007750CD /* Fire.m in Sources */ = {isa = PBXBuildFile; fileRef = 779B5A1215D8E833007750CD /* Fire.m */; };
+		779B5A1515D8E905007750CD /* fire.png in Resources */ = {isa = PBXBuildFile; fileRef = 779B5A1415D8E905007750CD /* fire.png */; };
+		779B5A1C15DA01AE007750CD /* Rain.m in Sources */ = {isa = PBXBuildFile; fileRef = 779B5A1B15DA01AD007750CD /* Rain.m */; };
 		77B092B315A48009003BAE33 /* BreakableWood.mm in Sources */ = {isa = PBXBuildFile; fileRef = 77B092B215A48009003BAE33 /* BreakableWood.mm */; };
 		77CD5FBC15AEC249004997F4 /* Menu.mm in Sources */ = {isa = PBXBuildFile; fileRef = 77CD5FBB15AEC249004997F4 /* Menu.mm */; };
 		77CD5FBF15AECA66004997F4 /* menu_background.png in Resources */ = {isa = PBXBuildFile; fileRef = 77CD5FBE15AECA66004997F4 /* menu_background.png */; };
@@ -253,6 +260,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		770457C215DA0E5100E05FFA /* fire-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "fire-hd.png"; path = "panda-run/Images/fire-hd.png"; sourceTree = SOURCE_ROOT; };
+		770457C515DA27DB00E05FFA /* fly_leaf-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "fly_leaf-hd.png"; path = "panda-run/Images/fly_leaf-hd.png"; sourceTree = SOURCE_ROOT; };
+		770457C615DA27DB00E05FFA /* fly_leaf.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = fly_leaf.png; path = "panda-run/Images/fly_leaf.png"; sourceTree = SOURCE_ROOT; };
+		770457C915DA299300E05FFA /* star-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "star-hd.png"; path = "panda-run/Images/star-hd.png"; sourceTree = SOURCE_ROOT; };
+		770457CA15DA299400E05FFA /* star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = star.png; path = "panda-run/Images/star.png"; sourceTree = SOURCE_ROOT; };
 		7720CB9615D2A41100AF188C /* Tips.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Tips.h; path = Scenes/Tips.h; sourceTree = "<group>"; };
 		7720CB9715D2A41100AF188C /* Tips.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = Tips.mm; path = Scenes/Tips.mm; sourceTree = "<group>"; };
 		77466A37159C53E30063AF97 /* Panda.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Panda.h; path = Objects/Panda.h; sourceTree = "<group>"; };
@@ -261,7 +273,6 @@
 		77466A3B159C58660063AF97 /* PandaContactListener.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = PandaContactListener.mm; path = Objects/PandaContactListener.mm; sourceTree = "<group>"; };
 		77466A43159D5F500063AF97 /* Coin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Coin.h; path = Objects/Coin.h; sourceTree = "<group>"; };
 		77466A44159D5F500063AF97 /* Coin.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = Coin.mm; path = Objects/Coin.mm; sourceTree = "<group>"; };
-		7749416C15ADA410005BBDA0 /* wood.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = wood.png; path = "panda-run/Images/wood.png"; sourceTree = SOURCE_ROOT; };
 		774C919715CAD775005D6391 /* sprites-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "sprites-hd.png"; path = "panda-run/Images/sprites-hd.png"; sourceTree = SOURCE_ROOT; };
 		774C919A15CB8621005D6391 /* over-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "over-hd.png"; path = "panda-run/Images/over-hd.png"; sourceTree = SOURCE_ROOT; };
 		774C919B15CB8622005D6391 /* pause-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "pause-hd.png"; path = "panda-run/Images/pause-hd.png"; sourceTree = SOURCE_ROOT; };
@@ -645,6 +656,11 @@
 		779B5A0615D8E1E4007750CD /* sky-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "sky-hd.png"; path = "panda-run/Images/sky-hd.png"; sourceTree = SOURCE_ROOT; };
 		779B5A0915D8E4BD007750CD /* hill-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "hill-hd.png"; path = "panda-run/Images/hill-hd.png"; sourceTree = SOURCE_ROOT; };
 		779B5A0A15D8E4BD007750CD /* mountain_bg-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "mountain_bg-hd.png"; path = "panda-run/Images/mountain_bg-hd.png"; sourceTree = SOURCE_ROOT; };
+		779B5A1115D8E833007750CD /* Fire.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Fire.h; path = Objects/Fire.h; sourceTree = "<group>"; };
+		779B5A1215D8E833007750CD /* Fire.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Fire.m; path = Objects/Fire.m; sourceTree = "<group>"; };
+		779B5A1415D8E905007750CD /* fire.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = fire.png; path = "panda-run/Images/fire.png"; sourceTree = SOURCE_ROOT; };
+		779B5A1A15DA01AC007750CD /* Rain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Rain.h; path = Objects/Rain.h; sourceTree = "<group>"; };
+		779B5A1B15DA01AD007750CD /* Rain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Rain.m; path = Objects/Rain.m; sourceTree = "<group>"; };
 		77B092B115A48009003BAE33 /* BreakableWood.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BreakableWood.h; path = Objects/BreakableWood.h; sourceTree = "<group>"; };
 		77B092B215A48009003BAE33 /* BreakableWood.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = BreakableWood.mm; path = Objects/BreakableWood.mm; sourceTree = "<group>"; };
 		77CD5FBA15AEC249004997F4 /* Menu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Menu.h; path = Scenes/Menu.h; sourceTree = "<group>"; };
@@ -1342,6 +1358,10 @@
 				7753394E15C8E9A9008BEAEF /* Cloud.m */,
 				774C91B815CD1A98005D6391 /* Leaf.h */,
 				774C91B915CD1A99005D6391 /* Leaf.m */,
+				779B5A1115D8E833007750CD /* Fire.h */,
+				779B5A1215D8E833007750CD /* Fire.m */,
+				779B5A1A15DA01AC007750CD /* Rain.h */,
+				779B5A1B15DA01AD007750CD /* Rain.m */,
 			);
 			name = Objects;
 			sourceTree = "<group>";
@@ -1349,6 +1369,12 @@
 		775075CA1599F31A00E628B1 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				770457C915DA299300E05FFA /* star-hd.png */,
+				770457CA15DA299400E05FFA /* star.png */,
+				770457C515DA27DB00E05FFA /* fly_leaf-hd.png */,
+				770457C615DA27DB00E05FFA /* fly_leaf.png */,
+				770457C215DA0E5100E05FFA /* fire-hd.png */,
+				779B5A1415D8E905007750CD /* fire.png */,
 				779B5A0915D8E4BD007750CD /* hill-hd.png */,
 				779B5A0A15D8E4BD007750CD /* mountain_bg-hd.png */,
 				779B5A0615D8E1E4007750CD /* sky-hd.png */,
@@ -1367,7 +1393,6 @@
 				77F67A0A15B12BC5000C2CA5 /* menu_background-hd.png */,
 				77CD5FDB15AFBFAE004997F4 /* sprites.png */,
 				77CD5FBE15AECA66004997F4 /* menu_background.png */,
-				7749416C15ADA410005BBDA0 /* wood.png */,
 				77F67A4515BAFFCD000C2CA5 /* hill.png */,
 				7775BCFF15BEAFDD003A6190 /* over.png */,
 				77CD5FDD15AFC043004997F4 /* sprites.plist */,
@@ -1505,7 +1530,6 @@
 				7750759C1599DD7700E628B1 /* LICENSE_FontLabel.txt in Resources */,
 				7750759D1599DD7700E628B1 /* LICENSE_TouchJSON.txt in Resources */,
 				77F4003915A59CF0003E3232 /* README.md in Resources */,
-				7749416D15ADA410005BBDA0 /* wood.png in Resources */,
 				77CD5FBF15AECA66004997F4 /* menu_background.png in Resources */,
 				77CD5FC915AED035004997F4 /* click.caf in Resources */,
 				77CD5FCA15AED035004997F4 /* collectStar.mp3 in Resources */,
@@ -1541,6 +1565,12 @@
 				779B5A0715D8E1E4007750CD /* sky-hd.png in Resources */,
 				779B5A0B15D8E4BD007750CD /* hill-hd.png in Resources */,
 				779B5A0C15D8E4BD007750CD /* mountain_bg-hd.png in Resources */,
+				779B5A1515D8E905007750CD /* fire.png in Resources */,
+				770457C315DA0E5100E05FFA /* fire-hd.png in Resources */,
+				770457C715DA27DC00E05FFA /* fly_leaf-hd.png in Resources */,
+				770457C815DA27DC00E05FFA /* fly_leaf.png in Resources */,
+				770457CB15DA299400E05FFA /* star-hd.png in Resources */,
+				770457CC15DA299400E05FFA /* star.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1750,6 +1780,8 @@
 				774C91C315CD6068005D6391 /* OverView.m in Sources */,
 				7777EEBB15CE131700D39D73 /* TTStatableGame.m in Sources */,
 				7720CB9815D2A41100AF188C /* Tips.mm in Sources */,
+				779B5A1315D8E834007750CD /* Fire.m in Sources */,
+				779B5A1C15DA01AE007750CD /* Rain.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

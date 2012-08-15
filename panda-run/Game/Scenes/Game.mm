@@ -16,6 +16,9 @@
 #import "Cloud.h"
 #import "Leaf.h"
 #import "OverView.h"
+#import "Rain.h"
+#import "Fire.h"
+#import "SimpleAudioEngine.h"
 
 @interface Game()
 - (void) createBox2DWorld;    // create the physics world
@@ -114,7 +117,7 @@
       [_terrain addImageItemWithType:cTerrainImageItemBush At:templePosition + kTempleGrassLength To:_bushes];
 //    }
     
-		[self addChild:_terrain];
+		[self addChild:_terrain z:kTerrainZDepth tag:GameSceneNodeTagTerrain];
     
 		self.panda = [Panda heroWithGame:self];
 		[_terrain addChild:_panda];
@@ -160,6 +163,11 @@
 //    Water *water = [Water waterWithGame:self Position:p];
 //    [_terrain addChild:water];
     
+    //create leaves
+    
+    _rainSystem = [[Rain alloc] init];
+    [self addChild:_rainSystem z:1 tag:GameSceneNodeTagRain];
+    
     //create pause button
     
     CCSprite *sprite;
@@ -183,6 +191,9 @@
     [self dim];
     
     [self showTips];
+    
+		[[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
+		[[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"game.mp3"];
     
 #ifdef __IPHONE_OS_VERSION_MAX_ALLOWED
 		self.isTouchEnabled = YES;
@@ -215,8 +226,6 @@
   [super finish];
   [self dim];
   
-  [Leaf createLeavesTo:self Count:kMaxLeaves Z:kLeafZDepth Tag:GameSceneNodeTagLeaf];
-  
   OverView *overView = [[OverView alloc] init];
   overView.isRelativeAnchorPoint = YES;
   overView.position = ccp(self.contentSize.width/2, self.contentSize.height/2);
@@ -248,8 +257,6 @@
 {
   [super pause];
   [self dim];
-  
-  [Leaf createLeavesTo:self Count:kMaxLeaves Z:kLeafZDepth Tag:GameSceneNodeTagLeaf];
   
   PauseView *pauseView = [[PauseView alloc] init];
   pauseView.isRelativeAnchorPoint = YES;

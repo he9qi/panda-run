@@ -215,7 +215,7 @@
 - (void) renderTopBorder {
 	
 	float borderAlpha = 0.5f;
-	float borderWidth = 2.0f;
+	float borderWidth = 2.5 * CC_CONTENT_SCALE_FACTOR();
 	
 	ccVertex2F vertices[4];
   ccColor4F colors[4];

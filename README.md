@@ -1,5 +1,10 @@
 # Panda runs to temple - a physics based game
 
+@lisaskywood 
+
+* make over image (transparent except the title)
+* make panda shadow image
+
 3. Score show, we need animation for getting points!!
   * coin
   * when crazy, coin x 2

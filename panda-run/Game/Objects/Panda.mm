@@ -14,6 +14,8 @@
 #import "Box2DHelper.h"
 #import "UserData.h"
 
+#import "Fire.h"
+
 @interface Panda()
 - (void) createBox2DBody;
 @end
@@ -46,7 +48,7 @@
     // create the sprite
 		_sprite = [CCSprite spriteWithSpriteFrameName:@"panda_walk_2.png"];
 		[self addChild:_sprite];
-  
+
     // make it walk
     _walkForeverAction   = [[CCRepeatForever actionWithAction:[self initWalkAction]] retain];
     _rotateForeverAction = [[CCRepeatForever actionWithAction:[CCRotateBy actionWithDuration:0.01 angle:20]] retain];
@@ -60,7 +62,18 @@
 		_contactListener = new PandaContactListener(self);
 		_game.world->SetContactListener(_contactListener);
     
+    _fireSystem = [[Fire alloc] init];
+    _fireSystem.position = ccp(0, 0);
+    
+    [self addChild:_fireSystem z:1 tag:GameSceneNodeTagFire]; //add crazy
+    
+    
+    _shadowSprite = [CCSprite spriteWithSpriteFrameName:@"stone.png"];
+    _shadowSprite.position = ccp( 0, -_sprite.contentSize.height/2);
+    [self addChild:_shadowSprite z:1001 tag:GameSceneNodeTagShadow];
+    
 		[self reset];
+    
 	}
 	return self;
 }
@@ -126,6 +139,7 @@
 	[self createBox2DBody];
 	[self updateNode];
 	[self sleep];
+  [self hideCrazy];
 }
 
 - (void) createBox2DBody {
@@ -213,8 +227,6 @@
     float y = abs(vel.y)*kEnergyMagifySize;
     float x = vel.x*kEnergyMagifySize/2;
     
-    CCLOG(@"vel = %f, %f => %f, %f", vel.x, vel.y, x, y);
-    
     _body->ApplyForce(b2Vec2(x, y),_body->GetPosition());
     _energized = false;
   }
@@ -231,6 +243,11 @@
 	}
 	_body->SetLinearVelocity(vel);
 //  CCLOG(@"final vel = %f, %f", vel.x, vel.y);
+}
+
+- (bool)hasReachedTemple{
+	float x = _body->GetPosition().x * [Box2DHelper pointsPerMeter] * CC_CONTENT_SCALE_FACTOR();
+  return ([_game.terrain getTempleBorderVertice].x - x) < kPandaReachTempleOffset;
 }
 
 // update panda's position and rotation and check if there's collision
@@ -252,12 +269,9 @@
 	self.rotation = -1 * CC_RADIANS_TO_DEGREES(angle);
 #endif
   
-  ccVertex2F tv = [_game.terrain getTempleBorderVertice]; 
-  
-//  CCLOG(@"tv.x %f, p.x %f, factor %f", tv.x, p.x, CC_CONTENT_SCALE_FACTOR());
-  
-  if( (tv.x - p.x * CC_CONTENT_SCALE_FACTOR()) < kPandaReachTempleOffset ) {
+  if( [self hasReachedTemple] ) {
     [self sleep];
+    [self hideCrazy];
     [_game finish];
   }
   
@@ -301,11 +315,13 @@
       }
     }
     
-  }else {
+  }else { //if there's no collision, panda has to be flying
 		if (!_flying) {
 			[self tookOff];
 		}
 	}
+  
+  [self showShadow];
 	
 	// TEMP: sleep if below the screen
 	if (p.y < -_radius && _awake) {
@@ -313,12 +329,14 @@
 	}
 }
 
+// panda has landed
 - (void) landed {
   //	CCLOG(@"landed");
 	_flying = NO;
   self.state = _diving ? kPandaStateSlide : kPandaStateWalk;
 }
 
+// panda has taken off
 - (void) tookOff {
   //	CCLOG(@"tookOff");
 	_flying = YES;
@@ -330,9 +348,10 @@
     //		CCLOG(@"perfect slide");
 		_nPerfectSlides++;
 		if (_nPerfectSlides > 1) {
-			if (_nPerfectSlides == 4) {
+			if (_nPerfectSlides == kFrenzyLimit) {
         _mode = kPandaModeFrenzy;
 				[_game showFrenzy];
+        [self showCrazy];
 			} else {
 				[_game showPerfectSlide];
 			}
@@ -340,15 +359,13 @@
 	}
 }
 
-- (bool) isCrazy{
-  return _mode == kPandaModeFrenzy;
-}
-
+// panda has hit terrain
 - (void) hit {
-  //	CCLOG(@"hit");
 	_nPerfectSlides = 0;
   _mode = kPandaModeNormal;
+  
 	[_game showHit];
+  [self hideCrazy];
 }
 
 - (void) setDiving:(BOOL)diving {
@@ -358,6 +375,84 @@
 	}
 }
 
+
+// This callback finds non-terrain hit. non-terrain is filtered.
+class RayCastTerrainCallback : public b2RayCastCallback
+{
+public:
+	RayCastTerrainCallback()
+	{
+		m_hit = false;
+	}
+  
+	float32 ReportFixture(	b2Fixture* fixture, const b2Vec2& point,
+                        const b2Vec2& normal, float32 fraction)
+	{    
+    b2Body* body = fixture->GetBody();
+		void* userData = body->GetUserData();
+		if (userData)
+		{
+			UserData *ud = (UserData *) userData;
+      if( ![ud.name isEqualToString:@"Terrain"]) return -1.0f; //filter out not terrain stuff
+		}
+    
+		m_hit = true;
+		m_point = point;
+		m_normal = normal;
+		return 0.0f;
+	}
+  
+	bool m_hit;
+	b2Vec2 m_point;
+	b2Vec2 m_normal;
+};
+
+
+// physics world position:  p
+// digital world position:  p * [Box2DHelper pointsPerMeter]
+// local position:          p * [Box2DHelper pointsPerMeter] - self.position
+- (void) showShadow{
+  
+  b2Vec2 point1(_body->GetPosition().x, _body->GetPosition().y);
+  b2Vec2 point2(_body->GetPosition().x, 1.0f);
+  
+  RayCastTerrainCallback callback;
+  _game.world->RayCast(&callback, point1, point2);
+  
+  if (callback.m_hit)
+  {
+    
+    b2Vec2 hitPoint = callback.m_point;
+    b2Vec2 hitNormal = callback.m_normal;
+    hitNormal.Normalize();
+    
+    b2Vec2 vertical; vertical.x = 0; vertical.y = 1;
+    float angle  = b2Cross(hitNormal, vertical);
+    float length = (hitPoint - point1).Length();
+    
+    _shadowSprite.scale = length > 0.6f ? 0.01f : (0.6f-length)*2.5f + 0.45f;    
+    _shadowSprite.rotation = angle * ANGLE_TO_DEGREE * 0.1;
+    _shadowSprite.position = ccp(hitPoint.x*[Box2DHelper pointsPerMeter] - self.position.x, 
+                        hitPoint.y*[Box2DHelper pointsPerMeter] - self.position.y - _shadowSprite.scale*2.0f);
+
+  }
+  
+}
+
+
+/************  crazy stuff  ************/
+
+- (void) hideCrazy{
+  [_fireSystem stopSystem];
+}
+
+- (void) showCrazy{
+  [_fireSystem resetSystem];
+}
+
+- (bool) isCrazy{
+  return _mode == kPandaModeFrenzy;
+}
 
 
 @end

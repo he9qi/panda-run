@@ -32,7 +32,8 @@
 #define kMaxEnergies 101
 #define kMaxLeaves 3
 
-#define kLeafZDepth 1002
+#define kLeafZDepth 1
+#define kTerrainZDepth 2
 #define kMenuZDepth 1001
 #define kDimColorZDepth 1000
 
@@ -55,6 +56,10 @@ typedef enum
 	GameSceneNodeTagSky,
 	GameSceneNodeTagSpritesBatch,
   GameSceneNodeTagTips,
+  GameSceneNodeTagFire,
+  GameSceneNodeTagShadow,
+	GameSceneNodeTagTerrain,
+  GameSceneNodeTagRain,
 	
 } GameSceneNodeTags;
 
@@ -86,6 +91,9 @@ typedef enum
   
   int score;
   CCLabelTTF *scoreLabel;
+  
+  CCParticleSystem* _rainSystem;
+  CCParticleSystem* _fireSystem;
 }
 
 @property (readonly) int screenW;
