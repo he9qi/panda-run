@@ -11,6 +11,7 @@
 #import "Box2DHelper.h"
 #import "UserData.h"
 #import "TerrainImageItem.h"
+#import "Waves.h"
 
 @interface Terrain()
 
@@ -48,6 +49,7 @@
 #endif
 		
 		[self generateHillKeyPoints];
+//    [self generateHillWaterBoundsPoints];
 		[self generateBorderVertices];
 		[self createBox2DBody];
     
@@ -241,6 +243,31 @@
 	glDrawArrays(GL_LINE_STRIP, 0, (GLsizei)nVertices);
 }
 
+/*** Water ***/
+
+- (ccVertex2F)getHillWaterLeftSide{
+  return hillKeyPoints[kMaxHillKeyPoints/2-1];
+}
+
+- (ccVertex2F)getHillWaterRightSide{
+  return hillKeyPoints[kMaxHillKeyPoints/2+3];
+}
+
+- (void) generateHillWaterBoundsPoints{
+  
+	float maxHeight = screenH - 150;
+	float minHeight = 60;
+  
+  //water mountain
+  hillKeyPoints[kMaxHillKeyPoints/2-1].y = maxHeight;
+  hillKeyPoints[kMaxHillKeyPoints/2].y   = minHeight;
+  hillKeyPoints[kMaxHillKeyPoints/2+1].y = minHeight;
+  hillKeyPoints[kMaxHillKeyPoints/2+2].y = minHeight;
+  hillKeyPoints[kMaxHillKeyPoints/2+3].y = maxHeight;
+  
+}
+
+/*** Water ***/
 
 - (void) generateHillKeyPoints {
   
@@ -443,6 +470,7 @@
 			break;
 		}
 	}
+  
   
 	if (prevFromKeyPointI != fromKeyPointI || prevToKeyPointI != toKeyPointI) {
 		

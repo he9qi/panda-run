@@ -10,7 +10,10 @@
 #import "UserData.h"
 #import "Constants.h"
 #import "Box2DHelper.h"
+
 #import "Game.h"
+#import "Terrain.h"
+#import "Panda.h"
 
 @implementation Coin
 

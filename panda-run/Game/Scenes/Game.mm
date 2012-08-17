@@ -11,6 +11,7 @@
 #import "Constants.h"
 #import "Box2DHelper.h"
 #import "PauseView.h"
+
 #import "TerrainImageItem.h"
 #import "TTSpriteItem.h"
 #import "Cloud.h"
@@ -18,6 +19,19 @@
 #import "OverView.h"
 #import "Rain.h"
 #import "Fire.h"
+#import "Sky.h"
+#import "Terrain.h"
+#import "Panda.h"
+#import "Coin.h"
+#import "BreakableWood.h"
+#import "Bridge.h"
+#import "Water.h"
+#import "Mud.h"
+#import "Hill.h"
+#import "Energy.h"
+#import "Bush.h"
+#import "Waves.h"
+
 #import "SimpleAudioEngine.h"
 
 @interface Game()
@@ -51,6 +65,7 @@
 @synthesize trees   = _trees;
 @synthesize grasses = _grasses;
 @synthesize clouds  = _clouds;
+@synthesize waves   = _waves;
 
 + (CCScene*) scene {
 	CCScene *scene = [CCScene node];
@@ -190,7 +205,7 @@
 
     [self dim];
     
-    [self showTips];
+    [self showTips]; 
     
 		[[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
 		[[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"game.mp3"];
@@ -385,6 +400,8 @@
   
 	delete _world;
 	_world = NULL;
+  
+  _waves = nil;
 }
 
 - (void) update:(ccTime)dt {

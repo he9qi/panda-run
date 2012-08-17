@@ -222,6 +222,8 @@
 		779B5A1515D8E905007750CD /* fire.png in Resources */ = {isa = PBXBuildFile; fileRef = 779B5A1415D8E905007750CD /* fire.png */; };
 		779B5A1C15DA01AE007750CD /* Rain.m in Sources */ = {isa = PBXBuildFile; fileRef = 779B5A1B15DA01AD007750CD /* Rain.m */; };
 		77B092B315A48009003BAE33 /* BreakableWood.mm in Sources */ = {isa = PBXBuildFile; fileRef = 77B092B215A48009003BAE33 /* BreakableWood.mm */; };
+		77BEE3D715DCBD7700A7FE28 /* Waves1DNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 77BEE3D615DCBD7700A7FE28 /* Waves1DNode.m */; };
+		77BEE3DA15DCC9DE00A7FE28 /* Waves.m in Sources */ = {isa = PBXBuildFile; fileRef = 77BEE3D915DCC9DE00A7FE28 /* Waves.m */; };
 		77CD5FBC15AEC249004997F4 /* Menu.mm in Sources */ = {isa = PBXBuildFile; fileRef = 77CD5FBB15AEC249004997F4 /* Menu.mm */; };
 		77CD5FBF15AECA66004997F4 /* menu_background.png in Resources */ = {isa = PBXBuildFile; fileRef = 77CD5FBE15AECA66004997F4 /* menu_background.png */; };
 		77CD5FC915AED035004997F4 /* click.caf in Resources */ = {isa = PBXBuildFile; fileRef = 77CD5FC115AED035004997F4 /* click.caf */; };
@@ -663,6 +665,10 @@
 		779B5A1B15DA01AD007750CD /* Rain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Rain.m; path = Objects/Rain.m; sourceTree = "<group>"; };
 		77B092B115A48009003BAE33 /* BreakableWood.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BreakableWood.h; path = Objects/BreakableWood.h; sourceTree = "<group>"; };
 		77B092B215A48009003BAE33 /* BreakableWood.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = BreakableWood.mm; path = Objects/BreakableWood.mm; sourceTree = "<group>"; };
+		77BEE3D515DCBD7700A7FE28 /* Waves1DNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Waves1DNode.h; path = Waves1D/Waves1DNode.h; sourceTree = "<group>"; };
+		77BEE3D615DCBD7700A7FE28 /* Waves1DNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Waves1DNode.m; path = Waves1D/Waves1DNode.m; sourceTree = "<group>"; };
+		77BEE3D815DCC9DE00A7FE28 /* Waves.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Waves.h; path = Objects/Waves.h; sourceTree = "<group>"; };
+		77BEE3D915DCC9DE00A7FE28 /* Waves.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Waves.m; path = Objects/Waves.m; sourceTree = "<group>"; };
 		77CD5FBA15AEC249004997F4 /* Menu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Menu.h; path = Scenes/Menu.h; sourceTree = "<group>"; };
 		77CD5FBB15AEC249004997F4 /* Menu.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = Menu.mm; path = Scenes/Menu.mm; sourceTree = "<group>"; };
 		77CD5FBE15AECA66004997F4 /* menu_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = menu_background.png; path = "panda-run/Images/menu_background.png"; sourceTree = SOURCE_ROOT; };
@@ -813,6 +819,7 @@
 		775073D81599DD7700E628B1 /* libs */ = {
 			isa = PBXGroup;
 			children = (
+				77BEE3D315DCBD4F00A7FE28 /* Waves1D */,
 				77F67A3115BA4789000C2CA5 /* AWTextureFilter */,
 				775073D91599DD7700E628B1 /* Box2D */,
 				7750743C1599DD7700E628B1 /* cocos2d */,
@@ -1362,6 +1369,8 @@
 				779B5A1215D8E833007750CD /* Fire.m */,
 				779B5A1A15DA01AC007750CD /* Rain.h */,
 				779B5A1B15DA01AD007750CD /* Rain.m */,
+				77BEE3D815DCC9DE00A7FE28 /* Waves.h */,
+				77BEE3D915DCC9DE00A7FE28 /* Waves.m */,
 			);
 			name = Objects;
 			sourceTree = "<group>";
@@ -1411,6 +1420,15 @@
 				7777EEC115CE21AB00D39D73 /* AntsyPants.ttf */,
 			);
 			name = Resources;
+			sourceTree = "<group>";
+		};
+		77BEE3D315DCBD4F00A7FE28 /* Waves1D */ = {
+			isa = PBXGroup;
+			children = (
+				77BEE3D515DCBD7700A7FE28 /* Waves1DNode.h */,
+				77BEE3D615DCBD7700A7FE28 /* Waves1DNode.m */,
+			);
+			name = Waves1D;
 			sourceTree = "<group>";
 		};
 		77CD5FC015AED027004997F4 /* Audio */ = {
@@ -1782,6 +1800,8 @@
 				7720CB9815D2A41100AF188C /* Tips.mm in Sources */,
 				779B5A1315D8E834007750CD /* Fire.m in Sources */,
 				779B5A1C15DA01AE007750CD /* Rain.m in Sources */,
+				77BEE3D715DCBD7700A7FE28 /* Waves1DNode.m in Sources */,
+				77BEE3DA15DCC9DE00A7FE28 /* Waves.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

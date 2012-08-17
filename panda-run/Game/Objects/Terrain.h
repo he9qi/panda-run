@@ -81,6 +81,9 @@ typedef enum
 - (int) getTemplePostition;
 - (void)reset;
 
+- (ccVertex2F)getHillWaterLeftSide;
+- (ccVertex2F)getHillWaterRightSide;
+
 - (void)addImageItemWithType:(int)cType At:(int)index To:(NSMutableArray *)items;
 - (void)addImageItemsWithType:(int)cType At:(int *)indices To:(NSMutableArray *)items;
 

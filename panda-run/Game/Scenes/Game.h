@@ -9,17 +9,6 @@
 #import "cocos2d.h"
 #import "Box2D.h"
 #import "GLES-Render.h"
-#import "Sky.h"
-#import "Terrain.h"
-#import "Panda.h"
-#import "Coin.h"
-#import "BreakableWood.h"
-#import "Bridge.h"
-#import "Water.h"
-#import "Mud.h"
-#import "Hill.h"
-#import "Energy.h"
-#import "Bush.h"
 
 #import "CCLayer+Dimmable.h"
 #import "TTStatableGame.h"
@@ -48,6 +37,19 @@
 #define kCloudScaleFactor 0.015f
 #define kTempleGrassLength 4
 #define kTempleCoinsLength 30
+
+@class Sky;
+@class Terrain;
+@class Panda;
+@class Coin;
+@class BreakableWood;
+@class Bridge;
+@class Water;
+@class Mud;
+@class Hill;
+@class Energy;
+@class Bush;
+@class Waves;
 
 typedef enum
 {
@@ -95,6 +97,8 @@ typedef enum
   
   CCParticleSystem* _rainSystem;
   CCParticleSystem* _fireSystem;
+  
+  Waves *_waves;
 }
 
 @property (readonly) int screenW;
@@ -105,6 +109,7 @@ typedef enum
 @property (nonatomic, retain) Panda *panda;
 @property (nonatomic, retain) Mud *mud;
 @property (nonatomic, retain) Hill *hill;
+@property (nonatomic, retain) Waves *waves;
 @property (nonatomic, copy  ) NSMutableArray  *coins;
 @property (nonatomic, copy  ) NSMutableArray  *woods;
 @property (nonatomic, copy  ) NSMutableArray  *energies;

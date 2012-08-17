@@ -11,6 +11,7 @@
 #import "Constants.h"
 #import "Box2DHelper.h"
 #import "Game.h"
+#import "Terrain.h"
 
 @implementation Energy
 

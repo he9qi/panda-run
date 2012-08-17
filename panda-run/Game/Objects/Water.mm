@@ -15,7 +15,7 @@
 #import "AWTextureFilter.h"
 
 
-@interface Coin()
+@interface Water()
 - (void)createBox2DBody;
 @end
 

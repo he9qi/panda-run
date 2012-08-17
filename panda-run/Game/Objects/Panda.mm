@@ -14,6 +14,7 @@
 #import "Box2DHelper.h"
 #import "UserData.h"
 
+#import "Terrain.h"
 #import "Fire.h"
 
 @interface Panda()
