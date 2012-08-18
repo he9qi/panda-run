@@ -8,7 +8,7 @@
 
 #import "cocos2d.h"
 
-static const ccColor3B ccScore = {110,110,180};
+static const ccColor3B ccScore = {255, 124, 5};
 static const ccColor3B ccHighScore = {190,120,120};
 
 @interface OverView : CCLayer{

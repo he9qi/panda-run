@@ -201,7 +201,7 @@
     score = 0;
     scoreLabel = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d", score] fontName:kFontName fontSize:30];
     scoreLabel.position = ccp(scoreLabel.contentSize.width+kScoreLabelPadding, scoreLabel.contentSize.height+kScoreLabelPadding/4);
-    [self addChild:scoreLabel];
+    [self addChild:scoreLabel z:kTipsZDepth tag:GameSceneNodeTagText];
 
     [self dim];
     
