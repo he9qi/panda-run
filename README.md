@@ -1,15 +1,17 @@
 # Panda runs to temple - a physics based game
 
+@he9qi
+  Score show, we need animation for getting points!!
+  * coin
+  * when crazy, coin x 2
+  * height, when reach a certain height.
+
 @lisaskywood 
 
 * make over image (transparent except the title) [done]
 * make panda shadow image [done, no need]
 
-3. Score show, we need animation for getting points!!
-  * coin
-  * when crazy, coin x 2
-  * height, when reach a certain height.
-
+@he9qi
 1. TIPS!! [done]
 2. Beginning picture!!! [done]
 8. background mountains [done]
