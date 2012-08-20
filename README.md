@@ -1,4 +1,5 @@
-# Panda runs to temple - a physics based game
+# Panda runs to temple - a physics based game 
+  * based on https://github.com/haqu/tiny-wings
 
 @he9qi
   Score show, we need animation for getting points!!
