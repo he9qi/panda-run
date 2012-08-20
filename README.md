@@ -2,8 +2,8 @@
 
 @lisaskywood 
 
-* make over image (transparent except the title)
-* make panda shadow image
+* make over image (transparent except the title) [done]
+* make panda shadow image [done, no need]
 
 3. Score show, we need animation for getting points!!
   * coin
